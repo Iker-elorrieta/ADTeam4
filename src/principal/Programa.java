@@ -3,6 +3,7 @@ package principal;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import comunes.LectorXml;
 import comunes.Lectorcsv;
 
 public class Programa {
@@ -47,6 +48,8 @@ public class Programa {
 				break;
 				
 			case 2:
+				
+				LectorXml.LeerArchivoXML();
 				
 				break;
 			
