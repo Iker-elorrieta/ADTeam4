@@ -27,7 +27,7 @@ public class LectorXml {
 	
 	DocumentBuilder dBuilder = Dbf.newDocumentBuilder();
 	
-	File archivoXML = new File("Ciclos.xml");
+	File archivoXML = new File("Libros.xml");
 	
 	Document doc = dBuilder.parse(archivoXML);
 	doc.getDocumentElement().normalize();
@@ -35,7 +35,7 @@ public class LectorXml {
 	System.out.print("Elemento Raiz: ");
 	System.out.println(doc.getDocumentElement().getNodeName());
 	
-	NodeList nList = doc.getElementsByTagName("ciclos");
+	NodeList nList = doc.getElementsByTagName("libro");
 	System.out.println("----------------------------");
 	for (int temp = 0; temp < nList.getLength(); temp++) {
 		Node nNode = nList.item(temp);
@@ -46,22 +46,54 @@ public class LectorXml {
 			Element eElement = (Element) nNode;
 			System.out.print("\nid : ");
 			System.out.println(eElement.getAttribute("id"));
-			NodeList nombreCiclo = eElement.getElementsByTagName("nombre");
-			for (int count = 0; count < nombreCiclo.getLength(); count++) {
-				Node node1 = nombreCiclo.item(count);
+					
+		 NodeList nombreAutor = eElement.getElementsByTagName("autor");
+			for (int count = 0; count < nombreAutor.getLength(); count++) {
+				Node node1 = nombreAutor.item(count);
 				if (node1.getNodeType() == node1.ELEMENT_NODE) {
 
-					Element ciclo = (Element) node1;
+					Element libro = (Element) node1;
 
-					System.out.print("Nombre ciclo : ");
-					System.out.println(ciclo.getTextContent());
-					System.out.print("Grado : ");
-					System.out.println(ciclo.getAttribute("Grado"));
-					System.out.print("Titulo : ");
-					System.out.println(ciclo.getAttribute("DecretoTitulo"));
+					System.out.print("Autor : ");
+					System.out.println(libro.getTextContent());
+				
+					
+				
+				}
+				
+			}
+			
+			 NodeList gradoCiclo = eElement.getElementsByTagName("isbn");
+				for (int count = 0; count < gradoCiclo.getLength(); count++) {
+					Node node1 = gradoCiclo.item(count);
+					if (node1.getNodeType() == node1.ELEMENT_NODE) {
+
+						Element libro = (Element) node1;
+
+						
+						
+						System.out.print("Isbn : ");
+						System.out.println(libro.getTextContent());
+					
+					}
 					
 				}
-			}
+				
+				
+				NodeList titulo = eElement.getElementsByTagName("lanzamiento");
+				for (int count = 0; count < titulo.getLength(); count++) {
+					Node node1 = titulo.item(count);
+					if (node1.getNodeType() == node1.ELEMENT_NODE) {
+
+						Element libro = (Element) node1;
+
+						System.out.print("Año: ");
+						System.out.println(libro.getAttribute("año"));
+						
+					
+					}
+					
+				}
 		}
 	}
 	
@@ -73,4 +105,9 @@ public class LectorXml {
 	}
 	
 	}
+	
+	public void crearFicheroXML() {
+		
+	}
+
 }
