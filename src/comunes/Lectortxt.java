@@ -9,7 +9,7 @@ public class Lectortxt {
 
 	public static void txt() throws IOException {
 		
-		File readfichero = new File("C:\\Users\\IN2DAM-B\\Desktop\\prueba.txt");
+		File readfichero = new File("listalibros.txt");
 		FileReader fr = new FileReader (readfichero);
 		BufferedReader br = new BufferedReader(fr);
 		
