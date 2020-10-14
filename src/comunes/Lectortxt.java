@@ -10,10 +10,11 @@ public class Lectortxt {
 
 	public static boolean txt(String enlace) throws IOException {
 		boolean boo;
+		
+		File readfichero = new File("listalibros.txt");
+		FileReader fr = new FileReader (readfichero);
+		BufferedReader br = new BufferedReader(fr);
 		try {
-			File readfichero = new File("listalibros.txt");
-			FileReader fr = new FileReader (readfichero);
-			BufferedReader br = new BufferedReader(fr);
 			
 			String linea = "";
 			boo=true;
@@ -25,6 +26,7 @@ public class Lectortxt {
 			boo=false;
 			e.printStackTrace();
 		}
+		
 		return boo;
 	}
 }

@@ -9,8 +9,7 @@ import java.util.Scanner;
 
 import org.junit.jupiter.api.Test;
 
-import comunes.LectorXml;
-import comunes.Lectortxt;
+import modelo.Libro;
 import principal.Programa;
 
 class testMain {
@@ -50,16 +49,16 @@ class testMain {
 	
 	@Test
 	void testLectorTxt() throws IOException {
-		Lectortxt l1 = new Lectortxt();
-		boolean resul = l1.txt("listalibros.txt");
+		
+		boolean resul = comunes.Lectortxt.txt("listalibros.txt");
 		assertEquals(true,resul);
 		
 	}
 	
 	@Test
 	void testLectorTxtFallo() throws IOException {
-		Lectortxt l1 = new Lectortxt();
-		boolean resul = l1.txt("listalibrosa.txt");
+
+		boolean resul = comunes.Lectortxt.txt("listalibrosa.txt");
 		assertEquals(true,resul);
 		
 	}
@@ -74,10 +73,10 @@ class testMain {
 	@Test
 	void testLectorXML()   {
 		
-		comunes.LectorXml lx = new LectorXml();
 		
-		 assertEquals(true,lx.LeerArchivoXML("Libros.xml"));
-		 assertEquals(false,lx.LeerArchivoXML("Exception.xml"));
+		
+		 assertEquals(true,comunes.LectorXml.LeerArchivoXML(("Libros.xml")));
+		 assertEquals(false,comunes.LectorXml.LeerArchivoXML("Exception.xml"));
 		 
 
 	}
@@ -94,7 +93,7 @@ class testMain {
 	
 	
 	@Test
-	void testmain1() {
+	void testmain1() throws IOException {
 		
 		String input = "1 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -105,7 +104,7 @@ class testMain {
 		
 		
 	@Test
-	void testmain2() {
+	void testmain2() throws IOException {
 		
 		String input = "2 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -116,7 +115,7 @@ class testMain {
 	}
 	
 	@Test
-	void testmain3() {
+	void testmain3() throws IOException {
 		
 		String input = "3 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -127,13 +126,24 @@ class testMain {
 	}
 	
 	@Test
-	void testmain4() {
+	void testmain4() throws IOException {
 		
 		String input = "a \n 1 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 	    Scanner teclado = new Scanner(System.in); 
 		assertEquals(true, Programa.iniciarPrograma(teclado)); 
+
+	}
+	
+	
+	//* Test Libro
+	
+	@Test
+	void testConstructorLibro() {
+		
+		Libro libro = new Libro("ah","ah",3, 2,"ah","ah","ah");
+		assertEquals("ah", libro.getEditorial()); 
 
 	}
 	

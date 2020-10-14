@@ -3,10 +3,6 @@ package comunes;
 import java.io.File;
 
 import javax.xml.parsers.*;
-import javax.xml.transform.*;
-import javax.xml.transform.dom.*;
-import javax.xml.transform.stream.StreamResult;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -50,7 +46,7 @@ public class LectorXml {
 		 NodeList nombreAutor = eElement.getElementsByTagName("autor");
 			for (int count = 0; count < nombreAutor.getLength(); count++) {
 				Node node1 = nombreAutor.item(count);
-				if (node1.getNodeType() == node1.ELEMENT_NODE) {
+				if (node1.getNodeType() == Node.ELEMENT_NODE) {
 
 					Element libro = (Element) node1;
 
@@ -66,7 +62,7 @@ public class LectorXml {
 			 NodeList gradoCiclo = eElement.getElementsByTagName("isbn");
 				for (int count = 0; count < gradoCiclo.getLength(); count++) {
 					Node node1 = gradoCiclo.item(count);
-					if (node1.getNodeType() == node1.ELEMENT_NODE) {
+					if (node1.getNodeType() == Node.ELEMENT_NODE) {
 
 						Element libro = (Element) node1;
 
@@ -83,7 +79,7 @@ public class LectorXml {
 				NodeList titulo = eElement.getElementsByTagName("lanzamiento");
 				for (int count = 0; count < titulo.getLength(); count++) {
 					Node node1 = titulo.item(count);
-					if (node1.getNodeType() == node1.ELEMENT_NODE) {
+					if (node1.getNodeType() == Node.ELEMENT_NODE) {
 
 						Element libro = (Element) node1;
 

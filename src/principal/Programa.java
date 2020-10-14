@@ -9,15 +9,15 @@ import comunes.Lectortxt;
 
 public class Programa {
 	
-	
+	public static Scanner teclado = new Scanner (System.in);
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		Scanner teclado = new Scanner (System.in);
+		
 		iniciarPrograma(teclado);
 	}
 	
-	public static boolean iniciarPrograma(Scanner teclado) {
+	public static boolean iniciarPrograma(Scanner teclado) throws IOException {
 		
 		int opcion = 0;
 		
@@ -51,13 +51,8 @@ public class Programa {
 			switch (opcion) {
 			case 1:
 				
-				try {
-					Lectortxt.txt("listalibros.txt");
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
+				Lectortxt.txt("listalibros.txt");
+
 				break;
 				
 			case 2:
