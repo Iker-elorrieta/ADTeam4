@@ -67,7 +67,7 @@ public class Programa {
 				
 			case 2:
 				
-				LectorXml.LeerArchivoXML();
+				LectorXml.LeerArchivoXML("Libros.xml");
 				
 				break;
 			

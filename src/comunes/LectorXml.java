@@ -17,7 +17,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 public class LectorXml {
 
 	
-	public static void LeerArchivoXML() {
+	public static boolean LeerArchivoXML(String archivo) {
 	
 	try {	
 		
@@ -27,7 +27,7 @@ public class LectorXml {
 	
 	DocumentBuilder dBuilder = Dbf.newDocumentBuilder();
 	
-	File archivoXML = new File("Libros.xml");
+	File archivoXML = new File(archivo);
 	
 	Document doc = dBuilder.parse(archivoXML);
 	doc.getDocumentElement().normalize();
@@ -101,9 +101,10 @@ public class LectorXml {
 	
 	
 	}catch(Exception e) {
-		System.out.println("Ha ocurrido algún error al leer el archivo");
+	System.out.println("Ha ocurrido algún error al leer el archivo");
+	return false;
 	}
-	
+	return true;
 	}
 	
 	public void crearFicheroXML() {
