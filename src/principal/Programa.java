@@ -1,30 +1,25 @@
 package principal;
 
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import comunes.LectorXml;
 import comunes.Lectorcsv;
 import comunes.Lectortxt;
 
 public class Programa {
 	
-	public static Scanner teclado = new Scanner (System.in);
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Scanner teclado = new Scanner (System.in);
+		iniciarPrograma(teclado);
+	}
+	
+	public static boolean iniciarPrograma(Scanner teclado) {
 		
 		int opcion = 0;
-	
 		
-		System.out.println(comprobarSistemaOperativo());
-		if(comprobarSistemaOperativo().equals("Linux")) {
-			
-			
-		}
-		
-		System.out.println();
 		System.out.println("¿Qué tipo de fichero quiere leer?");
 		
 		do {
@@ -53,21 +48,15 @@ public class Programa {
 			System.out.println();
 			
 			switch (opcion) {
-			
 			case 1:
 				
-				try {
-					Lectortxt.txt("listalibros.txt");
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				Lectortxt.txt();
 				
 				break;
 				
 			case 2:
 				
-				LectorXml.LeerArchivoXML("Libros.xml");
+				LectorXml.LeerArchivoXML();
 				
 				break;
 			
@@ -78,23 +67,13 @@ public class Programa {
 				break;
 
 			default:
-				
-			break;
+				break;
 			}
 			
 		} while (opcion != 1 && opcion != 2 && opcion != 3);
 		
-	}
-	
-	
-	
-	public static String comprobarSistemaOperativo() {
+		return true;
 		
-		String os;
-		
-		os  = System.getProperty("os.name");
-		
-		return  "Su sistema operativo es : " + os ;
 	}
 
 }
