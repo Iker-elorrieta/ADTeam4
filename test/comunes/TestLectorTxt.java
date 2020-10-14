@@ -11,6 +11,7 @@ class TestLectorTxt {
 		Lectortxt l1 = new Lectortxt();
 		boolean resul = l1.txt("listalibros.txt");
 		assertEquals(true,resul);
+		
 	}
 	
 	@org.junit.jupiter.api.Test
@@ -18,6 +19,7 @@ class TestLectorTxt {
 		Lectortxt l1 = new Lectortxt();
 		boolean resul = l1.txt("listalibrosa.txt");
 		assertEquals(false,resul);
+		
 	}
 
 }
