@@ -10,15 +10,14 @@ public class Lectorcsv {
 	public static final String SEPARATOR=";";
 	public static final String QUOTE="\"";
 	   
-	public static void lectorcsv() {
+	public static boolean lectorcsv(String archivo) {
 		
 		 BufferedReader br = null;
 		 int cantidad = 0;
 	      
 	      try {
-			try {
-			     
-			     br =new BufferedReader(new FileReader("listalibros.csv"));
+
+			     br =new BufferedReader(new FileReader(archivo));
 			     String line = br.readLine();
 			     while (null!=line) {
 			        String [] fields = line.split(SEPARATOR);			        
@@ -53,13 +52,24 @@ public class Lectorcsv {
 
 			  } finally {
 			     if (null!=br) {
-			        br.close();
+			        try {
+						br.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 			     }
 			  }
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	      
+	      if (cantidad == 0) {
+	    	  
+	    	  return false;
+	      } else {
+	    	  
+	    	  return true;
+	      }
+	      
+	      
 	      
 	}
 	

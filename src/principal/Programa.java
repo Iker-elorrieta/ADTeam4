@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import comunes.LectorXml;
 import comunes.Lectorcsv;
+import comunes.Lectortxt;
 
 public class Programa {
 	
@@ -45,6 +46,8 @@ public class Programa {
 			switch (opcion) {
 			case 1:
 				
+				Lectortxt.txt();
+				
 				break;
 				
 			case 2:
@@ -55,7 +58,7 @@ public class Programa {
 			
 			case 3:
 				
-				Lectorcsv.lectorcsv();
+				Lectorcsv.lectorcsv("listalibros.csv");
 				
 				break;
 
