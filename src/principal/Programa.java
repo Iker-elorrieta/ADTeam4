@@ -72,10 +72,11 @@ public class Programa {
 		
 	}
 	
+	
+	
 	public static String comprobarSistemaOperativo() {
 		String os;
 		os  = System.getProperty("os.name");
-		
 		
 		return  os;
 	}
