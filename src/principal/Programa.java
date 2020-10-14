@@ -14,6 +14,8 @@ public class Programa {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		
+		System.out.println(comprobarSistemaOperativo());
 		int opcion = 0;
 		
 		System.out.println("¿Qué tipo de fichero quiere leer?");
@@ -68,6 +70,14 @@ public class Programa {
 			
 		} while (opcion != 1 && opcion != 2 && opcion != 3);
 		
+	}
+	
+	public static String comprobarSistemaOperativo() {
+		String os;
+		os  = System.getProperty("os.name");
+		
+		
+		return  os;
 	}
 
 }
