@@ -16,7 +16,7 @@ public class PRUEBAXML {
 
 
 
-public  Boolean LeerArchivoXML() {
+public  Boolean LeerArchivoXML(String nombreArchivo) {
 		
 	
 		try {	
@@ -27,7 +27,7 @@ public  Boolean LeerArchivoXML() {
 		
 		DocumentBuilder dBuilder = Dbf.newDocumentBuilder();
 		
-		File archivoXML = new File("Libros.xml");
+		File archivoXML = new File(nombreArchivo);
 		
 		Document doc = dBuilder.parse(archivoXML);
 		doc.getDocumentElement().normalize();

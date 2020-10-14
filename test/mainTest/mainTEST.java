@@ -13,7 +13,7 @@ public class mainTEST {
 		
 		PRUEBAXML pX = new PRUEBAXML();
 		
-		 assertEquals(true,pX.LeerArchivoXML());
-		
+		 assertEquals(true,pX.LeerArchivoXML("Libros.xml"));
+		 assertEquals(false,pX.LeerArchivoXML("Exception.xml"));
 	}
 }

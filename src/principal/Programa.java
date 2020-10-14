@@ -14,10 +14,16 @@ public class Programa {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		int opcion = 0;
+	
 		
 		System.out.println(comprobarSistemaOperativo());
-		int opcion = 0;
+		if(comprobarSistemaOperativo().equals("Linux")) {
+			
+			
+		}
 		
+		System.out.println();
 		System.out.println("¿Qué tipo de fichero quiere leer?");
 		
 		do {
@@ -46,6 +52,7 @@ public class Programa {
 			System.out.println();
 			
 			switch (opcion) {
+			
 			case 1:
 				
 				Lectortxt.txt();
@@ -65,7 +72,8 @@ public class Programa {
 				break;
 
 			default:
-				break;
+				
+			break;
 			}
 			
 		} while (opcion != 1 && opcion != 2 && opcion != 3);
@@ -75,10 +83,12 @@ public class Programa {
 	
 	
 	public static String comprobarSistemaOperativo() {
+		
 		String os;
+		
 		os  = System.getProperty("os.name");
 		
-		return  os;
+		return  "Su sistema operativo es : " + os ;
 	}
 
 }
