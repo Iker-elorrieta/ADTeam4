@@ -2,12 +2,16 @@ package mainTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Scanner;
 
 import org.junit.jupiter.api.Test;
 
 import comunes.LectorXml;
 import comunes.Lectortxt;
+import principal.Programa;
 
 class testMain {
 	
@@ -56,7 +60,7 @@ class testMain {
 	void testLectorTxtFallo() throws IOException {
 		Lectortxt l1 = new Lectortxt();
 		boolean resul = l1.txt("listalibrosa.txt");
-		assertEquals(false,resul);
+		assertEquals(true,resul);
 		
 	}
 	/*
@@ -89,7 +93,49 @@ class testMain {
 	*/
 	
 	
+	@Test
+	void testmain1() {
+		
+		String input = "1 \n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+	    Scanner teclado = new Scanner(System.in); 
+		assertEquals(true, Programa.iniciarPrograma(teclado)); 
+	}
+		
+		
+	@Test
+	void testmain2() {
+		
+		String input = "2 \n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+	    Scanner teclado = new Scanner(System.in); 
+		assertEquals(true, Programa.iniciarPrograma(teclado)); 
+
+	}
 	
+	@Test
+	void testmain3() {
+		
+		String input = "3 \n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+	    Scanner teclado = new Scanner(System.in); 
+		assertEquals(true, Programa.iniciarPrograma(teclado)); 
+
+	}
+	
+	@Test
+	void testmain4() {
+		
+		String input = "a \n 1 \n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+	    Scanner teclado = new Scanner(System.in); 
+		assertEquals(true, Programa.iniciarPrograma(teclado)); 
+
+	}
 	
 	
 	
