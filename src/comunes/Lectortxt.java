@@ -8,25 +8,23 @@ import java.io.IOException;
 
 public class Lectortxt {
 
-	public static void txt() {
-		
+	public static boolean txt(String enlace) throws IOException {
+		boolean boo;
 		try {
-			File readfichero = new File("listalibros.txt");
+			File readfichero = new File(enlace);
 			FileReader fr = new FileReader (readfichero);
 			BufferedReader br = new BufferedReader(fr);
 			
 			String linea = "";
-			
+			boo=true;
 			while((linea=br.readLine())!=null) {
 				
 				System.out.println(linea);
 			}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			boo=false;
 			e.printStackTrace();
 		}
+		return boo;
 	}
 }
