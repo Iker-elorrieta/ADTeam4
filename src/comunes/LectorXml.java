@@ -17,15 +17,17 @@ import javax.xml.parsers.DocumentBuilderFactory;
 public class LectorXml {
 
 	
-	public static boolean LeerArchivoXML() {
+	public static boolean LeerArchivoXML(String archivo) {
 	
 	try {	
 		
+	
+	
 	DocumentBuilderFactory Dbf = DocumentBuilderFactory.newInstance();
 	
 	DocumentBuilder dBuilder = Dbf.newDocumentBuilder();
 	
-	File archivoXML = new File("libros.xml");
+	File archivoXML = new File(archivo);
 	
 	Document doc = dBuilder.parse(archivoXML);
 	doc.getDocumentElement().normalize();
