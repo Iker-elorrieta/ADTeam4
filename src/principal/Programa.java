@@ -1,5 +1,6 @@
 package principal;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -55,7 +56,12 @@ public class Programa {
 			
 			case 1:
 				
-				Lectortxt.txt();
+				try {
+					Lectortxt.txt("listalibros.txt");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				
 				break;
 				
