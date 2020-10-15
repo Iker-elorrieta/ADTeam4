@@ -3,12 +3,15 @@ package mainTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 
 import org.junit.jupiter.api.Test;
 
+import comunes.LectorXml;
+import comunes.Lectortxt;
 import modelo.Libro;
 import principal.Programa;
 
@@ -50,16 +53,18 @@ class testMain {
 	@Test
 	void testLectorTxt() throws IOException {
 		
-		boolean resul = comunes.Lectortxt.txt("listalibros.txt");
-		assertEquals(true,resul);
+		Lectortxt LT = new Lectortxt();
+	
+		assertEquals(true, LT.lectorTxt("listalibros.txt"));
 		
 	}
 	
 	@Test
-	void testLectorTxtFallo() throws IOException {
+	void testLectorTxtFallo() throws IOException  {
 
-		boolean resul = comunes.Lectortxt.txt("listalibrosa.txt");
-		assertEquals(true,resul);
+		Lectortxt LTError = new Lectortxt();
+	 
+		assertEquals(false,LTError.lectorTxt("excepcion.txt"));
 		
 	}
 	/*
@@ -71,12 +76,12 @@ class testMain {
 	   \__\___||___/\__| /_/ \_\_|  |_|______|
 	                                            */
 	@Test
-	void testLectorXML()   {
+	void testLectorXML() throws FileNotFoundException   {
 		
+		LectorXml LX = new LectorXml();
+		assertEquals(true,LX.LeerArchivoXML(("Libros.xml")));
+		assertEquals(false,LX.LeerArchivoXML("Exception.xml"));
 		
-		
-		 assertEquals(true,comunes.LectorXml.LeerArchivoXML(("Libros.xml")));
-		 assertEquals(false,comunes.LectorXml.LeerArchivoXML("Exception.xml"));
 		 
 
 	}
@@ -92,14 +97,15 @@ class testMain {
 	*/
 	
 	
+	
 	@Test
 	void testmain1() throws IOException {
-		
+		Programa main = new Programa();
 		String input = "1 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 	    Scanner teclado = new Scanner(System.in); 
-		assertEquals(true, Programa.iniciarPrograma(teclado)); 
+		assertEquals(true, main.iniciarPrograma(teclado)); 
 	}
 		
 		
@@ -135,9 +141,14 @@ class testMain {
 		assertEquals(true, Programa.iniciarPrograma(teclado)); 
 
 	}
-	
-	
-	//* Test Libro
+	/*
+	   _            _     _      _ _               
+	  | |          | |   | |    (_) |              
+	  | |_ ___  ___| |_  | |     _| |__  _ __ ___  
+	  | __/ _ \/ __| __| | |    | | '_ \| '__/ _ \ 
+	  | ||  __/\__ \ |_  | |____| | |_) | | | (_) |
+	   \__\___||___/\__| |______|_|_.__/|_|  \___/ 
+	*/
 	
 	@Test
 	void testConstructorLibro() {
@@ -146,6 +157,11 @@ class testMain {
 		assertEquals("ah", libro.getEditorial()); 
 
 	}
+	
+	
+	
+
+	
 	
 	
 	
