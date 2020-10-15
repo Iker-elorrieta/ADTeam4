@@ -11,6 +11,7 @@ import java.util.Scanner;
 import org.junit.jupiter.api.Test;
 
 import comunes.LectorXml;
+import comunes.Lectorcsv;
 import comunes.Lectortxt;
 import modelo.Libro;
 import principal.Programa;
@@ -30,12 +31,27 @@ class testMain {
 	*/
 	@Test
 	void testCsv() {
-		assertEquals(true, comunes.Lectorcsv.lectorcsv("listalibros.csv"));
+		Lectorcsv Lc = new Lectorcsv();
+			try {
+				assertEquals(true, Lc.lectorcsv("listalibros.csv"));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				
+			}
+		
 	}
 	
 	@Test
 	void testLectorCsvFallo() {
-		assertEquals(false, comunes.Lectorcsv.lectorcsv(null));
+		
+			try {
+				Lectorcsv Lc = new Lectorcsv();
+				assertEquals(false, Lc.lectorcsv(null));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				
+			}
+		
 	}
 	
 	/*
@@ -55,7 +71,10 @@ class testMain {
 		
 		Lectortxt LT = new Lectortxt();
 	
-		assertEquals(true, LT.lectorTxt("listalibros.txt"));
+		
+
+	
+			assertEquals(true, LT.lectorTxt("listalibros.txt"));
 		
 	}
 	
@@ -64,7 +83,11 @@ class testMain {
 
 		Lectortxt LTError = new Lectortxt();
 	 
-		assertEquals(false,LTError.lectorTxt("excepcion.txt"));
+		
+		
+			assertEquals(false,LTError.lectorTxt("excepcion.txt"));
+		
+		
 		
 	}
 	/*
@@ -101,6 +124,7 @@ class testMain {
 	@Test
 	void testmain1() throws IOException {
 		Programa main = new Programa();
+		Programa.main(null);
 		String input = "1 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);

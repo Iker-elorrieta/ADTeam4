@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class Lectortxt {
 
-	public static boolean lectorTxt(String enlace)  {
+	public static boolean lectorTxt(String enlace) throws FileNotFoundException  {
 		boolean boo;
 		try {	
 		File readfichero = new File(enlace);

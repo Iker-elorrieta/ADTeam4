@@ -1,6 +1,7 @@
 package comunes;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 import javax.xml.parsers.*;
 import org.w3c.dom.Document;
@@ -13,7 +14,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 public class LectorXml {
 
 	
-	public static boolean LeerArchivoXML(String archivo) {
+	public static boolean LeerArchivoXML(String archivo)throws FileNotFoundException {
 	
 	try {	
 		
@@ -103,8 +104,5 @@ public class LectorXml {
 	return true;
 	}
 	
-	public void crearFicheroXML() {
-		
-	}
 
 }

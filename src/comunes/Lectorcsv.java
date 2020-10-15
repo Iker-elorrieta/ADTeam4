@@ -1,6 +1,7 @@
 package comunes;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import modelo.Libro;
@@ -10,7 +11,7 @@ public class Lectorcsv {
 	public static final String SEPARATOR=";";
 	public static final String QUOTE="\"";
 	   
-	public static boolean lectorcsv(String archivo) {
+	public static boolean lectorcsv(String archivo) throws FileNotFoundException {
 		
 		 BufferedReader br = null;
 		 int cantidad = 0;
@@ -56,7 +57,7 @@ public class Lectorcsv {
 						br.close();
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						
 					}
 			     }
 			  }
