@@ -124,7 +124,6 @@ class testMain {
 	@Test
 	void testmain1() throws IOException {
 		Programa main = new Programa();
-		Programa.main(null);
 		String input = "1 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);

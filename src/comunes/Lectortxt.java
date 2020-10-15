@@ -24,7 +24,7 @@ public class Lectortxt {
 			}
 		} catch (Exception e) {
 			boo=false;
-			e.printStackTrace();
+			System.out.println("El sistema no puede encontrar el archivo especificado");
 		}
 		
 		return boo;
