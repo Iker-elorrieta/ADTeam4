@@ -1,6 +1,6 @@
 package principal;
 
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import comunes.LectorXml;
@@ -11,13 +11,13 @@ public class Programa {
 	
 	public static Scanner teclado = new Scanner (System.in);	
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	   
 		iniciarPrograma(teclado);
 	}
 	
-	public static boolean iniciarPrograma(Scanner teclado) throws IOException {
+	public static boolean iniciarPrograma(Scanner teclado) {
 		
 		int opcion = 0;
 		
@@ -51,25 +51,29 @@ public class Programa {
 			switch (opcion) {
 			case 1:
 				
-				
-				
+				try {
 					Lectortxt.lectorTxt("listalibros.txt");
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 					
-				
 				break;
 				
 			case 2:
 				
-				LectorXml.LeerArchivoXML("Libros.xml");
-				
+				try {
+					LectorXml.LeerArchivoXML("Libros.xml");
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				
 				break;
 			
 			case 3:
 				
-				
-				
-					Lectorcsv.lectorcsv("listalibros.csv");
+				Lectorcsv.lectorcsv("listalibros.csv");
 					
 				break;
 
@@ -83,7 +87,4 @@ public class Programa {
 		
 	}
 	
-	
-	
-
 }

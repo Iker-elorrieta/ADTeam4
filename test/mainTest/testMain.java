@@ -122,7 +122,7 @@ class testMain {
 	
 	
 	@Test
-	void testmain1() throws IOException {
+	void testmain1() {
 		Programa main = new Programa();
 		String input = "1 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -133,7 +133,7 @@ class testMain {
 		
 		
 	@Test
-	void testmain2() throws IOException {
+	void testmain2() {
 		
 		String input = "2 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -144,7 +144,7 @@ class testMain {
 	}
 	
 	@Test
-	void testmain3() throws IOException {
+	void testmain3() {
 		
 		String input = "3 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -155,7 +155,7 @@ class testMain {
 	}
 	
 	@Test
-	void testmain4() throws IOException {
+	void testmain4() {
 		
 		String input = "a \n 1 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
