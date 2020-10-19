@@ -18,6 +18,8 @@ import principal.Programa;
 
 class testMain {
 	
+	private Lectortxt LT = new Lectortxt();
+	
 	/*
 	
 	   _            _      _____  _______      __
@@ -67,10 +69,7 @@ class testMain {
 	
 	
 	@Test
-	void testLectorTxt() throws IOException {
-		
-		Lectortxt LT = new Lectortxt();
-	
+	void testLectorTxt(){
 		
 
 	
@@ -79,13 +78,12 @@ class testMain {
 	}
 	
 	@Test
-	void testLectorTxtFallo() throws IOException  {
+	void testLectorTxtFallo(){
 
-		Lectortxt LTError = new Lectortxt();
 	 
 		
 		
-			assertEquals(false,LTError.lectorTxt("excepcion.txt"));
+			assertEquals(false,LT.lectorTxt("excepcion.txt"));
 		
 		
 		
