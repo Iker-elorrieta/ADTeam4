@@ -72,8 +72,8 @@ class testMain {
 	void testLectorTxt(){
 		
 
-	
-			assertEquals(true, LT.lectorTxt("listalibros.txt"));
+			String ruta="listalibros.txt";
+			assertEquals(true, LT.lectorTxt(ruta));
 		
 	}
 	
@@ -82,8 +82,8 @@ class testMain {
 
 	 
 		
-		
-			assertEquals(false,LT.lectorTxt("excepcion.txt"));
+			String ruta="excepcion.txt";
+			assertEquals(false,LT.lectorTxt(ruta));
 		
 		
 		

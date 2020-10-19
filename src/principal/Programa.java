@@ -51,12 +51,7 @@ public class Programa {
 			switch (opcion) {
 			case 1:
 				
-				try {
-					Lectortxt.lectorTxt("listalibros.txt");
-				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				Lectortxt.lectorTxt("listalibros.txt");
 					
 				break;
 				
