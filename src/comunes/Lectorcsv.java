@@ -1,9 +1,10 @@
 package comunes;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import modelo.Libro;
 
 public class Lectorcsv {
@@ -11,10 +12,11 @@ public class Lectorcsv {
 	public static final String SEPARATOR=";";
 	public static final String QUOTE="\"";
 	   
-	public static boolean lectorcsv(String archivo) throws FileNotFoundException {
+	public static boolean lectorcsv(String archivo) {
 		
 		 BufferedReader br = null;
 		 int cantidad = 0;
+		 ArrayList <Libro> listaLibros = new ArrayList <Libro>();
 	      
 	      try {
 
@@ -36,18 +38,14 @@ public class Lectorcsv {
 				        libro.setIsbn(fields[5]);
 				        libro.setMaterias(fields[6]);
 				        
-				        System.out.println("Libro " + cantidad);
-				        System.out.println("\tTítulo: " + libro.getTitulo());	
-				        System.out.println("\tPáginas: " + libro.getPaginas());
-				        System.out.println("\tAltura: " + libro.getAltura());
-				        System.out.println("\tNotas: " + libro.getNotas());
-				        System.out.println("\tISBN: " + libro.getIsbn());
-				        System.out.println("\tMaterias: " + libro.getMaterias());
+				        listaLibros.add(libro);
 				
 			        }
 			        
 			        line = br.readLine();
 			     }
+			     
+			     MostrarDatos.mostrarLibros(listaLibros);
 			     
 			  } catch (Exception e) {
 
@@ -65,12 +63,11 @@ public class Lectorcsv {
 	      if (cantidad == 0) {
 	    	  
 	    	  return false;
+	    	  
 	      } else {
 	    	  
 	    	  return true;
 	      }
-	      
-	      
 	      
 	}
 	
