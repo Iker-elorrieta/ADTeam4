@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 
@@ -19,7 +18,9 @@ import principal.Programa;
 class testMain {
 	
 	private static Scanner teclado = new Scanner(System.in);
-	
+
+	private Lectortxt LT = new Lectortxt();
+
 	/*
 	
 	   _            _      _____  _______      __
@@ -58,25 +59,21 @@ class testMain {
 	
 	
 	@Test
-	void testLectorTxt() throws IOException {
-		
-		Lectortxt LT = new Lectortxt();
-	
+	void testLectorTxt(){
 		
 
-	
-			assertEquals(true, LT.lectorTxt("listalibros.txt"));
+			String ruta="listalibros.txt";
+			assertEquals(true, LT.lectorTxt(ruta));
 		
 	}
 	
 	@Test
-	void testLectorTxtFallo() throws IOException  {
+	void testLectorTxtFallo(){
 
-		Lectortxt LTError = new Lectortxt();
 	 
 		
-		
-			assertEquals(false,LTError.lectorTxt("excepcion.txt"));
+			String ruta="excepcion.txt";
+			assertEquals(false,LT.lectorTxt(ruta));
 		
 		
 		
