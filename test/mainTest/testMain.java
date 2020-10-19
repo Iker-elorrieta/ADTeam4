@@ -18,6 +18,8 @@ import principal.Programa;
 
 class testMain {
 	
+	private static Scanner teclado = new Scanner(System.in);
+	
 	/*
 	
 	   _            _      _____  _______      __
@@ -32,26 +34,15 @@ class testMain {
 	@Test
 	void testCsv() {
 		Lectorcsv Lc = new Lectorcsv();
-			try {
-				assertEquals(true, Lc.lectorcsv("listalibros.csv"));
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				
-			}
-		
+		assertEquals(true, Lc.lectorcsv("listalibros.csv"));
 	}
 	
 	@Test
 	void testLectorCsvFallo() {
 		
-			try {
-				Lectorcsv Lc = new Lectorcsv();
-				assertEquals(false, Lc.lectorcsv(null));
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				
-			}
-		
+		Lectorcsv Lc = new Lectorcsv();
+		assertEquals(false, Lc.lectorcsv(null));
+
 	}
 	
 	/*
@@ -127,7 +118,7 @@ class testMain {
 		String input = "1 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-	    Scanner teclado = new Scanner(System.in); 
+		teclado = new Scanner(System.in);
 		assertEquals(true, main.iniciarPrograma(teclado)); 
 	}
 		
@@ -138,7 +129,7 @@ class testMain {
 		String input = "2 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-	    Scanner teclado = new Scanner(System.in); 
+		teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma(teclado)); 
 
 	}
@@ -149,7 +140,7 @@ class testMain {
 		String input = "3 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-	    Scanner teclado = new Scanner(System.in); 
+		teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma(teclado)); 
 
 	}
@@ -160,7 +151,7 @@ class testMain {
 		String input = "a \n 1 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-	    Scanner teclado = new Scanner(System.in); 
+		teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma(teclado)); 
 
 	}
@@ -180,12 +171,5 @@ class testMain {
 		assertEquals("ah", libro.getEditorial()); 
 
 	}
-	
-	
-	
-
-	
-	
-	
 	
 }

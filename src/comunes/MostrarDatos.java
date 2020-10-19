@@ -12,7 +12,7 @@ public class MostrarDatos {
 			
 			System.out.println("Libro " + (listaLibros.indexOf(libro) + 1));
 	        System.out.println("\tTítulo: " + libro.getTitulo());
-	        System.out.println("\tEditorial: " + libro.getTitulo());	
+	        System.out.println("\tEditorial: " + libro.getEditorial());	
 	        System.out.println("\tPáginas: " + libro.getPaginas());
 	        System.out.println("\tAltura: " + libro.getAltura());
 	        System.out.println("\tNotas: " + libro.getNotas());
