@@ -57,13 +57,8 @@ public class Programa {
 				
 			case 2:
 				
-				try {
-					LectorXml.LeerArchivoXML("Libros.xml");
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
+				LectorXml.LeerArchivoXML("Libros.xml");
+			
 				break;
 			
 			case 3:

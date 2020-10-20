@@ -20,6 +20,8 @@ class testMain {
 	private static Scanner teclado = new Scanner(System.in);
 
 	private Lectortxt LT = new Lectortxt();
+	
+	LectorXml LX = new LectorXml();
 
 	/*
 	
@@ -87,9 +89,9 @@ class testMain {
 	   \__\___||___/\__| /_/ \_\_|  |_|______|
 	                                            */
 	@Test
-	void testLectorXML() throws FileNotFoundException   {
+	void testLectorXML()   {
 		
-		LectorXml LX = new LectorXml();
+		
 		assertEquals(true,LX.LeerArchivoXML(("Libros.xml")));
 		assertEquals(false,LX.LeerArchivoXML("Exception.xml"));
 		
