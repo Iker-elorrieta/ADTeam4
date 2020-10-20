@@ -17,13 +17,13 @@ import javax.xml.parsers.DocumentBuilderFactory;
 public class LectorXml {
 
 	
-	public static ArrayList<Libro> LeerArchivoXML(String archivo){
+	public static boolean LeerArchivoXML(String archivo){
 	
 		
-		ArrayList<Libro> arrayLibros = new ArrayList();
+		
 	try {	
 		
-	
+	ArrayList<Libro> arrayLibros = new ArrayList();
 		
 	
 	
@@ -152,17 +152,16 @@ public class LectorXml {
 	}
 	
 	
-	
+	MostrarDatos.mostrarLibros(arrayLibros);
 		
 	
 	
 	
 	}catch(Exception e) {
 	System.out.println("Ha ocurrido algún error al leer el archivo");
-	
+	return false;
 	}
-	return arrayLibros;
-
+	return true;
 	}
 	
 
