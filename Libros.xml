@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libros>
+ 	<libro titulo="El señor de los anillos">
+      		<editorial>Acantilado</editorial>
+      		<paginas>967</paginas>
+     		<altura>2</altura>
+		<notas>Mayores de 16 años</notas>
+     		<isbn>56667788</isbn>
+		<materias>Fantasia</materias>
+    	</libro>
+
+    	<libro titulo="El Resplandor">
+      		<editorial>Aguilar</editorial>
+      		<paginas>654</paginas>
+     		<altura>1</altura>
+		<notas>Mayores de 13 años</notas>
+     		<isbn>55566677</isbn>
+		<materias>Thiller</materias>
+    	</libro>
+
+    	<libro titulo="El Temor De Un Hombre Sabio">
+      		<editorial>Akal</editorial>
+      		<paginas>854</paginas>
+     		<altura>3</altura>
+		<notas>Mas de 18 años</notas>
+     		<isbn>22333445</isbn>
+		<materias>Fantasia</materias>
+    	</libro>
+</libros>
