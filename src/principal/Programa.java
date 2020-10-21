@@ -1,6 +1,5 @@
 package principal;
 
-import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import comunes.LectorXml;
@@ -9,7 +8,10 @@ import comunes.Lectortxt;
 
 public class Programa {
 	
-	public static Scanner teclado = new Scanner (System.in);	
+	public static Scanner teclado = new Scanner (System.in);
+	private static final String ARCHIVOTXT = "listalibros.txt";
+	private static final String ARCHIVOXML = "Libros.xml";
+	private static final String ARCHIVOCSV = "listalibros.csv";
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -51,19 +53,19 @@ public class Programa {
 			switch (opcion) {
 			case 1:
 				
-				Lectortxt.lectorTxt("listalibros.txt");
+				Lectortxt.lectorTxt(ARCHIVOTXT);
 					
 				break;
 				
 			case 2:
 				
-				LectorXml.LeerArchivoXML("Libros.xml");
+				LectorXml.LeerArchivoXML(ARCHIVOXML);
 			
 				break;
 			
 			case 3:
 				
-				Lectorcsv.lectorcsv("listalibros.csv");
+				Lectorcsv.lectorcsv(ARCHIVOCSV);
 					
 				break;
 

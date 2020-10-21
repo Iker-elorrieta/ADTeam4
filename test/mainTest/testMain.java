@@ -3,7 +3,6 @@ package mainTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Scanner;
 
@@ -17,11 +16,13 @@ import principal.Programa;
 
 class testMain {
 	
-	private static Scanner teclado = new Scanner(System.in);
+	private static Scanner teclado;
 
 	private Lectortxt LT = new Lectortxt();
 	
 	LectorXml LX = new LectorXml();
+	
+	private static Lectorcsv lc;
 
 	/*
 	
@@ -36,15 +37,15 @@ class testMain {
 	*/
 	@Test
 	void testCsv() {
-		Lectorcsv Lc = new Lectorcsv();
-		assertEquals(true, Lc.lectorcsv("listalibros.csv"));
+		lc = new Lectorcsv();
+		assertEquals(true, lc.lectorcsv("listalibros.csv"));
 	}
 	
 	@Test
 	void testLectorCsvFallo() {
 		
-		Lectorcsv Lc = new Lectorcsv();
-		assertEquals(false, Lc.lectorcsv(null));
+		lc = new Lectorcsv();
+		assertEquals(false, lc.lectorcsv(null));
 
 	}
 	

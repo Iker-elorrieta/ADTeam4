@@ -48,6 +48,8 @@ public class Lectorcsv {
 			     MostrarDatos.mostrarLibros(listaLibros);
 			     
 			  } catch (Exception e) {
+				  
+				  System.out.println("Error en clase Lectorcsv");
 
 			  } finally {
 			     if (null!=br) {
@@ -55,7 +57,7 @@ public class Lectorcsv {
 						br.close();
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
-						
+						System.out.println("Error en clase Lectorcsv");
 					}
 			     }
 			  }
