@@ -14,6 +14,7 @@ public class Lectortxt {
 	public static boolean lectorTxt(String enlace){
 		boolean boo = false;
 		ArrayList<Libro> libros =new ArrayList<Libro>();
+		final String SPLIT = ": ";
 		
 		try {	
 		File readfichero = new File(enlace);
@@ -24,35 +25,42 @@ public class Lectortxt {
 			String linea = "";
 			Libro l1 = new Libro();
 			while((linea=br.readLine())!=null) {
+
+				String parametro = new String(); 
 				
+				if(!linea.contains("*****")) {
+					
+					parametro = linea.split(SPLIT)[1];
+				}
+								
 				boo = true;
 				if(linea.contains("Titulo")) {
-					String array[] = linea.split(": ");
-					l1.setTitulo(array[1]);
+					
+					l1.setTitulo(parametro);
 				} 
 				if(linea.contains("Editorial")) {
-					String array[] = linea.split(": ");
-					l1.setEditorial(array[1]);
+					
+					l1.setEditorial(parametro);
 				}
 				if(linea.contains("Paginas")) {
-					String array[] = linea.split(": ");
-					l1.setPaginas(Integer.parseInt(array[1]));
+					
+					l1.setPaginas(Integer.parseInt(parametro));
 				}
 				if(linea.contains("Altura")) {
-					String array[] = linea.split(": ");
-					l1.setAltura(Integer.parseInt(array[1]));
+					
+					l1.setAltura(Integer.parseInt(parametro));
 				}
 				if(linea.contains("Notas")) {
-					String array[] = linea.split(": ");
-					l1.setNotas(array[1]);
+					
+					l1.setNotas(parametro);
 				}
 				if(linea.contains("Isbn")) {
-					String array[] = linea.split(": ");
-					l1.setIsbn(array[1]);
+					
+					l1.setIsbn(parametro);
 				}
 				if(linea.contains("Materias")) {
-					String array[] = linea.split(": ");
-					l1.setMaterias(array[1]);
+					
+					l1.setMaterias(parametro);
 				}
 				if(linea.contains("*****")) {
 					libros.add(l1);
