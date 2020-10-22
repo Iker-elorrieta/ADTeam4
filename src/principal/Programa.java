@@ -1,10 +1,15 @@
 package principal;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import comunes.Biblioteca;
+import comunes.CrearXml;
 import comunes.LectorXml;
 import comunes.Lectorcsv;
 import comunes.Lectortxt;
+import modelo.Libro;
 
 public class Programa {
 	
@@ -12,6 +17,7 @@ public class Programa {
 	private static final String ARCHIVOTXT = "listalibros.txt";
 	private static final String ARCHIVOXML = "Libros.xml";
 	private static final String ARCHIVOCSV = "listalibros.csv";
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -28,9 +34,9 @@ public class Programa {
 		do {
 			
 			System.out.println();
-			System.out.println("Introduzca 1 para leer un archivo .txt");
-			System.out.println("Introduzca 2 para leer un archivo .xml");
-			System.out.println("Introduzca 3 para leer un archivo .csv");
+			System.out.println("Introduzca 1 para trabajar con un archivo .txt");
+			System.out.println("Introduzca 2 para trabajar con un archivo .xml");
+			System.out.println("Introduzca 3 para trabajar con un archivo .csv");
 			System.out.println();
 			System.out.print("Elija su opción: ");
 			
@@ -56,13 +62,50 @@ public class Programa {
 				Lectortxt.lectorTxt(ARCHIVOTXT);
 					
 				break;
+			
+				
+				
+				
 				
 			case 2:
+				int opcionXml= 0;
+				System.out.println("Que desea hacer con el archivo xml.");
+				System.out.println();
+				System.out.println("Introduzca 1 para leer un fichero xml.");
+				System.out.println("Introduzca 2 para crear un nuevo fichero xml.");
+				System.out.println("Introduzca 3 para editar un nuevo fichero xml existente.");
+				System.out.println("Introduzca 4 para borrar un fichero xml existente.");
 				
-				LectorXml.LeerArchivoXML(ARCHIVOXML);
-			
+				try {
+					opcionXml = teclado.nextInt();
+					
+				} catch (InputMismatchException e) {
+					opcion = 0;
+					teclado.nextLine();
+				}
+				
+				
+				switch(opcionXml) {
+				
+				case 1:
+				 LectorXml.LeerArchivoXML(Biblioteca.verArchivosALeer("xml"));
+				
 				break;
-			
+				
+				case 2:
+				
+				
+				//CrearXml.generarXML(respuesta,arrayLb);
+					
+				
+				break;
+				
+				case 3:
+				CrearXml.cambiarXML();
+					
+				break;
+				
+				}
 			case 3:
 				
 				Lectorcsv.lectorcsv(ARCHIVOCSV);

@@ -95,5 +95,15 @@ public class Libro {
 	public void setMaterias(String materias) {
 		this.materias = materias;
 	}
-
+	
+	
+	/*public String SacarAtributosLibro() {
+		String mensaje="";
+		
+		
+		
+		
+	}
+	*/
+	
 }
