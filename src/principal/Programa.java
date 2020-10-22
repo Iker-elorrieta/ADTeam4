@@ -1,82 +1,142 @@
 package principal;
 
-import java.util.InputMismatchException;
+import java.util.ArrayList;
 import java.util.Scanner;
-import comunes.LectorXml;
-import comunes.Lectorcsv;
-import comunes.Lectortxt;
+import modelo.Libro;
 
 public class Programa {
-	
-	public static Scanner teclado = new Scanner (System.in);
+
+	public static Scanner teclado = new Scanner(System.in);
+	private static ArrayList<Libro> listaLibros = new ArrayList<Libro>();
 	private static final String ARCHIVOTXT = "listalibros.txt";
-	private static final String ARCHIVOXML = "Libros.xml";
+	private static final String ARCHIVOXML = "listalibros.xml";
 	private static final String ARCHIVOCSV = "listalibros.csv";
+	private static String tipoArchivo = new String();
+	private static String archivo = new String();
+	private static int opcion1 = -1;
+	private static int opcion2 = -1;
+	private static int opcion3 = -1;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	   
-		iniciarPrograma(teclado);
-	}
-	
-	public static boolean iniciarPrograma(Scanner teclado) {
-		
-		int opcion = 0;
-		
-		System.out.println("¿Qué tipo de fichero quiere leer?");
-		
-		do {
-			
-			System.out.println();
-			System.out.println("Introduzca 1 para leer un archivo .txt");
-			System.out.println("Introduzca 2 para leer un archivo .xml");
-			System.out.println("Introduzca 3 para leer un archivo .csv");
-			System.out.println();
-			System.out.print("Elija su opción: ");
-			
-			try {
-				opcion = teclado.nextInt();
-				
-			} catch (InputMismatchException e) {
-				opcion = 0;
-				teclado.nextLine();
-			}
-			
-			if (opcion != 1 && opcion != 2 && opcion != 3) {
-				
-				System.out.println();
-				System.out.println("Opción incorrecta, vuelva a elegir");
-			}
-			
-			System.out.println();
-			
-			switch (opcion) {
-			case 1:
-				
-				Lectortxt.lectorTxt(ARCHIVOTXT);
-					
-				break;
-				
-			case 2:
-				
-				LectorXml.LeerArchivoXML(ARCHIVOXML);
-			
-				break;
-			
-			case 3:
-				
-				Lectorcsv.lectorcsv(ARCHIVOCSV);
-					
-				break;
 
-			default:
-				break;
-			}
-			
-		} while (opcion != 1 && opcion != 2 && opcion != 3);
-		
-		return true;
-		
+		iniciarPrograma();
 	}
-	
+
+	public static boolean iniciarPrograma() {
+
+		do {
+
+			ProgramaMensajes.elegirTipoArchivo();
+			
+			if (opcion1 == 1 || opcion1 == 2 || opcion1 == 3) {
+				
+				ProgramaMensajes.leeroEditar();
+				switch (opcion2) {
+				case 1:
+					
+					ProgramaMensajes.leerArchivo();
+					
+					break;
+				case 2:
+					
+					ProgramaMensajes.editarArchivo();
+					
+					switch (opcion3) {
+					case 1:
+						
+						ProgramaMensajes.anyadirLibro();
+						
+						break;
+					case 2:
+						
+						ProgramaMensajes.editarLibro();
+						
+						break;
+					case 3:
+						
+						ProgramaMensajes.borrarLibro();
+						
+						break;
+
+					default:
+						break;
+					}
+					
+					break;
+
+				default:
+					break;
+				}
+				
+			}
+				
+		} while (opcion1 != 0);
+
+		System.out.println("Saliendo...");
+
+		return true;
+
+	}
+
+	public static String getArchivotxt() {
+		return ARCHIVOTXT;
+	}
+
+	public static String getArchivoxml() {
+		return ARCHIVOXML;
+	}
+
+	public static String getArchivocsv() {
+		return ARCHIVOCSV;
+	}
+
+	public static String getTipoArchivo() {
+		return tipoArchivo;
+	}
+
+	public static void setTipoArchivo(String tipoArchivo) {
+		Programa.tipoArchivo = tipoArchivo;
+	}
+
+	public static String getArchivo() {
+		return archivo;
+	}
+
+	public static void setArchivo(String archivo) {
+		Programa.archivo = archivo;
+	}
+
+	public static int getOpcion1() {
+		return opcion1;
+	}
+
+	public static void setOpcion1(int opcion1) {
+		Programa.opcion1 = opcion1;
+	}
+
+	public static int getOpcion2() {
+		return opcion2;
+	}
+
+	public static void setOpcion2(int opcion2) {
+		Programa.opcion2 = opcion2;
+	}
+
+	public static int getOpcion3() {
+		return opcion3;
+	}
+
+	public static void setOpcion3(int opcion3) {
+		Programa.opcion3 = opcion3;
+	}
+
+	public static ArrayList<Libro> getListaLibros() {
+		return listaLibros;
+	}
+
+	public static void setListaLibros(ArrayList<Libro> listaLibros) {
+		Programa.listaLibros = listaLibros;
+	}
+
 }
