@@ -15,11 +15,15 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 public class LectorXml {
 
-	public static boolean LeerArchivoXML(String archivo) {
-
+	public static ArrayList<Libro> LeerArchivoXML(String archivo) {
+		
+		ArrayList<Libro> arrayLibros = new ArrayList<Libro>();
+		
+	
 		try {
 
-			ArrayList<Libro> arrayLibros = new ArrayList<Libro>();
+			
+				
 
 			DocumentBuilderFactory Dbf = DocumentBuilderFactory.newInstance();
 
@@ -132,16 +136,27 @@ public class LectorXml {
 					}
 
 				}
+			
 				arrayLibros.add(lb);
-			}
+				
+			}	
+					
+				MostrarDatos.mostrarLibros(arrayLibros);
+				
+				
+				
+			
 
-			MostrarDatos.mostrarLibros(arrayLibros);
-
-		} catch (Exception e) {
+			
+	} catch (Exception e) {
 			System.out.println("Ha ocurrido algún error al leer el archivo");
-			return false;
+			
 		}
-		return true;
+		return arrayLibros;
+		
+		
 	}
-
+	
+	
 }
+
