@@ -8,21 +8,19 @@ import java.util.Scanner;
 
 import org.junit.jupiter.api.Test;
 
-import comunes.LectorXml;
-import comunes.Lectorcsv;
-import comunes.Lectortxt;
+import comunes.XmlUtilidades;
+import comunes.CsvUtilidades;
+import comunes.TxtUtilidades;
 import modelo.Libro;
 import principal.Programa;
 
 class testMain {
 	
-	private static Scanner teclado;
-
-	private Lectortxt LT = new Lectortxt();
+	private TxtUtilidades LT = new TxtUtilidades();
 	
-	LectorXml LX = new LectorXml();
+	XmlUtilidades LX = new XmlUtilidades();
 	
-	private static Lectorcsv lc;
+	private CsvUtilidades lc = new CsvUtilidades();
 
 	/*
 	
@@ -37,15 +35,15 @@ class testMain {
 	*/
 	@Test
 	void testCsv() {
-		lc = new Lectorcsv();
-		assertEquals(true, lc.lectorcsv("listalibros.csv"));
+		lc = new CsvUtilidades();
+		assertEquals(true, lc.obtenerLibros(Programa.getArchivocsv()) != null);
 	}
 	
 	@Test
 	void testLectorCsvFallo() {
 		
-		lc = new Lectorcsv();
-		assertEquals(false, lc.lectorcsv(null));
+		lc = new CsvUtilidades();
+		assertEquals(true, lc.obtenerLibros(null) == null);
 
 	}
 	
@@ -66,7 +64,7 @@ class testMain {
 		
 
 			String ruta="listalibros.txt";
-			assertEquals(true, LT.lectorTxt(ruta));
+			assertEquals(true, LT.obtenerLibros(Programa.getArchivotxt()) != null);
 		
 	}
 	
@@ -76,7 +74,7 @@ class testMain {
 	 
 		
 			String ruta="excepcion.txt";
-			assertEquals(false,LT.lectorTxt(ruta));
+			assertEquals(true, LT.obtenerLibros(null).size() == 0);
 		
 		
 		
@@ -92,11 +90,15 @@ class testMain {
 	@Test
 	void testLectorXML()   {
 		
+		assertEquals(true,LX.obtenerLibros("Libros.xml") != null);
 		
-		assertEquals(true,LX.LeerArchivoXML(("Libros.xml")));
-		assertEquals(false,LX.LeerArchivoXML("Exception.xml"));
+	}
+	
+	@Test
+	void testLectorXMLFallo()   {
 		
-		 
+		assertEquals(true,LX.obtenerLibros("Exception.xml") == null);
+			 
 
 	}
 	/*
@@ -110,51 +112,72 @@ class testMain {
 	
 	*/
 	
-	
-	
 	@Test
 	void testmain1() {
 		Programa main = new Programa();
-		String input = "1 \n";
+		String input = "1 \n \1 \n 0 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-		teclado = new Scanner(System.in);
-		assertEquals(true, main.iniciarPrograma(teclado)); 
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true, main.iniciarPrograma()); 
 	}
-		
-		
+	
+	
 	@Test
 	void testmain2() {
-		
-		String input = "2 \n";
+		Programa main = new Programa();
+		String input = "2 \n \1 \n 0 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-		teclado = new Scanner(System.in);
-		assertEquals(true, Programa.iniciarPrograma(teclado)); 
-
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true, main.iniciarPrograma());
 	}
 	
 	@Test
 	void testmain3() {
-		
-		String input = "3 \n";
+		Programa main = new Programa();
+		String input = "3 \n \1 \n 0 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-		teclado = new Scanner(System.in);
-		assertEquals(true, Programa.iniciarPrograma(teclado)); 
-
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true, main.iniciarPrograma());
 	}
 	
 	@Test
 	void testmain4() {
-		
-		String input = "a \n 1 \n";
+		Programa main = new Programa();
+		String input = "a \n 0 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-		teclado = new Scanner(System.in);
-		assertEquals(true, Programa.iniciarPrograma(teclado)); 
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true, main.iniciarPrograma()); 
 
 	}
+	
+	@Test
+	void testmain5() {
+		Programa main = new Programa();
+		String input = "3 \n 2 \n 1 \n 1 \n 1 \n 1 \n 1 \n 1 \n 1 \n 1 \n 0 \n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true, main.iniciarPrograma());
+
+	}
+	
+	@Test
+	void testmain6() {
+		Programa main = new Programa();
+		String input = "3 \n 2 \n 3 \n 25 \n 0 \n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true, main.iniciarPrograma());
+
+	}
+		
+
+	
 	/*
 	   _            _     _      _ _               
 	  | |          | |   | |    (_) |              
