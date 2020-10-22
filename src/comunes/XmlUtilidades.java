@@ -28,145 +28,149 @@ import modelo.Libro;
 public class XmlUtilidades {
 
 	public static ArrayList<Libro> obtenerLibros(String archivo) {
-
-		try {
-
+			
 			ArrayList<Libro> arrayLibros = new ArrayList<Libro>();
+			
+		
+			try {
 
-			DocumentBuilderFactory Dbf = DocumentBuilderFactory.newInstance();
+				DocumentBuilderFactory Dbf = DocumentBuilderFactory.newInstance();
 
-			DocumentBuilder dBuilder = Dbf.newDocumentBuilder();
+				DocumentBuilder dBuilder = Dbf.newDocumentBuilder();
 
-			File archivoXML = new File(archivo);
+				File archivoXML = new File(archivo);
 
-			Document doc = dBuilder.parse(archivoXML);
-			doc.getDocumentElement().normalize();
+				Document doc = dBuilder.parse(archivoXML);
+				doc.getDocumentElement().normalize();
 
-			NodeList nList = doc.getElementsByTagName("libro");
-			for (int temp = 0; temp < nList.getLength(); temp++) {
-				Node nNode = nList.item(temp);
-				// System.out.println("\nElemento actual :");
-				// System.out.print(nNode.getNodeName());
+				System.out.println(doc.getDocumentElement().getNodeName());
 
-				Libro lb = new Libro();
+				NodeList nList = doc.getElementsByTagName("libro");
+				for (int temp = 0; temp < nList.getLength(); temp++) {
+					Node nNode = nList.item(temp);
+					// System.out.println("\nElemento actual :");
+					// System.out.print(nNode.getNodeName());
 
-				
-				
-				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-					Element eElement = (Element) nNode;
+					Libro lb = new Libro();
 					
-					lb.setTitulo(eElement.getAttribute("titulo"));
-					
-					NodeList titulo = eElement.getElementsByTagName("titulo");
-					for (int count = 0; count < titulo.getLength(); count++) {
-						Node node1 = titulo.item(count);
-						if (node1.getNodeType() == Node.ELEMENT_NODE) {
+					if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+						Element eElement = (Element) nNode;
+						
+						NodeList titulo = eElement.getElementsByTagName("titulo");
+						for (int count = 0; count < titulo.getLength(); count++) {
+							Node node1 = titulo.item(count);
+							if (node1.getNodeType() == Node.ELEMENT_NODE) {
 
-							Element libro = (Element) node1;
+								Element libro = (Element) node1;
 
-							// System.out.print("Editorial : ");
-							// System.out.println(libro.getTextContent());
 							
+								lb.setTitulo(libro.getTextContent());
 
-						}
-					}
-
-					NodeList editorial = eElement.getElementsByTagName("editorial");
-					for (int count = 0; count < editorial.getLength(); count++) {
-						Node node1 = editorial.item(count);
-						if (node1.getNodeType() == Node.ELEMENT_NODE) {
-
-							Element libro = (Element) node1;
-
-							// System.out.print("Editorial : ");
-							// System.out.println(libro.getTextContent());
-							lb.setEditorial(libro.getTextContent());
+							}
 
 						}
 
-					}
+					
+						
+						NodeList editorial = eElement.getElementsByTagName("editorial");
+						for (int count = 0; count < editorial.getLength(); count++) {
+							Node node1 = editorial.item(count);
+							if (node1.getNodeType() == Node.ELEMENT_NODE) {
 
-					NodeList paginas = eElement.getElementsByTagName("paginas");
-					for (int count = 0; count < paginas.getLength(); count++) {
-						Node node1 = paginas.item(count);
-						if (node1.getNodeType() == Node.ELEMENT_NODE) {
+								Element libro = (Element) node1;
 
-							Element libro = (Element) node1;
+						
+								lb.setEditorial(libro.getTextContent());
 
-							// System.out.print("Paginas : ");
-							// System.out.println(libro.getTextContent());
-							lb.setPaginas(Integer.parseInt(libro.getTextContent()));
+							}
+
+						}
+
+						NodeList paginas = eElement.getElementsByTagName("páginas");
+						for (int count = 0; count < paginas.getLength(); count++) {
+							Node node1 = paginas.item(count);
+							if (node1.getNodeType() == Node.ELEMENT_NODE) {
+
+								Element libro = (Element) node1;
+
+								lb.setPaginas(Integer.parseInt(libro.getTextContent()));
+							}
+
+						}
+
+						NodeList altura = eElement.getElementsByTagName("altura");
+						for (int count = 0; count < altura.getLength(); count++) {
+							Node node1 = altura.item(count);
+							if (node1.getNodeType() == Node.ELEMENT_NODE) {
+
+								Element libro = (Element) node1;
+
+								lb.setAltura(Integer.parseInt(libro.getTextContent()));
+							}
+
+						}
+
+						NodeList notas = eElement.getElementsByTagName("notas");
+						for (int count = 0; count < notas.getLength(); count++) {
+							Node node1 = notas.item(count);
+							if (node1.getNodeType() == Node.ELEMENT_NODE) {
+
+								Element libro = (Element) node1;
+								
+								lb.setNotas(libro.getTextContent());
+							}
+
+						}
+						NodeList isbn = eElement.getElementsByTagName("isbn");
+						for (int count = 0; count < isbn.getLength(); count++) {
+							Node node1 = isbn.item(count);
+							if (node1.getNodeType() == Node.ELEMENT_NODE) {
+
+								Element libro = (Element) node1;
+
+								lb.setIsbn(libro.getTextContent());
+							}
+
+						}
+						NodeList materias = eElement.getElementsByTagName("materias");
+						for (int count = 0; count < materias.getLength(); count++) {
+							Node node1 = materias.item(count);
+							if (node1.getNodeType() == Node.ELEMENT_NODE) {
+
+								Element libro = (Element) node1;
+
+
+								lb.setMaterias(libro.getTextContent());
+							}
+
 						}
 
 					}
+				
+					arrayLibros.add(lb);
+					
+					
+				}	
+						
+				
+				
+					MostrarDatos.mostrarLibros(arrayLibros);
+					
+					
+					
+				
 
-					NodeList altura = eElement.getElementsByTagName("altura");
-					for (int count = 0; count < altura.getLength(); count++) {
-						Node node1 = altura.item(count);
-						if (node1.getNodeType() == Node.ELEMENT_NODE) {
-
-							Element libro = (Element) node1;
-
-							// System.out.print("Altura: ");
-							// System.out.println(libro.getTextContent());
-							lb.setAltura(Integer.parseInt(libro.getTextContent()));
-						}
-
-					}
-
-					NodeList notas = eElement.getElementsByTagName("notas");
-					for (int count = 0; count < notas.getLength(); count++) {
-						Node node1 = notas.item(count);
-						if (node1.getNodeType() == Node.ELEMENT_NODE) {
-
-							Element libro = (Element) node1;
-
-							// System.out.print("Notas: ");
-							// System.out.println(libro.getTextContent());
-							lb.setNotas(libro.getTextContent());
-						}
-
-					}
-					NodeList isbn = eElement.getElementsByTagName("isbn");
-					for (int count = 0; count < isbn.getLength(); count++) {
-						Node node1 = isbn.item(count);
-						if (node1.getNodeType() == Node.ELEMENT_NODE) {
-
-							Element libro = (Element) node1;
-
-							// System.out.print("Isbn: ");
-							// System.out.println(libro.getTextContent());
-							lb.setIsbn(libro.getTextContent());
-						}
-
-					}
-					NodeList materias = eElement.getElementsByTagName("materias");
-					for (int count = 0; count < materias.getLength(); count++) {
-						Node node1 = materias.item(count);
-						if (node1.getNodeType() == Node.ELEMENT_NODE) {
-
-							Element libro = (Element) node1;
-
-							// System.out.print("Materias: ");
-
-							// System.out.println(libro.getTextContent());
-
-							lb.setMaterias(libro.getTextContent());
-						}
-
-					}
-
-				}
-				arrayLibros.add(lb);
-			}
-
-			return arrayLibros;
-
+				
 		} catch (Exception e) {
-			System.out.println("Ha ocurrido algún error al leer el archivo");
-			return null;
+				System.out.println("Ha ocurrido algún error al leer el archivo");
+				
+			}
+			return arrayLibros;
+			
+			
 		}
-	}
+		
+	
 
 	public static void escribirXml(String archivo, ArrayList<Libro> listaLibros) {
 
@@ -176,8 +180,6 @@ public class XmlUtilidades {
 			DOMImplementation implementation = builder.getDOMImplementation();
 			Document documento = implementation.createDocument(null, "libreria", null);
 			documento.setXmlVersion("1.0");
-			documento.getDocumentElement().setAttributeNS("http://www.w3.org/2001/XMLSchema-instance",
-					"xsi:noNamespaceSchemaLocation", "my.xsd");
 			Element libros = documento.createElement("libros");
 
 			for (Libro otroLibro : listaLibros) {

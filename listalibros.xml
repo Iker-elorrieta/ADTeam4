@@ -1,41 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<libreria xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="my.xsd">
+<libreria>
     <libros>
         <libro>
-            <titulo>El señor de los anillos</titulo>
+            <titulo>Lo que el viento se llevo</titulo>
             <editorial>Acantilado</editorial>
-            <páginas>967</páginas>
+            <páginas>248</páginas>
             <altura>2</altura>
             <notas>Mayores de 16 años</notas>
             <isbn>56667788</isbn>
             <materias>Fantasia</materias>
         </libro>
         <libro>
-            <titulo>El Resplandor</titulo>
+            <titulo>El señor de los anillos</titulo>
             <editorial>Aguilar</editorial>
-            <páginas>654</páginas>
+            <páginas>567</páginas>
             <altura>1</altura>
             <notas>Mayores de 13 años</notas>
             <isbn>55566677</isbn>
             <materias>Thiller</materias>
         </libro>
         <libro>
-            <titulo>El Temor De Un Hombre Sabio</titulo>
+            <titulo>Celda 101</titulo>
             <editorial>Akal</editorial>
-            <páginas>854</páginas>
+            <páginas>525</páginas>
             <altura>3</altura>
             <notas>Mas de 18 años</notas>
             <isbn>22333445</isbn>
             <materias>Fantasia</materias>
         </libro>
         <libro>
-            <titulo>Peter</titulo>
+            <titulo>Eragon</titulo>
             <editorial>McBurg</editorial>
-            <páginas>765</páginas>
+            <páginas>987</páginas>
             <altura>23</altura>
             <notas>Mayores de 15 años</notas>
             <isbn>5676543</isbn>
             <materias>Infantil</materias>
+        </libro>
+        <libro>
+            <titulo>Lo que el viento se llevo</titulo>
+            <editorial>Planeta</editorial>
+            <páginas>2674</páginas>
+            <altura>2</altura>
+            <notas>+27</notas>
+            <isbn>45678910</isbn>
+            <materias>Ciencia Ficcion</materias>
+        </libro>
+        <libro>
+            <titulo>Furia</titulo>
+            <editorial>Planeta</editorial>
+            <páginas>6789</páginas>
+            <altura>23</altura>
+            <notas>`18</notas>
+            <isbn>234567896</isbn>
+            <materias>Apogeo</materias>
         </libro>
     </libros>
 </libreria>
