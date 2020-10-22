@@ -33,6 +33,7 @@ public class Lectortxt {
 				}
 								
 				boo = true;
+				
 				if(linea.contains("Titulo")) {
 					
 					l1.setTitulo(parametro);
