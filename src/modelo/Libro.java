@@ -97,13 +97,8 @@ public class Libro {
 	}
 	
 	
-	/*public String SacarAtributosLibro() {
-		String mensaje="";
-		
-		
-		
-		
-	}
-	*/
+	
+
+	
 	
 }

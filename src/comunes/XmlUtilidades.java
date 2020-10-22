@@ -50,10 +50,12 @@ public class XmlUtilidades {
 
 				Libro lb = new Libro();
 
+				
+				
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) nNode;
-					// System.out.print("\nid : ");
-					// System.out.println(eElement.getAttribute("titulo"));
+					
+					lb.setTitulo(eElement.getAttribute("titulo"));
 					
 					NodeList titulo = eElement.getElementsByTagName("titulo");
 					for (int count = 0; count < titulo.getLength(); count++) {
@@ -64,7 +66,7 @@ public class XmlUtilidades {
 
 							// System.out.print("Editorial : ");
 							// System.out.println(libro.getTextContent());
-							lb.setTitulo(libro.getTextContent());
+							
 
 						}
 					}

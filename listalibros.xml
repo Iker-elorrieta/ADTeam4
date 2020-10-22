@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libreria xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="my.xsd">
+    <libros>
+        <libro>
+            <titulo>El señor de los anillos</titulo>
+            <editorial>Acantilado</editorial>
+            <páginas>967</páginas>
+            <altura>2</altura>
+            <notas>Mayores de 16 años</notas>
+            <isbn>56667788</isbn>
+            <materias>Fantasia</materias>
+        </libro>
+        <libro>
+            <titulo>El Resplandor</titulo>
+            <editorial>Aguilar</editorial>
+            <páginas>654</páginas>
+            <altura>1</altura>
+            <notas>Mayores de 13 años</notas>
+            <isbn>55566677</isbn>
+            <materias>Thiller</materias>
+        </libro>
+        <libro>
+            <titulo>El Temor De Un Hombre Sabio</titulo>
+            <editorial>Akal</editorial>
+            <páginas>854</páginas>
+            <altura>3</altura>
+            <notas>Mas de 18 años</notas>
+            <isbn>22333445</isbn>
+            <materias>Fantasia</materias>
+        </libro>
+        <libro>
+            <titulo>Peter</titulo>
+            <editorial>McBurg</editorial>
+            <páginas>765</páginas>
+            <altura>23</altura>
+            <notas>Mayores de 15 años</notas>
+            <isbn>5676543</isbn>
+            <materias>Infantil</materias>
+        </libro>
+    </libros>
+</libreria>
