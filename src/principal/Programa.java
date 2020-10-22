@@ -17,7 +17,7 @@ public class Programa {
 	private static final String ARCHIVOTXT = "listalibros.txt";
 	private static final String ARCHIVOXML = "Libros.xml";
 	private static final String ARCHIVOCSV = "listalibros.csv";
-	
+	private static ArrayList<Libro> arrayLibro = new ArrayList<Libro>();
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -42,7 +42,7 @@ public class Programa {
 			
 			try {
 				opcion = teclado.nextInt();
-				
+				teclado.nextLine();
 			} catch (InputMismatchException e) {
 				opcion = 0;
 				teclado.nextLine();
@@ -67,7 +67,9 @@ public class Programa {
 				
 				
 				
-			case 2:
+			case 2: //XML
+				
+				
 				int opcionXml= 0;
 				System.out.println("Que desea hacer con el archivo xml.");
 				System.out.println();
@@ -78,6 +80,7 @@ public class Programa {
 				
 				try {
 					opcionXml = teclado.nextInt();
+					teclado.nextLine();
 					
 				} catch (InputMismatchException e) {
 					opcion = 0;
@@ -88,8 +91,7 @@ public class Programa {
 				switch(opcionXml) {
 				
 				case 1:
-				 LectorXml.LeerArchivoXML(Biblioteca.verArchivosALeer("xml"));
-				
+				 arrayLibro=LectorXml.LeerArchivoXML(Biblioteca.verArchivosALeer("xml"));
 				break;
 				
 				case 2:
@@ -106,6 +108,12 @@ public class Programa {
 				break;
 				
 				}
+				
+				
+				
+				
+			break;	
+			
 			case 3:
 				
 				Lectorcsv.lectorcsv(ARCHIVOCSV);

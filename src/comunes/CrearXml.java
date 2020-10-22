@@ -89,7 +89,7 @@ public class CrearXml {
 			itemNode.appendChild(materiaNode);
 
 			
-			raiz.appendChild(itemNode); // pegamos el elemento a la raiz "Documento"
+			raiz.appendChild(itemNode); // Pegamos el elemento a la raiz "Documento"
 
 			
 
@@ -97,7 +97,7 @@ public class CrearXml {
 		System.out.println("Libro Creado, revise la raiz del proyecto");
 		// Generate XML
 		Source source = new DOMSource(document);
-		// Indicamos donde lo queremos almacenar
+		// Indicamos donde lo queremos almacenar.
 		Result result = new StreamResult(new java.io.File(name + ".xml"));
 		Transformer transformer = TransformerFactory.newInstance().newTransformer();
 		transformer.transform(source, result);
