@@ -20,7 +20,6 @@ public class Lectortxt {
 		File readfichero = new File(enlace);
 		FileReader fr = new FileReader (readfichero);
 		BufferedReader br = new BufferedReader(fr);
-	
 			
 			String linea = "";
 			Libro l1 = new Libro();
