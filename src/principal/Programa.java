@@ -27,51 +27,59 @@ public class Programa {
 
 		do {
 
-			ProgramaMensajes.elegirTipoArchivo();
-			
-			if (opcion1 == 1 || opcion1 == 2 || opcion1 == 3) {
-				
-				ProgramaMensajes.leeroEditar();
+			MensajesPrograma.elegirTipoArchivo();
+
+			switch (opcion1) {
+			case 1:
+			case 2:
+			case 3:
+
+				MensajesPrograma.leeroEditar();
+
 				switch (opcion2) {
 				case 1:
-					
-					ProgramaMensajes.leerArchivo();
-					
+
+					MensajesPrograma.leerArchivo();
+
 					break;
 				case 2:
-					
-					ProgramaMensajes.editarArchivo();
-					
+
+					MensajesPrograma.editarArchivo();
+
 					switch (opcion3) {
 					case 1:
-						
-						ProgramaMensajes.anyadirLibro();
-						
+
+						MensajesPrograma.anyadirLibro();
+
 						break;
 					case 2:
-						
-						ProgramaMensajes.editarLibro();
-						
+
+						MensajesPrograma.editarLibro();
+
 						break;
 					case 3:
-						
-						ProgramaMensajes.borrarLibro();
-						
+
+						MensajesPrograma.borrarLibro();
+
 						break;
 
 					default:
 						break;
 					}
-					
+
 					break;
 
 				default:
 					break;
 				}
-				
+
+				break;
+
+			default:
+				break;
 			}
-				
-		} while (opcion1 != 0);
+
+		} while (opcion1 != 0 && opcion2 != 0 && opcion3 != 0);
 
 		System.out.println("Saliendo...");
 

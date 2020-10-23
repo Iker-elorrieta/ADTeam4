@@ -4,23 +4,29 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import org.junit.jupiter.api.Test;
 
 import comunes.XmlUtilidades;
+import comunes.CrearArchivo;
 import comunes.CsvUtilidades;
+import comunes.MostrarDatos;
+import comunes.RellenarLibro;
 import comunes.TxtUtilidades;
 import modelo.Libro;
+import principal.MensajesPrograma;
 import principal.Programa;
 
 class testMain {
 	
-	private TxtUtilidades LT = new TxtUtilidades();
-	
+	private TxtUtilidades LT = new TxtUtilidades();	
 	XmlUtilidades LX = new XmlUtilidades();
-	
-	private CsvUtilidades lc = new CsvUtilidades();
+	private static CsvUtilidades lc;
+	Libro libro = new Libro();
+	ArrayList <Libro> listaLibros;	
+	CrearArchivo crearArchivo = new CrearArchivo();
 
 	/*
 	
@@ -97,7 +103,7 @@ class testMain {
 	@Test
 	void testLectorXMLFallo()   {
 		
-		assertEquals(true,LX.obtenerLibros("Exception.xml") == null);
+		assertEquals(true,LX.obtenerLibros("Exception.xml").size() == 0);
 			 
 
 	}
@@ -114,8 +120,9 @@ class testMain {
 	
 	@Test
 	void testmain1() {
+		MensajesPrograma mensajesprograma = new MensajesPrograma();
 		Programa main = new Programa();
-		String input = "1 \n \1 \n 0 \n";
+		String input = "1\n 1\n 0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
@@ -126,7 +133,7 @@ class testMain {
 	@Test
 	void testmain2() {
 		Programa main = new Programa();
-		String input = "2 \n \1 \n 0 \n";
+		String input = "2\n 1\n 0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
@@ -136,7 +143,7 @@ class testMain {
 	@Test
 	void testmain3() {
 		Programa main = new Programa();
-		String input = "3 \n \1 \n 0 \n";
+		String input = "3\n 1\n 0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
@@ -146,7 +153,7 @@ class testMain {
 	@Test
 	void testmain4() {
 		Programa main = new Programa();
-		String input = "a \n 0 \n";
+		String input = "a\n 0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
@@ -157,7 +164,18 @@ class testMain {
 	@Test
 	void testmain5() {
 		Programa main = new Programa();
-		String input = "3 \n 2 \n 1 \n 1 \n 1 \n 1 \n 1 \n 1 \n 1 \n 1 \n 0 \n";
+		String input = "1\n a\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true, main.iniciarPrograma()); 
+
+	}
+	
+	@Test
+	void testmain6() {
+		Programa main = new Programa();
+		String input = "3\n 2\n 1\n 1\n 1\n 1\n 1\n 1\n 1\n 0\n 0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
@@ -166,14 +184,51 @@ class testMain {
 	}
 	
 	@Test
-	void testmain6() {
+	void testmain7() {
 		Programa main = new Programa();
-		String input = "3 \n 2 \n 3 \n 25 \n 0 \n";
+		listaLibros = CsvUtilidades.obtenerLibros(Programa.getArchivocsv());
+		String ultimo = String.valueOf(listaLibros.size());
+		String input = "3\n 2\n 3\n 1\n " + ultimo + "\n 0 \n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, main.iniciarPrograma());
 
+	}
+	
+	@Test
+	void testmain8() {
+		Programa main = new Programa();
+		listaLibros = CsvUtilidades.obtenerLibros(Programa.getArchivocsv());
+		String input = "3\n 2\n 3\n 0\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true, main.iniciarPrograma());
+
+	}
+	
+	@Test
+	void testmain9() {
+		Programa main = new Programa();
+		String input = "3\n 2\n a\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true, main.iniciarPrograma());
+
+	}
+	
+	// Mostrar datos
+	
+	@Test
+	void testmostrar1() {
+		MostrarDatos mostrarDatos = new MostrarDatos();
+		ArrayList<Libro> listaLibros = new ArrayList<Libro>();
+		listaLibros = CsvUtilidades.obtenerLibros(Programa.getArchivocsv());
+		assertEquals(true, MostrarDatos.mostrarLibros(listaLibros));
+
+		
 	}
 		
 
@@ -190,9 +245,50 @@ class testMain {
 	@Test
 	void testConstructorLibro() {
 		
-		Libro libro = new Libro("ah","ah",3, 2,"ah","ah","ah");
+		libro = new Libro("ah","ah",3, 2,"ah","ah","ah");
 		assertEquals("ah", libro.getEditorial()); 
 
 	}
 	
+	// rellenarLibro
+	
+	@Test
+	void testRellenarLibro() {
+		
+		RellenarLibro rellenarLibro = new RellenarLibro();
+		Libro libro = new Libro();
+		String input = "ah\n ah\n s\n 1\n s\n 1\n ah\n ah\n ah\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		RellenarLibro.rellenarLibro(libro);
+		System.out.println(libro.getTitulo());
+		assertEquals(true, libro.getTitulo().equals("ah")); 
+
+	}
+	
+	// crearArchivo
+	
+	@Test
+	void testCrearArchivo1() {
+		
+		crearArchivo = new CrearArchivo();
+		String input = "1\nn\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(false, CrearArchivo.crearArchivo("sdijsdfis.prueba")); 
+
+	}
+	
+	@Test
+	void testCrearArchivo2() {
+		
+		crearArchivo = new CrearArchivo();
+		String input = "s\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true, CrearArchivo.crearArchivo("sdijsdfis.prueba")); 
+
+	}
 }

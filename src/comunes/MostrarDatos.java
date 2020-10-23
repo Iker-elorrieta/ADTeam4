@@ -6,7 +6,7 @@ import modelo.Libro;
 
 public class MostrarDatos {
 	
-	public static void mostrarLibros(ArrayList <Libro> listaLibros) {
+	public static boolean mostrarLibros(ArrayList <Libro> listaLibros) {
 		
 		for (Libro libro: listaLibros) {
 			
@@ -20,6 +20,10 @@ public class MostrarDatos {
 	        System.out.println("\tMaterias: " + libro.getMaterias());
 			
 		}
+		
+		System.out.println();
+		
+		return true;
 		
 	}
 

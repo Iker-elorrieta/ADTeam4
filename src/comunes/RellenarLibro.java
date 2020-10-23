@@ -13,13 +13,41 @@ public class RellenarLibro {
 		System.out.print("Introduzca la editorial del libro: ");
 		libro.setEditorial(Programa.teclado.nextLine());
 		
-		System.out.print("Introduzca las páginas del libro: ");
-		libro.setPaginas(Programa.teclado.nextInt());
-		Programa.teclado.nextLine();
+		do {
+			System.out.print("Introduzca las páginas del libro: ");
+			try {
+				libro.setPaginas(Programa.teclado.nextInt());
+				Programa.teclado.nextLine();
+			} catch (Exception e) {
+				libro.setPaginas(-1);
+				Programa.teclado.nextLine();
+			} 
+			
+			if (libro.getPaginas() < 0) {
+				System.out.println();
+				System.out.println("Número de páginas no válido, vuelva a intentarlo");
+				System.out.println();
+			}
+			
+		} while (libro.getPaginas() < 0);
 		
-		System.out.print("Introduzca la altura del libro: ");
-		libro.setAltura(Programa.teclado.nextInt());
-		Programa.teclado.nextLine();
+		do {
+			System.out.print("Introduzca la altura del libro: ");
+			try {
+				libro.setAltura(Programa.teclado.nextInt());
+				Programa.teclado.nextLine();
+			} catch (Exception e) {
+				libro.setAltura(-1);
+				Programa.teclado.nextLine();
+			} 
+			
+			if (libro.getAltura() < 0) {
+				System.out.println();
+				System.out.println("Altura no válida, vuelva a intentarlo");
+				System.out.println();
+			}
+			
+		} while (libro.getAltura() < 0);
 		
 		System.out.print("Introduzca las notas del libro: ");
 		libro.setNotas(Programa.teclado.nextLine());

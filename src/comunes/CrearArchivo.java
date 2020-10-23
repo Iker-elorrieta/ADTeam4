@@ -11,10 +11,12 @@ public class CrearArchivo {
 		
 		File fichero = new File (archivo);
 		String opcion = new String();
+		Boolean creado = false;
 		
 		if (!fichero.exists()) {
 			
 			do {
+				System.out.println();
 				System.out.print("El archivo no existe, ¿quiere crear uno nuevo? S/N: ");
 				opcion = Programa.teclado.nextLine();
 				
@@ -30,19 +32,21 @@ public class CrearArchivo {
 				
 				try {
 					fichero.createNewFile();
+					System.out.println();
 					System.out.println("El archivo " + archivo + " ha sido creado");
+					creado = true;
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					System.out.println("Ocurrió un error al crear el archivo");
 				}
 				
 			} else {
-				
+				System.out.println();
 				System.out.println("Eligió no crear un archivo. Volviendo...");
+				System.out.println();
 			}
 			
 		}
 	
-		return true;
+		return creado;
 	}
 }
