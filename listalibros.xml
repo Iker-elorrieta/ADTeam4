@@ -55,5 +55,14 @@
             <isbn>234567896</isbn>
             <materias>Apogeo</materias>
         </libro>
+        <libro>
+            <titulo>Peter</titulo>
+            <editorial>Planeta</editorial>
+            <páginas>67</páginas>
+            <altura>2</altura>
+            <notas/>
+            <isbn>764</isbn>
+            <materias>6778832</materias>
+        </libro>
     </libros>
 </libreria>

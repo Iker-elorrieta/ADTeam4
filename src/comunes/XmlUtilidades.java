@@ -152,13 +152,7 @@ public class XmlUtilidades {
 					
 				}	
 						
-				
-				
-					MostrarDatos.mostrarLibros(arrayLibros);
-					
-					
-					
-				
+								
 
 				
 		} catch (Exception e) {
