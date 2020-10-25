@@ -43,7 +43,7 @@ public class XmlUtilidades {
 				Document doc = dBuilder.parse(archivoXML);
 				doc.getDocumentElement().normalize();
 
-				System.out.println(doc.getDocumentElement().getNodeName());
+			
 
 				NodeList nList = doc.getElementsByTagName("libro");
 				for (int temp = 0; temp < nList.getLength(); temp++) {

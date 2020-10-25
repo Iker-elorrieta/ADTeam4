@@ -105,10 +105,18 @@ public class Opciones {
 	
 	public static void mostrarBiblioteca() {
 		
-		System.out.println("Ha elegido mostrar biblioteca");
-		System.out.println();
-		MostrarDatos.mostrarLibros(Programa.biblioteca.getListaLibros());
-		System.out.println();
+		
+		if(Programa.biblioteca.getListaLibros().size()>0) {
+			
+			System.out.println("Ha elegido mostrar biblioteca");
+			System.out.println();
+			MostrarDatos.mostrarLibros(Programa.biblioteca.getListaLibros());
+			System.out.println();
+		
+		}else {
+			System.out.println("Necesita cargar un libro antes de leerlo");
+			System.out.println();
+		}
 		
 	}
 	

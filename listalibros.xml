@@ -2,13 +2,40 @@
 <libreria>
     <libros>
         <libro>
-            <titulo/>
-            <editorial/>
-            <páginas>6</páginas>
-            <altura>6</altura>
-            <notas>5</notas>
-            <isbn>5</isbn>
-            <materias>5</materias>
+            <titulo>El señor de los anillos</titulo>
+            <editorial>Acantilado</editorial>
+            <páginas>967</páginas>
+            <altura>2</altura>
+            <notas>Mayores de 16 años</notas>
+            <isbn>56667788</isbn>
+            <materias>Fantasia</materias>
+        </libro>
+        <libro>
+            <titulo>El Resplandor</titulo>
+            <editorial>Aguilar</editorial>
+            <páginas>654</páginas>
+            <altura>1</altura>
+            <notas>Mayores de 13 años</notas>
+            <isbn>55566677</isbn>
+            <materias>Thiller</materias>
+        </libro>
+        <libro>
+            <titulo>El Temor De Un Hombre Sabio</titulo>
+            <editorial>Akal</editorial>
+            <páginas>854</páginas>
+            <altura>3</altura>
+            <notas>Mas de 18 años</notas>
+            <isbn>22333445</isbn>
+            <materias>Fantasia</materias>
+        </libro>
+        <libro>
+            <titulo>pepe</titulo>
+            <editorial>ranita</editorial>
+            <páginas>40</páginas>
+            <altura>20</altura>
+            <notas>ere</notas>
+            <isbn>rere</isbn>
+            <materias>rere</materias>
         </libro>
     </libros>
 </libreria>
