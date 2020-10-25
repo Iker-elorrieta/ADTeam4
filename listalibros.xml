@@ -2,67 +2,13 @@
 <libreria>
     <libros>
         <libro>
-            <titulo>Lo que el viento se llevo</titulo>
-            <editorial>Acantilado</editorial>
-            <páginas>248</páginas>
-            <altura>2</altura>
-            <notas>Mayores de 16 años</notas>
-            <isbn>56667788</isbn>
-            <materias>Fantasia</materias>
-        </libro>
-        <libro>
-            <titulo>El señor de los anillos</titulo>
-            <editorial>Aguilar</editorial>
-            <páginas>567</páginas>
-            <altura>1</altura>
-            <notas>Mayores de 13 años</notas>
-            <isbn>55566677</isbn>
-            <materias>Thiller</materias>
-        </libro>
-        <libro>
-            <titulo>Celda 101</titulo>
-            <editorial>Akal</editorial>
-            <páginas>525</páginas>
-            <altura>3</altura>
-            <notas>Mas de 18 años</notas>
-            <isbn>22333445</isbn>
-            <materias>Fantasia</materias>
-        </libro>
-        <libro>
-            <titulo>Eragon</titulo>
-            <editorial>McBurg</editorial>
-            <páginas>987</páginas>
-            <altura>23</altura>
-            <notas>Mayores de 15 años</notas>
-            <isbn>5676543</isbn>
-            <materias>Infantil</materias>
-        </libro>
-        <libro>
-            <titulo>Lo que el viento se llevo</titulo>
-            <editorial>Planeta</editorial>
-            <páginas>2674</páginas>
-            <altura>2</altura>
-            <notas>+27</notas>
-            <isbn>45678910</isbn>
-            <materias>Ciencia Ficcion</materias>
-        </libro>
-        <libro>
-            <titulo>Furia</titulo>
-            <editorial>Planeta</editorial>
-            <páginas>6789</páginas>
-            <altura>23</altura>
-            <notas>`18</notas>
-            <isbn>234567896</isbn>
-            <materias>Apogeo</materias>
-        </libro>
-        <libro>
-            <titulo>Peter</titulo>
-            <editorial>Planeta</editorial>
-            <páginas>67</páginas>
-            <altura>2</altura>
-            <notas/>
-            <isbn>764</isbn>
-            <materias>6778832</materias>
+            <titulo/>
+            <editorial/>
+            <páginas>6</páginas>
+            <altura>6</altura>
+            <notas>5</notas>
+            <isbn>5</isbn>
+            <materias>5</materias>
         </libro>
     </libros>
 </libreria>

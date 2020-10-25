@@ -1,10 +1,8 @@
-package comunes;
+package modelo;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import modelo.Libro;
 
 public class Biblioteca {
 
@@ -33,48 +31,7 @@ public class Biblioteca {
 		
 		
 	}
-	
-
-
-
-
-	public void creacionLibro() {
 		
-		
-		
-		
-		//Faltan comprobaciones
-		System.out.println("¿Cuantos libros quiere crear?");
-		
-		
-		Libro  lb = new Libro();
-		
-		
-		System.out.println("Introduzca titulo del libro a crear");
-		lb.setTitulo(sc.nextLine());
-		System.out.println("Introduzca editorial del libro a crear");
-		lb.setEditorial(sc.nextLine());
-		System.out.println("Introduzca paginas del libro a crear");
-		lb.setPaginas(sc.nextInt());
-		System.out.println("Introduzca altura del libro a crear");
-		lb.setAltura(sc.nextInt());
-		System.out.println("Introduzca notas del libro a crear");
-		lb.setNotas(sc.nextLine());
-		System.out.println("Introduzca isbn del libro a crear");
-		lb.setIsbn(sc.nextLine());
-		System.out.println("Introduzca materias del libro a crear");
-		lb.setMaterias(sc.nextLine());
-		
-		
-		System.out.println("Libro añadido al Array");
-		
-		this.arrayBiblioteca.add(lb);
-		
-		
-	}
-	
-	
-	
 	//Metodo que devuelve en un array de Strings todos los archivos que hay en una carpeta, en base a su extension
 	
 	public static String verArchivosALeer(String extension){

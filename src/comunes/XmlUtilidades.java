@@ -230,7 +230,7 @@ public class XmlUtilidades {
 			transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
 			transformer.transform(source, result);
 
-			System.out.println("Archivo creado");
+			
 			System.out.println();
 		} catch (DOMException e) {
 			// TODO Auto-generated catch block
