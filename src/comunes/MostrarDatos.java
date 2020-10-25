@@ -21,8 +21,6 @@ public class MostrarDatos {
 			
 		}
 		
-		System.out.println();
-		
 		return true;
 		
 	}

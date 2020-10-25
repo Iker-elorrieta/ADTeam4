@@ -34,7 +34,7 @@ public class TxtUtilidades {
 					parametro = linea.split(SPLIT)[1];
 				}
 
-				if(linea.contains("Titulo")) {
+				if(linea.contains("Título")) {
 					
 					l1.setTitulo(parametro);
 				} 
@@ -42,7 +42,7 @@ public class TxtUtilidades {
 					
 					l1.setEditorial(parametro);
 				}
-				if(linea.contains("Paginas")) {
+				if(linea.contains("Páginas")) {
 					
 					l1.setPaginas(Integer.parseInt(parametro));
 				}
@@ -54,7 +54,7 @@ public class TxtUtilidades {
 					
 					l1.setNotas(parametro);
 				}
-				if(linea.contains("Isbn")) {
+				if(linea.contains("ISBN")) {
 					
 					l1.setIsbn(parametro);
 				}
@@ -70,7 +70,7 @@ public class TxtUtilidades {
 			br.close();
 			
 		} catch (Exception e) {
-			e.printStackTrace();;
+			System.out.println("El sistema no puede encontrar el archivo especificado");
 
 		}
 		
@@ -86,9 +86,9 @@ public class TxtUtilidades {
 			FileWriter fw = new FileWriter(txt);
 			BufferedWriter bfwriter = new BufferedWriter(fw);
 			for (Libro l1 : libro) {
-				bfwriter.write("-Título: " + l1.getTitulo() + "," + l1.getEditorial() + "," + l1.getPaginas()
-						+ "," + l1.getAltura() + "," + l1.getNotas() + "," + l1.getIsbn() + "," + l1.getMaterias() 
-						+ "\n *******************************" );
+				bfwriter.write("- Título: " + l1.getTitulo() + "\n- Editorial: " + l1.getEditorial() + "\n- Páginas: " + l1.getPaginas()
+						+ "\n- Altura: " + l1.getAltura() + "\n- Notas: " + l1.getNotas() + "\n- ISBN: " 
+						+ l1.getIsbn() + "\n- Materias: " + l1.getMaterias() + "\n*******************************\n");
 			}
 			boo=true;
 			bfwriter.close();

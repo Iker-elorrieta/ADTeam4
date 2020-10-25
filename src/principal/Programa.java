@@ -1,21 +1,15 @@
 package principal;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-import modelo.Libro;
+
+import modelo.Biblioteca;
 
 public class Programa {
 
 	public static Scanner teclado = new Scanner(System.in);
-	private static ArrayList<Libro> listaLibros = new ArrayList<Libro>();
-	private static final String ARCHIVOTXT = "listalibros.txt";
-	private static final String ARCHIVOXML = "listalibros.xml";
-	private static final String ARCHIVOCSV = "listalibros.csv";
-	private static String tipoArchivo = new String();
+	public static Biblioteca biblioteca = new Biblioteca();
 	private static String archivo = new String();
-	private static int opcion1 = -1;
-	private static int opcion2 = -1;
-	private static int opcion3 = -1;
+	private static int opcion = -1;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -24,87 +18,69 @@ public class Programa {
 	}
 
 	public static boolean iniciarPrograma() {
-
+			
 		do {
-
-			MensajesPrograma.elegirTipoArchivo();
-
-			switch (opcion1) {
+			System.out.println("Introduzca 1 para cargar biblioteca");
+			System.out.println("Introduzca 2 para leer biblioteca");
+			System.out.println("Introduzca 3 para editar biblioteca");
+			System.out.println("Introduzca 4 para guardar biblioteca");
+			System.out.println("Introduzca 0 para salir");
+			System.out.println();
+			System.out.print("Elija su opción: ");
+			try {
+				opcion = teclado.nextInt();
+				teclado.nextLine();
+			} catch (Exception e) {
+				teclado.nextLine();
+				opcion = -1;
+			}
+			switch (opcion) {
 			case 1:
-			case 2:
-			case 3:
-
-				MensajesPrograma.leeroEditar();
-
-				switch (opcion2) {
-				case 1:
-
-					MensajesPrograma.leerArchivo();
-
-					break;
-				case 2:
-
-					MensajesPrograma.editarArchivo();
-
-					switch (opcion3) {
-					case 1:
-
-						MensajesPrograma.anyadirLibro();
-
-						break;
-					case 2:
-
-						MensajesPrograma.editarLibro();
-
-						break;
-					case 3:
-
-						MensajesPrograma.borrarLibro();
-
-						break;
-
-					default:
-						break;
-					}
-
-					break;
-
-				default:
-					break;
-				}
-
+				
+				System.out.println();
+				Opciones.cargarBiblioteca();
+				
 				break;
-
+				
+			case 2:
+				
+				System.out.println();
+				Opciones.mostrarBiblioteca();
+			
+				break;
+			
+			case 3:
+				
+				System.out.println();
+				Opciones.editarBiblioteca();
+		
+				break;
+				
+			case 4:
+				
+				System.out.println();
+				Opciones.guardarBiblioteca();
+	
+				break;
+				
 			default:
 				break;
 			}
-
-		} while (opcion1 != 0 && opcion2 != 0 && opcion3 != 0);
-
-		System.out.println("Saliendo...");
-
+			
+			if (opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 0 && opcion != 9) {
+				
+				System.out.println();
+				System.out.println("Opción no válida, vuelva a intentarlo");
+				System.out.println();
+			}
+			
+		} while (opcion != 0);
+		
+		System.out.println();
+		System.out.println("Saliendo...");	
+		
 		return true;
-
-	}
-
-	public static String getArchivotxt() {
-		return ARCHIVOTXT;
-	}
-
-	public static String getArchivoxml() {
-		return ARCHIVOXML;
-	}
-
-	public static String getArchivocsv() {
-		return ARCHIVOCSV;
-	}
-
-	public static String getTipoArchivo() {
-		return tipoArchivo;
-	}
-
-	public static void setTipoArchivo(String tipoArchivo) {
-		Programa.tipoArchivo = tipoArchivo;
+		
 	}
 
 	public static String getArchivo() {
@@ -115,36 +91,13 @@ public class Programa {
 		Programa.archivo = archivo;
 	}
 
-	public static int getOpcion1() {
-		return opcion1;
+	public static int getOpcion() {
+		return opcion;
 	}
 
-	public static void setOpcion1(int opcion1) {
-		Programa.opcion1 = opcion1;
+	public static void setOpcion(int opcion1) {
+		Programa.opcion = opcion1;
 	}
-
-	public static int getOpcion2() {
-		return opcion2;
-	}
-
-	public static void setOpcion2(int opcion2) {
-		Programa.opcion2 = opcion2;
-	}
-
-	public static int getOpcion3() {
-		return opcion3;
-	}
-
-	public static void setOpcion3(int opcion3) {
-		Programa.opcion3 = opcion3;
-	}
-
-	public static ArrayList<Libro> getListaLibros() {
-		return listaLibros;
-	}
-
-	public static void setListaLibros(ArrayList<Libro> listaLibros) {
-		Programa.listaLibros = listaLibros;
-	}
-
+	
 }
+

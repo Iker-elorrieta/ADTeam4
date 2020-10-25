@@ -1,16 +1,16 @@
-- Titulo: La abeja amaya
+- Título: La abeja amaya
 - Editorial: Iberia
-- Paginas: 123
+- Páginas: 123
 - Altura: 70
 - Notas: Para niños
-- Isbn: 0-7645-2641-3
+- ISBN: 0-7645-2641-3
 - Materias: Infantil
 *******************************
-- Titulo: Cars 1
+- Título: Cars 1
 - Editorial: Marvel
-- Paginas: 200
+- Páginas: 200
 - Altura: 75
 - Notas: Para niños
-- Isbn: 0-7645-2771-3
+- ISBN: 0-7645-2771-3
 - Materias: Infantil
 *******************************
