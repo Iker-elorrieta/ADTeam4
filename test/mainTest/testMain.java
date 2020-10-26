@@ -204,10 +204,23 @@ class testMain {
 
 	}
 	
-	// Editar biblioteca. Se añade un libro a la biblioteca
+	// Leer biblioteca. Se intenta leer la biblioteca sin haber cargado nada antes
 	
 	@Test
 	void testmain8() {
+		String input = "2\n0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true, Programa.iniciarPrograma());
+		Programa.biblioteca.getListaLibros().clear();
+
+	}
+	
+	// Editar biblioteca. Se añade un libro a la biblioteca
+	
+	@Test
+	void testmain9() {
 		String input = "3\n1\n1\n1\n1\n1\n1\n1\n1\n3\n1\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -220,7 +233,7 @@ class testMain {
 	// Editar biblioteca. Se añade un libro a la biblioteca y luego se edita
 	
 	@Test
-	void testmain9() {
+	void testmain10() {
 		String input = "3\n1\n1\n1\n1\n1\n1\n1\n1\n2\n1\n1\n1\n1\n1\n1\n1\n1\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -234,7 +247,7 @@ class testMain {
 	// pero se introduce un caracter no válido
 	
 	@Test
-	void testmain10() {
+	void testmain11() {
 		String input = "3\n1\n1\n1\n1\n1\n1\n1\n1\n3\na\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -248,7 +261,7 @@ class testMain {
 	// pero se introduce un número de libro que no existe, el 4
 	
 	@Test
-	void testmain11() {
+	void testmain12() {
 		String input = "3\n1\n1\n1\n1\n1\n1\n1\n1\n3\n4\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -262,7 +275,7 @@ class testMain {
 	// se introduce un caracter no válido
 
 	@Test
-	void testmain12() {
+	void testmain13() {
 		String input = "3\n2\na\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -276,7 +289,7 @@ class testMain {
 	// poniendo un caracter no válido y después un número de libro que no existe
 	
 	@Test
-	void testmain13() {
+	void testmain14() {
 		String input = "1\nlistalibros.csv\n3\n2\na\n4\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -289,7 +302,7 @@ class testMain {
 	// Editar biblioteca. Se intenta borrar un libro con la biblioteca vacía
 	
 	@Test
-	void testmain14() {
+	void testmain15() {
 		String input = "3\n3\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -302,7 +315,7 @@ class testMain {
 	// Editar biblioteca. Opción volver.
 	
 	@Test
-	void testmain15() {
+	void testmain16() {
 		String input = "3\n9\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -315,7 +328,7 @@ class testMain {
 	// Guardar biblioteca. Se guarda la biblioteca en un archivo txt.
 	
 	@Test
-	void testmain16() {
+	void testmain17() {
 		file = new File("archivoprueba.txt");
 		String input = "1\nlistalibros.txt\n4\narchivoprueba.txt\ns\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -330,7 +343,7 @@ class testMain {
 	// Guardar biblioteca. Se guarda la biblioteca en un archivo xml.
 	
 	@Test
-	void testmain17() {
+	void testmain18() {
 		file = new File("archivoprueba.xml");
 		String input = "1\nlistalibros.txt\n4\narchivoprueba.xml\ns\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -345,7 +358,7 @@ class testMain {
 	// Guardar biblioteca. Se guarda la biblioteca en un archivo csv.
 	
 	@Test
-	void testmain18() {
+	void testmain19() {
 		file = new File("archivoprueba.csv");
 		String input = "1\nlistalibros.txt\n4\narchivoprueba.csv\ns\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -361,7 +374,7 @@ class testMain {
 	// para guardar la biblioteca
 	
 	@Test
-	void testmain19() {
+	void testmain20() {
 		String input = "1\nlistalibros.txt\n4\narchivoprueba.test\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -375,7 +388,7 @@ class testMain {
 	// la biblioteca y se elije no crearlo.
 	
 	@Test
-	void testmain20() {
+	void testmain21() {
 		String input = "1\nlistalibros.txt\n4\narchivopruebanoexiste.txt\nn\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -388,7 +401,7 @@ class testMain {
 	// Guardar biblioteca. Opción volver.
 	
 	@Test
-	void testmain21() {
+	void testmain22() {
 		String input = "1\nlistalibros.txt\n4\n9\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -402,7 +415,7 @@ class testMain {
 	// cargado antes.
 	
 	@Test
-	void testmain22() {
+	void testmain23() {
 		String input = "4\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -415,7 +428,7 @@ class testMain {
 	// segundo intento después de introducir un caracter no válido
 	
 	@Test
-	void testmain23() {
+	void testmain24() {
 		file = new File("listalibrospruebas.csv");
 		String input = "1\nlistalibros.csv\n4\nlistalibrospruebas.csv\na\ns\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -431,7 +444,7 @@ class testMain {
 	// y luego se cancela la sobreescritura
 	
 	@Test
-	void testmain24() {
+	void testmain25() {
 		String input = "1\nlistalibros.csv\n4\nlistalibros.csv\na\nn\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -444,7 +457,7 @@ class testMain {
 	// Guardar biblioteca. Se sobreescribe el archivo
 	
 	@Test
-	void testmain25() {
+	void testmain26() {
 		file = new File("listaprueba.csv");
 		Archivo.crearArchivo("listaprueba.csv");
 		String input = "1\nlistalibros.csv\n4\nlistaprueba.csv\ns\n0\n";
