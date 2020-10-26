@@ -28,14 +28,5 @@
             <isbn>22333445</isbn>
             <materias>Fantasia</materias>
         </libro>
-        <libro>
-            <titulo>pepe</titulo>
-            <editorial>ranita</editorial>
-            <páginas>40</páginas>
-            <altura>20</altura>
-            <notas>ere</notas>
-            <isbn>rere</isbn>
-            <materias>rere</materias>
-        </libro>
     </libros>
 </libreria>

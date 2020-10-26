@@ -231,7 +231,7 @@ public class XmlUtilidades {
 			transformer.transform(source, result);
 
 			
-			System.out.println();
+			
 		} catch (DOMException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
