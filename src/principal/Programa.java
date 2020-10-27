@@ -1,82 +1,103 @@
 package principal;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
-import comunes.LectorXml;
-import comunes.Lectorcsv;
-import comunes.Lectortxt;
+
+import modelo.Biblioteca;
 
 public class Programa {
-	
-	public static Scanner teclado = new Scanner (System.in);
-	private static final String ARCHIVOTXT = "listalibros.txt";
-	private static final String ARCHIVOXML = "Libros.xml";
-	private static final String ARCHIVOCSV = "listalibros.csv";
+
+	public static Scanner teclado = new Scanner(System.in);
+	public static Biblioteca biblioteca = new Biblioteca();
+	private static String archivo = new String();
+	private static int opcion = -1;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	   
-		iniciarPrograma(teclado);
+
+		iniciarPrograma();
 	}
-	
-	public static boolean iniciarPrograma(Scanner teclado) {
-		
-		int opcion = 0;
-		
-		System.out.println("¿Qué tipo de fichero quiere leer?");
-		
-		do {
+
+	public static boolean iniciarPrograma() {
 			
-			System.out.println();
-			System.out.println("Introduzca 1 para leer un archivo .txt");
-			System.out.println("Introduzca 2 para leer un archivo .xml");
-			System.out.println("Introduzca 3 para leer un archivo .csv");
+		do {
+			System.out.println("Introduzca 1 para cargar biblioteca");
+			System.out.println("Introduzca 2 para leer biblioteca");
+			System.out.println("Introduzca 3 para editar biblioteca");
+			System.out.println("Introduzca 4 para guardar biblioteca");
+			System.out.println("Introduzca 0 para salir");
 			System.out.println();
 			System.out.print("Elija su opción: ");
-			
 			try {
 				opcion = teclado.nextInt();
-				
-			} catch (InputMismatchException e) {
-				opcion = 0;
 				teclado.nextLine();
+			} catch (Exception e) {
+				teclado.nextLine();
+				opcion = -1;
 			}
-			
-			if (opcion != 1 && opcion != 2 && opcion != 3) {
-				
-				System.out.println();
-				System.out.println("Opción incorrecta, vuelva a elegir");
-			}
-			
-			System.out.println();
-			
 			switch (opcion) {
 			case 1:
 				
-				Lectortxt.lectorTxt(ARCHIVOTXT);
-					
+				System.out.println();
+				Opciones.cargarBiblioteca();
+				
 				break;
 				
 			case 2:
 				
-				LectorXml.LeerArchivoXML(ARCHIVOXML);
+				System.out.println();
+				Opciones.mostrarBiblioteca();
 			
 				break;
 			
 			case 3:
 				
-				Lectorcsv.lectorcsv(ARCHIVOCSV);
-					
+				System.out.println();
+				Opciones.editarBiblioteca();
+		
 				break;
-
+				
+			case 4:
+				
+				System.out.println();
+				Opciones.guardarBiblioteca();
+	
+				break;
+				
 			default:
 				break;
 			}
 			
-		} while (opcion != 1 && opcion != 2 && opcion != 3);
+			if (opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 0 && opcion != 9) {
+				
+				System.out.println();
+				System.out.println("Opción no válida, vuelva a intentarlo");
+				System.out.println();
+			}
+			
+		} while (opcion != 0);
+		
+		System.out.println();
+		System.out.println("Saliendo...");	
 		
 		return true;
 		
 	}
+
+	public static String getArchivo() {
+		return archivo;
+	}
+
+	public static void setArchivo(String archivo) {
+		Programa.archivo = archivo;
+	}
+
+	public static int getOpcion() {
+		return opcion;
+	}
+
+	public static void setOpcion(int opcion1) {
+		Programa.opcion = opcion1;
+	}
 	
 }
+

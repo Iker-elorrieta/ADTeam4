@@ -95,5 +95,10 @@ public class Libro {
 	public void setMaterias(String materias) {
 		this.materias = materias;
 	}
+	
+	
+	
 
+	
+	
 }
