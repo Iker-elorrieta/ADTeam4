@@ -5,6 +5,7 @@ import comunes.CsvUtilidades;
 import comunes.MostrarDatos;
 import comunes.RellenarLibro;
 import comunes.TxtUtilidades;
+import comunes.Validaciones;
 import comunes.XmlUtilidades;
 import modelo.Libro;
 
@@ -22,10 +23,7 @@ public class Opciones {
 			System.out.println();
 			System.out.print("Elija su opción: ");
 			Programa.setArchivo(Programa.teclado.nextLine());
-			if (Programa.getArchivo().contains(".") && (Programa.getArchivo()
-					.substring(Programa.getArchivo().lastIndexOf(".") + 1).equals("txt")
-					|| Programa.getArchivo().substring(Programa.getArchivo().lastIndexOf(".") + 1).equals("xml")
-					|| Programa.getArchivo().substring(Programa.getArchivo().lastIndexOf(".") + 1).equals("csv"))) {
+			if (Validaciones.validarExtension(Programa.getExtensiones(), Programa.getArchivo())) {
 				
 				if (Archivo.comprobarArchivo(Programa.getArchivo())) {
 					
@@ -285,11 +283,7 @@ public class Opciones {
 
 				default:
 					
-					if (Programa.getArchivo().contains(".") && (Programa.getArchivo()
-							.substring(Programa.getArchivo().lastIndexOf(".") + 1).equals("txt")
-							|| Programa.getArchivo().substring(Programa.getArchivo().lastIndexOf(".") + 1).equals("xml")
-							|| Programa.getArchivo().substring(Programa.getArchivo().lastIndexOf(".") + 1).equals("csv"))) {
-						
+					if (Validaciones.validarExtension(Programa.getExtensiones(), Programa.getArchivo())) {
 						
 						String opcion = new String();
 						Boolean quiere = false;

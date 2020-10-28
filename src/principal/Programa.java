@@ -10,6 +10,7 @@ public class Programa {
 	public static Biblioteca biblioteca = new Biblioteca();
 	private static String archivo = new String();
 	private static int opcion = -1;
+	private static final String[] EXTENSIONES = {"txt","xml","csv"};
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -97,6 +98,10 @@ public class Programa {
 
 	public static void setOpcion(int opcion1) {
 		Programa.opcion = opcion1;
+	}
+
+	public static String[] getExtensiones() {
+		return EXTENSIONES;
 	}
 	
 }
