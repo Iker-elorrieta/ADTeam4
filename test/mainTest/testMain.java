@@ -470,6 +470,22 @@ class testMain {
 		
 	}
 	
+	// Vaciar biblioteca
+	
+	@Test
+	void testmain27() {
+		file = new File("listaprueba.csv");
+		Archivo.crearArchivo("listaprueba.csv");
+		String input = "1\nlistalibros.csv\n3\n4\n0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true, Programa.iniciarPrograma());
+		Programa.biblioteca.getListaLibros().clear();
+		file.delete();
+		
+	}
+	
 	// Mostrar datos
 	
 	// Carga de libro y muestra de datos
