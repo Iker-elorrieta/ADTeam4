@@ -7,7 +7,7 @@ import modelo.Biblioteca;
 public class Programa {
 
 	public static Scanner teclado = new Scanner(System.in);
-	public static Biblioteca biblioteca = new Biblioteca();
+	private static Biblioteca biblioteca = new Biblioteca();
 	private static String archivo = new String();
 	private static int opcion = -1;
 	private static final String[] EXTENSIONES = {"txt","xml","csv"};
@@ -102,6 +102,14 @@ public class Programa {
 
 	public static String[] getExtensiones() {
 		return EXTENSIONES;
+	}
+
+	public static Biblioteca getBiblioteca() {
+		return biblioteca;
+	}
+
+	public static void setBiblioteca(Biblioteca biblioteca) {
+		Programa.biblioteca = biblioteca;
 	}
 	
 }
