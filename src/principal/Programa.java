@@ -2,6 +2,7 @@ package principal;
 
 import java.util.Scanner;
 
+
 import modelo.Biblioteca;
 
 public class Programa {
@@ -21,6 +22,7 @@ public class Programa {
 	public static boolean iniciarPrograma() {
 			
 		do {
+			
 			System.out.println("Introduzca 1 para cargar biblioteca");
 			System.out.println("Introduzca 2 para leer biblioteca");
 			System.out.println("Introduzca 3 para editar biblioteca");
@@ -108,9 +110,5 @@ public class Programa {
 		return biblioteca;
 	}
 
-	public static void setBiblioteca(Biblioteca biblioteca) {
-		Programa.biblioteca = biblioteca;
-	}
-	
 }
 
