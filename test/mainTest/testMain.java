@@ -139,7 +139,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 	}
 	
 	// Cargar biblioteca. Carga de archivo xml
@@ -151,7 +151,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 		
 	}
 	
@@ -164,7 +164,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 	}
 	
 	// Cargar biblioteca. Intento de carga con nombre de archivo no válido, después se selecciona volver
@@ -176,7 +176,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 	}
 	
 	// Cargar biblioteca. Intento de carga con una extensión de archivo válida pero el archivo no existe
@@ -188,7 +188,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 	}
 	
 	// Leer biblioteca. Se carga un archivo y luego se lee
@@ -200,7 +200,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 
 	}
 	
@@ -213,7 +213,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 
 	}
 	
@@ -226,7 +226,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 
 	}
 	
@@ -239,7 +239,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 
 	}
 	
@@ -253,7 +253,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 
 	}
 	
@@ -267,7 +267,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 
 	}
 	
@@ -281,7 +281,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 
 	}
 	
@@ -295,7 +295,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 		
 	}
 	
@@ -308,7 +308,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 
 	}
 	
@@ -321,7 +321,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 
 	}
 	
@@ -335,7 +335,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 		file.delete();
 
 	}
@@ -350,7 +350,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 		file.delete();
 
 	}
@@ -365,7 +365,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 		file.delete();
 
 	}
@@ -380,7 +380,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 		
 	}
 	
@@ -394,7 +394,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 
 	}
 	
@@ -407,7 +407,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 
 	}
 	
@@ -435,7 +435,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 		file.delete();
 		
 	}
@@ -450,7 +450,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
 		
 	}
 	
@@ -465,7 +465,23 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		assertEquals(true, Programa.iniciarPrograma());
-		Programa.biblioteca.getListaLibros().clear();
+		Programa.getBiblioteca().getListaLibros().clear();
+		file.delete();
+		
+	}
+	
+	// Vaciar biblioteca
+	
+	@Test
+	void testmain27() {
+		file = new File("listaprueba.csv");
+		Archivo.crearArchivo("listaprueba.csv");
+		String input = "1\nlistalibros.csv\n3\n4\n0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true, Programa.iniciarPrograma());
+		Programa.getBiblioteca().getListaLibros().clear();
 		file.delete();
 		
 	}

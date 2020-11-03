@@ -5,6 +5,7 @@ import comunes.CsvUtilidades;
 import comunes.MostrarDatos;
 import comunes.RellenarLibro;
 import comunes.TxtUtilidades;
+import comunes.Validaciones;
 import comunes.XmlUtilidades;
 import modelo.Libro;
 
@@ -22,20 +23,15 @@ public class Opciones {
 			System.out.println();
 			System.out.print("Elija su opción: ");
 			Programa.setArchivo(Programa.teclado.nextLine());
-			if (Programa.getArchivo().contains(".") && (Programa.getArchivo()
-					.substring(Programa.getArchivo().lastIndexOf(".") + 1).equals("txt")
-					|| Programa.getArchivo().substring(Programa.getArchivo().lastIndexOf(".") + 1).equals("xml")
-					|| Programa.getArchivo().substring(Programa.getArchivo().lastIndexOf(".") + 1).equals("csv"))) {
+			if (Validaciones.validarExtension(Programa.getExtensiones(), Programa.getArchivo())) {
 				
 				if (Archivo.comprobarArchivo(Programa.getArchivo())) {
 					
-					Programa.biblioteca.getListaLibros().clear();
 					Programa.setOpcion(9);
 
-					switch (Programa.getArchivo().substring(Programa.getArchivo().lastIndexOf(".") + 1)) {
+					switch (Validaciones.obtenerExtension(Programa.getArchivo())) {
 					case "txt":
-						
-						Programa.biblioteca.setListaLibros(TxtUtilidades.obtenerLibros(Programa.getArchivo()));
+						Programa.getBiblioteca().anyadirLibros(TxtUtilidades.obtenerLibros(Programa.getArchivo()));
 						System.out.println();
 						System.out.println("Archivo " + Programa.getArchivo() + " cargado en la biblioteca");
 						System.out.println();
@@ -44,7 +40,7 @@ public class Opciones {
 
 					case "xml":
 						
-						Programa.biblioteca.setListaLibros(XmlUtilidades.obtenerLibros(Programa.getArchivo()));
+						Programa.getBiblioteca().anyadirLibros(XmlUtilidades.obtenerLibros(Programa.getArchivo()));
 						System.out.println();
 						System.out.println("Archivo " + Programa.getArchivo() + " cargado en la biblioteca");
 						System.out.println();
@@ -53,7 +49,7 @@ public class Opciones {
 
 					case "csv":
 						
-						Programa.biblioteca.setListaLibros(CsvUtilidades.obtenerLibros(Programa.getArchivo()));
+						Programa.getBiblioteca().anyadirLibros(CsvUtilidades.obtenerLibros(Programa.getArchivo()));
 						System.out.println();
 						System.out.println("Archivo " + Programa.getArchivo() + " cargado en la biblioteca");
 						System.out.println();
@@ -106,14 +102,14 @@ public class Opciones {
 	public static void mostrarBiblioteca() {
 		
 		
-		if(Programa.biblioteca.getListaLibros().size()>0) {
+		if (Programa.getBiblioteca().getListaLibros().size() > 0) {
 			
 			System.out.println("Ha elegido mostrar biblioteca");
 			System.out.println();
-			MostrarDatos.mostrarLibros(Programa.biblioteca.getListaLibros());
+			MostrarDatos.mostrarLibros(Programa.getBiblioteca().getListaLibros());
 			System.out.println();
 		
-		}else {
+		} else {
 			System.out.println("Necesita cargar un libro antes de leerlo");
 			System.out.println();
 		}
@@ -129,6 +125,7 @@ public class Opciones {
 			System.out.println("Introduzca 1 para añadir un libro a la biblioteca");
 			System.out.println("Introduzca 2 para editar un libro de la biblioteca");
 			System.out.println("Introduzca 3 para eliminar un libro de la biblioteca");
+			System.out.println("Introduzca 4 para vaciar la biblioteca");
 			System.out.println("Introduzca 9 para volver");
 			System.out.println("Introduzca 0 para salir");
 			System.out.println();
@@ -146,18 +143,18 @@ public class Opciones {
 				System.out.println("Ha elegido añadir un libro a la biblioteca");
 				Libro libro = new Libro();
 				RellenarLibro.rellenarLibro(libro);
-				Programa.biblioteca.getListaLibros().add(libro);
+				Programa.getBiblioteca().getListaLibros().add(libro);
 				System.out.println();
 				System.out.println("El libro ha sido añadido a la biblioteca");
 				break;
 
 			case 2:
 
-				if (Programa.biblioteca.getListaLibros().size() > 0) {
+				if (Programa.getBiblioteca().getListaLibros().size() > 0) {
 					int numeroaEditar = 0;
 					System.out.println();
 					System.out.println("Ha elegido editar un libro de la biblioteca");
-					MostrarDatos.mostrarLibros(Programa.biblioteca.getListaLibros());
+					MostrarDatos.mostrarLibros(Programa.getBiblioteca().getListaLibros());
 					System.out.println();
 					System.out.print("Escriba el número del libro que desea editar: ");
 					try {
@@ -167,13 +164,13 @@ public class Opciones {
 						numeroaEditar = -1;
 						Programa.teclado.nextLine();
 					}
-					if (numeroaEditar > Programa.biblioteca.getListaLibros().size() || numeroaEditar <= 0) {
+					if (numeroaEditar > Programa.getBiblioteca().getListaLibros().size() || numeroaEditar <= 0) {
 
 						System.out.println("El número de libro introducido no existe");
 
 					} else {
 
-						RellenarLibro.rellenarLibro(Programa.biblioteca.getListaLibros().get(numeroaEditar - 1));
+						RellenarLibro.rellenarLibro(Programa.getBiblioteca().getListaLibros().get(numeroaEditar - 1));
 						System.out.println("El libro " + numeroaEditar + " ha sido editado");
 
 					}
@@ -189,10 +186,10 @@ public class Opciones {
 
 			case 3:
 				
-				if (Programa.biblioteca.getListaLibros().size() > 0) {
+				if (Programa.getBiblioteca().getListaLibros().size() > 0) {
 					int numeroaEditar = 0;
 					System.out.println("Ha elegido borrar un libro de la biblioteca");
-					MostrarDatos.mostrarLibros(Programa.biblioteca.getListaLibros());
+					MostrarDatos.mostrarLibros(Programa.getBiblioteca().getListaLibros());
 					System.out.println();
 					System.out.print("Escriba el número del libro que desea borrar: ");
 					try {
@@ -202,13 +199,13 @@ public class Opciones {
 						numeroaEditar = -1;
 						Programa.teclado.nextLine();
 					}
-					if (numeroaEditar > Programa.biblioteca.getListaLibros().size() || numeroaEditar <= 0) {
+					if (numeroaEditar > Programa.getBiblioteca().getListaLibros().size() || numeroaEditar <= 0) {
 
 						System.out.println("El número de libro introducido no existe");
 
 					} else {
 
-						Programa.biblioteca.getListaLibros().remove(numeroaEditar - 1);
+						Programa.getBiblioteca().getListaLibros().remove(numeroaEditar - 1);
 						System.out.println("El libro " + numeroaEditar + " ha sido borrado de la biblioteca");
 						
 					}
@@ -221,6 +218,16 @@ public class Opciones {
 
 				}
 
+				break;
+				
+			case 4: 
+				
+				System.out.println();
+				Programa.getBiblioteca().getListaLibros().clear();
+				Programa.setOpcion(9);
+				System.out.println("La biblioteca ha sido vaciada");
+				System.out.println();
+				
 				break;
 
 			case 9:
@@ -257,7 +264,7 @@ public class Opciones {
 		System.out.println("Ha elegido guardar biblioteca");
 		System.out.println();
 		
-		if (Programa.biblioteca.getListaLibros().size() > 0) {
+		if (Programa.getBiblioteca().getListaLibros().size() > 0) {
 			
 			do {
 				System.out.println("Introduzca el nombre del archivo en el que quiere guardar la biblioteca");
@@ -285,11 +292,7 @@ public class Opciones {
 
 				default:
 					
-					if (Programa.getArchivo().contains(".") && (Programa.getArchivo()
-							.substring(Programa.getArchivo().lastIndexOf(".") + 1).equals("txt")
-							|| Programa.getArchivo().substring(Programa.getArchivo().lastIndexOf(".") + 1).equals("xml")
-							|| Programa.getArchivo().substring(Programa.getArchivo().lastIndexOf(".") + 1).equals("csv"))) {
-						
+					if (Validaciones.validarExtension(Programa.getExtensiones(), Programa.getArchivo())) {
 						
 						String opcion = new String();
 						Boolean quiere = false;
@@ -351,11 +354,11 @@ public class Opciones {
 						
 						if (Archivo.comprobarArchivo(Programa.getArchivo()) && quiere) {
 							
-							switch (Programa.getArchivo().substring(Programa.getArchivo().lastIndexOf(".") + 1)) {
+							switch ((Validaciones.obtenerExtension(Programa.getArchivo()))) {
 							case "txt":
 								
 								Programa.setOpcion(9);
-								TxtUtilidades.escribirTxt(Programa.getArchivo(), Programa.biblioteca.getListaLibros());
+								TxtUtilidades.escribirTxt(Programa.getArchivo(), Programa.getBiblioteca().getListaLibros());
 								System.out.println("Biblioteca guardada en el archivo " + Programa.getArchivo());
 								System.out.println();
 								
@@ -364,7 +367,7 @@ public class Opciones {
 							case "xml":
 								
 								Programa.setOpcion(9);
-								XmlUtilidades.escribirXml(Programa.getArchivo(), Programa.biblioteca.getListaLibros());
+								XmlUtilidades.escribirXml(Programa.getArchivo(), Programa.getBiblioteca().getListaLibros());
 								System.out.println("Biblioteca guardada en el archivo " + Programa.getArchivo());
 								System.out.println();
 								
@@ -373,7 +376,7 @@ public class Opciones {
 							case "csv":
 								
 								Programa.setOpcion(9);
-								CsvUtilidades.escribirCsv(Programa.getArchivo(), Programa.biblioteca.getListaLibros());
+								CsvUtilidades.escribirCsv(Programa.getArchivo(), Programa.getBiblioteca().getListaLibros());
 								System.out.println("Biblioteca guardada en el archivo " + Programa.getArchivo());
 								System.out.println();
 								

@@ -2,14 +2,16 @@ package principal;
 
 import java.util.Scanner;
 
+
 import modelo.Biblioteca;
 
 public class Programa {
 
 	public static Scanner teclado = new Scanner(System.in);
-	public static Biblioteca biblioteca = new Biblioteca();
+	private static Biblioteca biblioteca = new Biblioteca();
 	private static String archivo = new String();
 	private static int opcion = -1;
+	private static final String[] EXTENSIONES = {"txt","xml","csv"};
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -20,6 +22,7 @@ public class Programa {
 	public static boolean iniciarPrograma() {
 			
 		do {
+			
 			System.out.println("Introduzca 1 para cargar biblioteca");
 			System.out.println("Introduzca 2 para leer biblioteca");
 			System.out.println("Introduzca 3 para editar biblioteca");
@@ -98,6 +101,14 @@ public class Programa {
 	public static void setOpcion(int opcion1) {
 		Programa.opcion = opcion1;
 	}
-	
+
+	public static String[] getExtensiones() {
+		return EXTENSIONES;
+	}
+
+	public static Biblioteca getBiblioteca() {
+		return biblioteca;
+	}
+
 }
 

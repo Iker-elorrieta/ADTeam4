@@ -12,12 +12,18 @@ public class Biblioteca {
 		
 	}
 	
+	public void anyadirLibros(ArrayList <Libro> lista) {
+		
+		for (Libro libro: lista) {
+			
+			this.listaLibros.add(libro);
+			
+		}	
+		
+	}
+	
 	public ArrayList<Libro> getListaLibros() {
 		return listaLibros;
-	}
-
-	public void setListaLibros(ArrayList<Libro> listaLibros) {
-		this.listaLibros = listaLibros;
 	}
 
 }
