@@ -2,7 +2,7 @@ package principal;
 
 import java.util.Scanner;
 
-
+import comunes.Validaciones;
 import modelo.Biblioteca;
 
 public class Programa {
@@ -20,7 +20,9 @@ public class Programa {
 	}
 
 	public static boolean iniciarPrograma() {
-			
+		
+		System.out.println(Validaciones.validarAtributo("Ceex", "A[0-9] <-><5>a"));
+		
 		do {
 			
 			System.out.println("Introduzca 1 para cargar biblioteca");
