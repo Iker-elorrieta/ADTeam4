@@ -899,7 +899,7 @@ class testMain {
 	@Test
 	void testfiltro17() {	
 		
-		String input = "4\n 1\n 4\n 2\n 0\n 0\n ";
+		String input = "4\n 1\n 4\n 2\n 0\n 0\n 0\n ";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
