@@ -14,6 +14,7 @@ import comunes.CsvUtilidades;
 import comunes.MostrarDatos;
 import comunes.RellenarLibro;
 import comunes.TxtUtilidades;
+import comunes.Validaciones;
 import modelo.Libro;
 import principal.Opciones;
 import principal.Programa;
@@ -30,6 +31,7 @@ class testMain {
 	Opciones opciones = new Opciones();
 	MostrarDatos mostrarDatos = new MostrarDatos();
 	RellenarLibro rellenarLibro = new RellenarLibro();
+	Validaciones validaciones = new Validaciones();
 	final String ARCHIVOTXT = "listalibros.txt";
 	final String ARCHIVOXML = "listalibros.xml";
 	final String ARCHIVOCSV = "listalibros.csv";
@@ -576,6 +578,142 @@ class testMain {
 		assertEquals(false, Archivo.crearArchivo("sdijsdfissas.prueba"));
 		file.delete();
 
+	}
+	
+	//test validaciones
+	
+	// Valida cadena exacta correcta
+	
+	@Test
+	void testValidaciones() {		
+		assertEquals(true, Validaciones.validarAtributo("prueba", "=prueba=", "validar"));
+	}
+	
+	// No valida cadena exacta incorrecta
+	
+	@Test
+	void testValidaciones2() {		
+		assertEquals(false, Validaciones.validarAtributo("noprueba", "=prueba=", "validar"));
+	}
+	
+	// Valida condición de length
+	
+	@Test
+	void testValidaciones3() {		
+		assertEquals(true, Validaciones.validarAtributo("prueba", "<6>", "validar"));
+	}
+	
+	// No valida condición de length
+	
+	@Test
+	void testValidaciones4() {		
+		assertEquals(false, Validaciones.validarAtributo("prueba", "<5>", "validar"));
+	}
+	
+	// Valida primera letra en mayúscula
+	
+	@Test
+	void testValidaciones5() {		
+		assertEquals(true, Validaciones.validarAtributo("Prueba", "A", "validar"));
+	}
+	
+	// No valida primera letra al no estar en mayúscula
+	
+	@Test
+	void testValidaciones6() {		
+		assertEquals(false, Validaciones.validarAtributo("noprueba", "A", "validar"));
+	}
+	
+	
+	// Valida caracteres dentro del rango admitido
+	
+	@Test
+	void testValidaciones7() {		
+		assertEquals(true, Validaciones.validarAtributo("123", "[0-9]", "validar"));
+	}
+	
+	// No valida caracteres al no estar dentro del rango admitido
+	
+	@Test
+	void testValidaciones8() {		
+		assertEquals(false, Validaciones.validarAtributo("noprueba", "[0-9]", "validar"));
+	}
+	
+	// Valida texto al contener la cadena pedida en el patrón
+	
+	@Test
+	void testValidaciones9() {		
+		assertEquals(true, Validaciones.validarAtributo("prueba", "*prueba*", "validar"));
+	}
+	
+	// No valida texto al no contener la cadena pedida en el patrón
+	
+	@Test
+	void testValidaciones10() {		
+		assertEquals(false, Validaciones.validarAtributo("prueba", "*noprueba*", "validar"));
+	}
+	
+	// Valida número al ser el mismo que en el patrón
+	
+	@Test
+	void testValidacione11() {		
+		assertEquals(true, Validaciones.validarAtributo("2", "{2}", "validar"));
+	}
+	
+	// No valida el número porque no ser el mismo que el del patrón
+	
+	@Test
+	void testValidaciones12() {		
+		assertEquals(false, Validaciones.validarAtributo("3", "{2}", "validar"));
+	}
+	
+	// No valida porque no es un número
+	
+	@Test
+	void testValidaciones13() {		
+		assertEquals(false, Validaciones.validarAtributo("a", "{2}", "validar"));
+	}
+	
+	// Valida porque el número no es menor al mínimo indicado en el patrón
+	
+	@Test
+	void testValidacione14() {		
+		assertEquals(true, Validaciones.validarAtributo("1", "{-1}", "validar"));
+	}
+	
+	// No valida porque el número es menor al mínimo indicado en el patrón
+	
+	@Test
+	void testValidaciones15() {		
+		assertEquals(false, Validaciones.validarAtributo("0", "{-1}", "validar"));
+	}
+	
+	// No valida porque no es un número
+	
+	@Test
+	void testValidaciones16() {		
+		assertEquals(false, Validaciones.validarAtributo("a", "{-1}", "validar"));
+	}
+	
+	// Valida porque el número no es mayor al máximo indicado en el patrón
+	
+	@Test
+	void testValidacione17() {		
+		assertEquals(true, Validaciones.validarAtributo("2", "{+2}", "validar"));
+	}
+	
+	// No valida porque el número es mayor al máximo indicado en el patrón
+	
+	@Test
+	void testValidaciones18() {		
+		assertEquals(false, Validaciones.validarAtributo("4", "{+2}", "validar"));
+	}
+	
+	// No valida porque no es un número
+	
+	@Test
+	void testValidaciones19() {		
+		assertEquals(false, Validaciones.validarAtributo("a", "{+2}", "validar"));
 	}
 		
 }
