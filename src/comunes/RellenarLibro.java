@@ -14,7 +14,7 @@ public class RellenarLibro {
 			System.out.print("Introduzca el título del libro: ");
 			textoaValidar = Programa.teclado.nextLine();
 			
-			if (Validaciones.validarAtributo(textoaValidar, "<20>", "validar")) {
+			if (Validaciones.validarAtributo(textoaValidar, "<40>", "validar")) {
 
 				libro.setTitulo(textoaValidar);
 
@@ -30,7 +30,7 @@ public class RellenarLibro {
 			System.out.print("Introduzca la editorial del libro: ");
 			textoaValidar = Programa.teclado.nextLine();
 			
-			if (Validaciones.validarAtributo(textoaValidar, "<20>", "validar")) {
+			if (Validaciones.validarAtributo(textoaValidar, "<40>", "validar")) {
 
 				libro.setEditorial(textoaValidar);
 

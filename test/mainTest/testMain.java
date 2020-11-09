@@ -533,7 +533,7 @@ class testMain {
 	@Test
 	void testRellenarLibro() {
 		Libro libro = new Libro();
-		String input = "ah\n ah\n s\n 1\n s\n 1\n ah\n ah\n ah\n";
+		String input = "ah\n1\n1\n1\n1\n1\n1\n1\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
