@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import comunes.XmlUtilidades;
 import comunes.Archivo;
 import comunes.CsvUtilidades;
+import comunes.Filtro;
 import comunes.MostrarDatos;
 import comunes.RellenarLibro;
 import comunes.TxtUtilidades;
@@ -24,6 +25,7 @@ class testMain {
 	XmlUtilidades LX = new XmlUtilidades();
 	CsvUtilidades lc = new CsvUtilidades();
 	Libro libro = new Libro();
+	Filtro f = new Filtro();
 	Archivo archivo = new Archivo();
 	File file;
 	Programa main = new Programa();
@@ -78,12 +80,7 @@ class testMain {
 		
 	}
 	
-	@Test
-	void testLectorTxtFallo(){
-			assertEquals(true, TxtUtilidades.obtenerLibros(null).size() == 0);
-			
-		
-	}
+	
 	/*
 	   _            _    __   ____  __ _      
 	  | |          | |   \ \ / /  \/  | |     
@@ -578,4 +575,333 @@ class testMain {
 
 	}
 		
+	
+	
+	/*
+		  ______ _ _ _             
+		 |  ____(_) | |            
+		 | |__   _| | |_ _ __ ___  
+		 |  __| | | | __| '__/ _ \ 
+		 | |    | | | |_| | | (_) |
+		 |_|    |_|_|\__|_|  \___/ 
+		                           
+		                           
+	 */
+	
+	@Test
+	void testfiltro1() {	
+		
+		
+	String input = "1\n 1\n 1\n 1\n algo 0\n 0\n 0\n";
+	InputStream in = new ByteArrayInputStream(input.getBytes());
+	System.setIn(in);
+	Programa.teclado = new Scanner(System.in);
+	assertEquals(true,f.AtributoAFiltrar());
+	}
+
+	
+
+		
+	@Test
+	void testfiltro2() {	
+	
+		String input = "1\2n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(false,f.AtributoAFiltrar());
+
+	
+
+	}
+	
+	
+	@Test
+	void testfiltro3() {	
+	
+		String input = "2\n 2\n 2\n 2\n algo 0\n 0\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		}
+	
+	@Test
+	void testfiltro4() {	
+		
+		String input = "3\n 3\n 3\n 3\n algo 0\n  0\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		}
+	
+	
+	@Test
+	void testfiltro5() {	
+		
+		String input = "4\n 4\n 4\n 4\n algo 0\n 0\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		}
+	
+	@Test
+	void testfiltro6() {	
+		
+		String input = "1\n 1\n 1\n 1\n algo\n 0\n 0\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		}
+	@Test
+	void testfiltro7() {	
+		
+		Filtro filtro = new Filtro(Programa.getBiblioteca().getListaLibros());
+		
+		}
+	
+	@Test
+	void testfiltro8() {	
+		
+		String input = "1\n 2\n 1\n  algo\n 0\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		
+		}
+	
+	@Test
+	void testfiltro9() {	
+		
+		String input = "1\n 3\n 2\n  algo 0\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		
+		}
+	
+	@Test
+	void testfiltro10() {	
+		
+		String input = "1\n 4\n 50\n 0\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		
+		}
+		
+	@Test
+	void testfiltro11() {	
+		
+		String input = "1\n 4\n patata\n 0\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		
+		}
+	@Test
+	void testfiltro12() {	
+		
+		String input = "1\n 0\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		
+		}
+	@Test
+	void testfiltro13() {	
+		
+		String input = "1\n 0\n 4\n 80\n 0\n 0\n ";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		
+		}
+	@Test
+	void testfiltro14() {	
+		
+		String input = "2\n 0\n 0\n ";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		
+		}
+	@Test
+	void testfiltro15() {	
+		
+		String input = "2\n 0\n 80\n 0\n ";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		
+		}
+	
+	@Test
+	void testfiltro16() {	
+		
+		String input = "5\n 1\n 80\n 0\n 0\n ";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		
+		}
+	
+	@Test
+	void testfiltro17() {	
+		
+		String input = "4\n 1\n 4\n 2\n 0\n 0\n ";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		
+		}
+	
+	@Test
+	void testfiltro18() {	
+		
+		String input = "5\n 2\n 80\n 0\n 0\n ";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		
+		}
+	@Test
+	void testfiltro19() {	
+		
+		String input = "6\n  0\n 0\n ";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		
+		}
+	@Test
+	void testfiltro20() {	
+		
+		String input = "7\n  0\n 0\n ";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,f.AtributoAFiltrar());
+		
+		}
+		@Test
+		void testfiltro21() {	
+		libro.setTitulo("titulo");
+		libro.setEditorial("editorial");
+		libro.setIsbn("isbn");
+		libro.setMaterias("materias");
+		libro.setAltura(2);
+		libro.setNotas("notas");
+		libro.setPaginas(560);
+		Filtro filtro = new Filtro(Programa.getBiblioteca().getListaLibros());
+		filtro.getArrayLibrosFiltrados().add(libro);
+			
+		
+		String input = "1\n  1\n ti\n 2\n titulo\n 3\n TITULO\n 4\n 6\n 0\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,filtro.AtributoAFiltrar());
+		
+		}
+		
+		@Test
+		void testfiltro22() {	
+		libro.setTitulo("titulo");
+		libro.setEditorial("editorial");
+		libro.setIsbn("isbn");
+		libro.setMaterias("materias");
+		libro.setAltura(2);
+		libro.setNotas("notas");
+		libro.setPaginas(560);
+		Filtro filtro = new Filtro(Programa.getBiblioteca().getListaLibros());
+		filtro.getArrayLibrosFiltrados().add(libro);
+			
+		
+		String input = "2\n  1\n ed\n 2\n editorial\n 3\n EDITORIAL\n 4\n 9\n 0\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,filtro.AtributoAFiltrar());
+		
+		}
+	
+		@Test
+		void testfiltro23() {	
+		libro.setTitulo("titulo");
+		libro.setEditorial("editorial");
+		libro.setIsbn("isbn");
+		libro.setMaterias("materias");
+		libro.setAltura(2);
+		libro.setNotas("notas");
+		libro.setPaginas(560);
+		Filtro filtro = new Filtro(Programa.getBiblioteca().getListaLibros());
+		filtro.getArrayLibrosFiltrados().add(libro);
+			
+		
+		String input = "2\n  1\n ed\n 2\n editorial\n 3\n EDITORIAL\n 4\n 9\n 0\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,filtro.AtributoAFiltrar());
+		
+		}
+
+		@Test
+		void testfiltro24() {	
+		libro.setTitulo("titulo");
+		libro.setEditorial("editorial");
+		libro.setIsbn("isbn");
+		libro.setMaterias("materias");
+		libro.setAltura(2);
+		libro.setNotas("notas");
+		libro.setPaginas(560);
+		Filtro filtro = new Filtro(Programa.getBiblioteca().getListaLibros());
+		filtro.getArrayLibrosFiltrados().add(libro);
+			
+		
+		String input = "2\n  1\n ed\n 2\n editorial\n 3\n EDITORIAL\n 4\n 9\n 0\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,filtro.AtributoAFiltrar());
+		
+		}
+	
+
+		@Test
+		void testfiltro25() {	
+		libro.setTitulo("titulo");
+		libro.setEditorial("editorial");
+		libro.setIsbn("isbn");
+		libro.setMaterias("materias");
+		libro.setAltura(2);
+		libro.setNotas("notas");
+		libro.setPaginas(560);
+		Filtro filtro = new Filtro(Programa.getBiblioteca().getListaLibros());
+		filtro.getArrayLibrosFiltrados().add(libro);
+			
+		
+		String input = "4\n  1\n 1\n 2\n 560\n 3\n 1000\n 0\n 0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true,filtro.AtributoAFiltrar());
+		
+		}
 }
