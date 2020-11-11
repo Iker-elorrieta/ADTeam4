@@ -7,56 +7,119 @@ public class RellenarLibro {
 	
 	public static void rellenarLibro(Libro libro) {
 		
-		System.out.print("Introduzca el título del libro: ");
-		libro.setTitulo(Programa.teclado.nextLine());
-		
-		System.out.print("Introduzca la editorial del libro: ");
-		libro.setEditorial(Programa.teclado.nextLine());
+		String textoaValidar = new String();
 		
 		do {
+			
+			System.out.print("Introduzca el título del libro: ");
+			textoaValidar = Programa.teclado.nextLine();
+			
+			if (Validaciones.validarAtributo(textoaValidar, "<40>", "validar")) {
+
+				libro.setTitulo(textoaValidar);
+
+			} else {
+				
+				textoaValidar = null;
+			}
+			
+		} while (textoaValidar == null);
+		
+		do {
+			
+			System.out.print("Introduzca la editorial del libro: ");
+			textoaValidar = Programa.teclado.nextLine();
+			
+			if (Validaciones.validarAtributo(textoaValidar, "<40>", "validar")) {
+
+				libro.setEditorial(textoaValidar);
+
+			} else {
+
+				textoaValidar = null;
+			} 
+		} while (textoaValidar == null);
+		
+		
+		do {
+			
 			System.out.print("Introduzca las páginas del libro: ");
-			try {
-				libro.setPaginas(Programa.teclado.nextInt());
-				Programa.teclado.nextLine();
-			} catch (Exception e) {
-				libro.setPaginas(-1);
-				Programa.teclado.nextLine();
+			textoaValidar = Programa.teclado.nextLine();
+			
+			if (Validaciones.validarAtributo(textoaValidar, "{-1}", "validar")) {
+
+				libro.setPaginas(Integer.valueOf(textoaValidar));
+
+			} else {
+
+				textoaValidar = null;
 			} 
 			
-			if (libro.getPaginas() < 0) {
-				System.out.println();
-				System.out.println("Número de páginas no válido, vuelva a intentarlo");
-				System.out.println();
-			}
-			
-		} while (libro.getPaginas() < 0);
+		} while (textoaValidar == null);
 		
 		do {
+			
 			System.out.print("Introduzca la altura del libro: ");
-			try {
-				libro.setAltura(Programa.teclado.nextInt());
-				Programa.teclado.nextLine();
-			} catch (Exception e) {
-				libro.setAltura(-1);
-				Programa.teclado.nextLine();
+			textoaValidar = Programa.teclado.nextLine();
+			
+			if (Validaciones.validarAtributo(textoaValidar, "{-1}", "validar")) {
+
+				libro.setAltura(Integer.valueOf(textoaValidar));
+
+			} else {
+
+				textoaValidar = null;
 			} 
 			
-			if (libro.getAltura() < 0) {
-				System.out.println();
-				System.out.println("Altura no válida, vuelva a intentarlo");
-				System.out.println();
+		} while (textoaValidar == null);
+		
+		do {
+			
+			System.out.print("Introduzca las notas del libro: ");
+			textoaValidar = Programa.teclado.nextLine();
+			
+			if (Validaciones.validarAtributo(textoaValidar, "<40>", "validar")) {
+
+				libro.setNotas(textoaValidar);
+
+			} else {
+				
+				textoaValidar = null;
 			}
 			
-		} while (libro.getAltura() < 0);
+		} while (textoaValidar == null);
 		
-		System.out.print("Introduzca las notas del libro: ");
-		libro.setNotas(Programa.teclado.nextLine());
+		do {
+			
+			System.out.print("Introduzca el ISBN del libro: ");
+			textoaValidar = Programa.teclado.nextLine();
+			
+			if (Validaciones.validarAtributo(textoaValidar, "[0-9]", "validar")) {
+				
+				libro.setIsbn(textoaValidar);
+
+			} else {
+				
+				textoaValidar = null;
+			}
+			
+		} while (textoaValidar == null);
 		
-		System.out.print("Introduzca el ISBN del libro: ");
-		libro.setIsbn(Programa.teclado.nextLine());
-		
-		System.out.print("Introduzca las materias del libro: ");
-		libro.setMaterias(Programa.teclado.nextLine());
+		do {
+			
+			System.out.print("Introduzca las materias del libro: ");
+			textoaValidar = Programa.teclado.nextLine();
+			
+			if (Validaciones.validarAtributo(textoaValidar, "<30>", "validar")) {
+				
+				libro.setMaterias(textoaValidar);
+
+			} else {
+				
+				textoaValidar = null;
+			}
+			
+		} while (textoaValidar == null);
 		
 	}
 

@@ -2,6 +2,7 @@ package principal;
 
 import comunes.Archivo;
 import comunes.CsvUtilidades;
+import comunes.Filtro;
 import comunes.MostrarDatos;
 import comunes.RellenarLibro;
 import comunes.TxtUtilidades;
@@ -406,5 +407,21 @@ public class Opciones {
 		}
 		
 	}
-
+	
+	public static void filtrarBiblioteca(){
+		
+	if (Programa.getBiblioteca().getListaLibros().size() > 0) {	
+		Filtro f = new Filtro(Programa.getBiblioteca().getListaLibros());
+		f.AtributoAFiltrar();	
+	}else {	
+		System.out.println("No se puede filtrar algo que no existe");
+	}
+		
+		
+		
+		
+	
+	}
+	
+	
 }

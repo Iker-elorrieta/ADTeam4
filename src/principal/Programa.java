@@ -1,8 +1,6 @@
 package principal;
 
 import java.util.Scanner;
-
-
 import modelo.Biblioteca;
 
 public class Programa {
@@ -20,13 +18,14 @@ public class Programa {
 	}
 
 	public static boolean iniciarPrograma() {
-			
+				
 		do {
 			
 			System.out.println("Introduzca 1 para cargar biblioteca");
 			System.out.println("Introduzca 2 para leer biblioteca");
 			System.out.println("Introduzca 3 para editar biblioteca");
 			System.out.println("Introduzca 4 para guardar biblioteca");
+			System.out.println("Introduzca 5 para filtrar libros de la biblioteca");
 			System.out.println("Introduzca 0 para salir");
 			System.out.println();
 			System.out.print("Elija su opción: ");
@@ -64,6 +63,12 @@ public class Programa {
 				System.out.println();
 				Opciones.guardarBiblioteca();
 	
+				break;
+				
+			case 5:
+				System.out.println();
+				Opciones.filtrarBiblioteca();
+				
 				break;
 				
 			default:
