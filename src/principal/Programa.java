@@ -75,7 +75,7 @@ public class Programa {
 				break;
 			}
 			
-			if (opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 0 && opcion != 9) {
+			if (opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 5 && opcion != 0 && opcion != 9) {
 				
 				System.out.println();
 				System.out.println("Opción no válida, vuelva a intentarlo");

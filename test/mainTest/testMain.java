@@ -469,6 +469,17 @@ class testMain {
 		
 	}
 	
+	@Test
+	void testPrincipalFiltarBiblioteca() {
+		
+		String input = "5\n0\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		assertEquals(true, Programa.iniciarPrograma());
+		
+	}
+	
 	// Vaciar biblioteca
 	
 	@Test
