@@ -51,7 +51,7 @@ public class Validaciones {
 		//   o igual a esa cadena
 		// - Si el patrón contiene una cadena entre {+} el atributo debe ser un número de valor menor 
 		//   o igual a esa cadena
-		// - Si el patrón contiene una a al final significa que
+		
 
 		boolean validacionTotal = true;
 		final String VALIDAR = "validar";

@@ -11,6 +11,10 @@ public class Filtro {
 	private ArrayList<Libro> arrayLibrosFiltrados = new ArrayList<Libro>();
 	
 	
+	public Filtro() {
+		
+	}
+	
 	public Filtro(ArrayList<Libro> arrayLibros){
 		
 		this.arrayLibrosFiltrados = arrayLibros;
@@ -19,7 +23,7 @@ public class Filtro {
 	
 	
 	
-	public void AtributoAFiltrar() {
+	public boolean AtributoAFiltrar() {
 		
 
 		Boolean exit = false;
@@ -69,8 +73,9 @@ public class Filtro {
 
 						System.out.println("Ha seleccionado salir");
 						exit = true;
-						break;
-
+						
+					break;
+						
 					}
 
 				} else {
@@ -84,11 +89,12 @@ public class Filtro {
 
 				System.out.println("Volviendo al menu principal");
 				Programa.teclado.nextLine();
-				break;
+				return false;
 				
 			}
+		
 		}
-
+		return true;
 	}
 
 	public void ObtenerFiltroIntegers(String atributo) {
@@ -329,6 +335,11 @@ public class Filtro {
 		}
 
 	}
+	public ArrayList<Libro> getArrayLibrosFiltrados() {
+		return arrayLibrosFiltrados;
+	}
+
+
 	private void mostrarResultados(String atributo,String filtro,String introducido,int opcionSwitch) {
 		// TODO Auto-generated method stub
 		
