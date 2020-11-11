@@ -50,14 +50,14 @@ class testMain {
 	
 	*/
 	@Test
-	void testCsv() {
+	void testCsvLecturaCorrecta() {
 		assertEquals(true, CsvUtilidades.obtenerLibros(ARCHIVOCSV) != null);
 	}
 	
 	// Al mandarle que lea un archivo nulo la lista que recoje acaba siendo nula también
 	
 	@Test
-	void testLectorCsvFallo() {
+	void testCsvLecturaFallida() {
 		assertEquals(true, CsvUtilidades.obtenerLibros(null) == null);
 
 	}
@@ -123,7 +123,7 @@ class testMain {
 	// Menú principal. Se introduce una opción no válida
 	
 	@Test
-	void testmain1() {
+	void testOpcionNoValida() {
 		String input = "a\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -135,7 +135,7 @@ class testMain {
 	// Cargar biblioteca. Carga de archivo txt
 	
 	@Test
-	void testmain2() {
+	void testCargaTxt() {
 		String input = "1\nlistalibros.txt\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -147,7 +147,7 @@ class testMain {
 	// Cargar biblioteca. Carga de archivo xml
 	
 	@Test
-	void testmain3() {
+	void testCargaXml() {
 		String input = "1\nlistalibros.xml\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -160,7 +160,7 @@ class testMain {
 	// Cargar biblioteca. Carga de archivo csv
 	
 	@Test
-	void testmain4() {
+	void testCargaCsv() {
 		String input = "1\nlistalibros.csv\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -172,7 +172,7 @@ class testMain {
 	// Cargar biblioteca. Intento de carga con nombre de archivo no válido, después se selecciona volver
 	
 	@Test
-	void testmain5() {
+	void testCargaNombreArchivoNoValido() {
 		String input = "1\nlistalibros.no\n9\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -184,7 +184,7 @@ class testMain {
 	// Cargar biblioteca. Intento de carga con una extensión de archivo válida pero el archivo no existe
 	
 	@Test
-	void testmain6() {
+	void testCargaArchivoNoExiste() {
 		String input = "1\nnoexiste.csv\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -196,7 +196,7 @@ class testMain {
 	// Leer biblioteca. Se carga un archivo y luego se lee
 	
 	@Test
-	void testmain7() {
+	void testLeerBibliotecaCargada() {
 		String input = "1\nlistalibros.txt\n2\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -209,7 +209,7 @@ class testMain {
 	// Leer biblioteca. Se intenta leer la biblioteca sin haber cargado nada antes
 	
 	@Test
-	void testmain8() {
+	void testLeerBibliotecaSinCargar() {
 		String input = "2\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -222,7 +222,7 @@ class testMain {
 	// Editar biblioteca. Se añade un libro a la biblioteca
 	
 	@Test
-	void testmain9() {
+	void testAnyadirLibro() {
 		String input = "3\n1\n1\n1\n1\n1\n1\n1\n1\n3\n1\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -235,7 +235,7 @@ class testMain {
 	// Editar biblioteca. Se añade un libro a la biblioteca y luego se edita
 	
 	@Test
-	void testmain10() {
+	void testEditarLibro() {
 		String input = "3\n1\n1\n1\n1\n1\n1\n1\n1\n2\n1\n1\n1\n1\n1\n1\n1\n1\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -249,7 +249,7 @@ class testMain {
 	// pero se introduce un caracter no válido
 	
 	@Test
-	void testmain11() {
+	void testEditarLibroConCaracterNoValido() {
 		String input = "3\n1\n1\n1\n1\n1\n1\n1\n1\n3\na\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -263,7 +263,7 @@ class testMain {
 	// pero se introduce un número de libro que no existe, el 4
 	
 	@Test
-	void testmain12() {
+	void testEditarLibroNoExiste() {
 		String input = "3\n1\n1\n1\n1\n1\n1\n1\n1\n3\n4\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -277,7 +277,7 @@ class testMain {
 	// se introduce un caracter no válido
 
 	@Test
-	void testmain13() {
+	void testEditarBibliotecaVaciaCaracterNoValido() {
 		String input = "3\n2\na\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -291,7 +291,7 @@ class testMain {
 	// poniendo un caracter no válido y después un número de libro que no existe
 	
 	@Test
-	void testmain14() {
+	void testEditarCaracterNoValidoLibroNoExiste() {
 		String input = "1\nlistalibros.csv\n3\n2\na\n4\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -304,7 +304,7 @@ class testMain {
 	// Editar biblioteca. Se intenta borrar un libro con la biblioteca vacía
 	
 	@Test
-	void testmain15() {
+	void testBorrarBibliotecaVacia() {
 		String input = "3\n3\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -317,7 +317,7 @@ class testMain {
 	// Editar biblioteca. Opción volver.
 	
 	@Test
-	void testmain16() {
+	void testEditarVolver() {
 		String input = "3\n9\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -330,7 +330,7 @@ class testMain {
 	// Guardar biblioteca. Se guarda la biblioteca en un archivo txt.
 	
 	@Test
-	void testmain17() {
+	void testGuardarTxt() {
 		file = new File("archivoprueba.txt");
 		String input = "1\nlistalibros.txt\n4\narchivoprueba.txt\ns\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -345,7 +345,7 @@ class testMain {
 	// Guardar biblioteca. Se guarda la biblioteca en un archivo xml.
 	
 	@Test
-	void testmain18() {
+	void testGuardarXml() {
 		file = new File("archivoprueba.xml");
 		String input = "1\nlistalibros.txt\n4\narchivoprueba.xml\ns\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -360,7 +360,7 @@ class testMain {
 	// Guardar biblioteca. Se guarda la biblioteca en un archivo csv.
 	
 	@Test
-	void testmain19() {
+	void testGuardarCsv() {
 		file = new File("archivoprueba.csv");
 		String input = "1\nlistalibros.txt\n4\narchivoprueba.csv\ns\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -376,7 +376,7 @@ class testMain {
 	// para guardar la biblioteca
 	
 	@Test
-	void testmain20() {
+	void testGuardarExtensionNoValida() {
 		String input = "1\nlistalibros.txt\n4\narchivoprueba.test\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -390,7 +390,7 @@ class testMain {
 	// la biblioteca y se elije no crearlo.
 	
 	@Test
-	void testmain21() {
+	void testGuardarArchivoNoExisteCrear() {
 		String input = "1\nlistalibros.txt\n4\narchivopruebanoexiste.txt\nn\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -403,7 +403,7 @@ class testMain {
 	// Guardar biblioteca. Opción volver.
 	
 	@Test
-	void testmain22() {
+	void testGuardarVolver() {
 		String input = "1\nlistalibros.txt\n4\n9\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -417,7 +417,7 @@ class testMain {
 	// cargado antes.
 	
 	@Test
-	void testmain23() {
+	void testGuardarSinCargar() {
 		String input = "4\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -430,7 +430,7 @@ class testMain {
 	// segundo intento después de introducir un caracter no válido
 	
 	@Test
-	void testmain24() {
+	void testGuardarSegundoIntento() {
 		file = new File("listalibrospruebas.csv");
 		String input = "1\nlistalibros.csv\n4\nlistalibrospruebas.csv\na\ns\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -446,7 +446,7 @@ class testMain {
 	// y luego se cancela la sobreescritura
 	
 	@Test
-	void testmain25() {
+	void testCancelarSobreescribir() {
 		String input = "1\nlistalibros.csv\n4\nlistalibros.csv\na\nn\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
@@ -459,7 +459,7 @@ class testMain {
 	// Guardar biblioteca. Se sobreescribe el archivo
 	
 	@Test
-	void testmain26() {
+	void testSobreescribir() {
 		file = new File("listaprueba.csv");
 		Archivo.crearArchivo("listaprueba.csv");
 		String input = "1\nlistalibros.csv\n4\nlistaprueba.csv\ns\n0\n";
@@ -475,7 +475,7 @@ class testMain {
 	// Vaciar biblioteca
 	
 	@Test
-	void testmain27() {
+	void testVaciarBiblioteca() {
 		file = new File("listaprueba.csv");
 		Archivo.crearArchivo("listaprueba.csv");
 		String input = "1\nlistalibros.csv\n3\n4\n0\n";
@@ -493,7 +493,7 @@ class testMain {
 	// Carga de libro y muestra de datos
 	
 	@Test
-	void testmostrar1() {
+	void testMostrarDatos() {
 		
 		ArrayList<Libro> listaLibros = new ArrayList<Libro>();
 		listaLibros = CsvUtilidades.obtenerLibros(ARCHIVOCSV);
@@ -514,7 +514,7 @@ class testMain {
 	// Creación de libro usando el constructor con parámetros
 	
 	@Test
-	void testConstructorLibro() {
+	void testCrearLibroConParametros() {
 		
 		libro = new Libro("ah","ah",3, 2,"ah","ah","ah");
 		assertEquals("ah", libro.getEditorial()); 
@@ -533,9 +533,9 @@ class testMain {
 	// Se crea el libro y después se rellenan sus atributos utilizando el método correspondiente
 	
 	@Test
-	void testRellenarLibro() {
+	void testRellenarLibroBien() {
 		Libro libro = new Libro();
-		String input = "ah\n1\n1\n1\n1\n1\n1\n1\n";
+		String input = "ah\n1\n1\n1\n1\n1\n1\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
@@ -545,6 +545,96 @@ class testMain {
 
 	}
 	
+	@Test
+	void testRellenarLibroTituloMal() {
+		Libro libro = new Libro();
+		String input = "12345678901234567890123456789012345678901234567890\nah\n1\n1\n1\n1\n1\n1\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		RellenarLibro.rellenarLibro(libro);
+		System.out.println(libro.getTitulo());
+		assertEquals(true, libro.getTitulo().equals("ah")); 
+
+	}
+	
+	@Test
+	void testRellenarLibroEditorialMal() {
+		Libro libro = new Libro();
+		String input = "ah\n12345678901234567890123456789012345678901234567890\n1\n1\n1\n1\n1\n1\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		RellenarLibro.rellenarLibro(libro);
+		System.out.println(libro.getTitulo());
+		assertEquals(true, libro.getTitulo().equals("ah")); 
+
+	}
+	
+	@Test
+	void testRellenarLibroPaginasMal() {
+		Libro libro = new Libro();
+		String input = "ah\n1\n-1\n1\n1\n1\n1\n1\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		RellenarLibro.rellenarLibro(libro);
+		System.out.println(libro.getTitulo());
+		assertEquals(true, libro.getTitulo().equals("ah")); 
+
+	}
+	
+	@Test
+	void testRellenarLibroAlturaMal() {
+		Libro libro = new Libro();
+		String input = "ah\n1\n1\n-1\n1\n1\n1\n1\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		RellenarLibro.rellenarLibro(libro);
+		System.out.println(libro.getTitulo());
+		assertEquals(true, libro.getTitulo().equals("ah")); 
+
+	}
+	
+	@Test
+	void testRellenarLibroNotasMal() {
+		Libro libro = new Libro();
+		String input = "ah\n1\n1\n1\n12345678901234567890123456789012345678901234567890\n1\n1\n1\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		RellenarLibro.rellenarLibro(libro);
+		System.out.println(libro.getTitulo());
+		assertEquals(true, libro.getTitulo().equals("ah")); 
+
+	}
+	
+	@Test
+	void testRellenarLibroIsbnMal() {
+		Libro libro = new Libro();
+		String input = "ah\n1\n1\n1\n1\ns\n1\n1\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		RellenarLibro.rellenarLibro(libro);
+		System.out.println(libro.getTitulo());
+		assertEquals(true, libro.getTitulo().equals("ah")); 
+
+	}
+	
+	@Test
+	void testRellenarLibroMateriasMal() {
+		Libro libro = new Libro();
+		String input = "ah\n1\n1\n1\n1\n1\n12345678901234567890123456789012345678901234567890\n1\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		RellenarLibro.rellenarLibro(libro);
+		System.out.println(libro.getTitulo());
+		assertEquals(true, libro.getTitulo().equals("ah")); 
+
+	}
 	/*
 	  _            _                               _             _     _            
 	 | |_ ___  ___| |_    ___ _ __ ___  __ _ _ __ / \   _ __ ___| |__ (_)_   _____  
@@ -557,7 +647,7 @@ class testMain {
 	// Creación de archivo exitosa
 	
 	@Test
-	void testCrearArchivo1() {
+	void testCrearArchivoBien() {
 		file = new File("sdijsdfissas.prueba");
 		file.delete();
 		assertEquals(true, Archivo.crearArchivo("sdijsdfissas.prueba"));
@@ -568,7 +658,7 @@ class testMain {
 	// No se crea el archivo porque ya existe antes
 	
 	@Test
-	void testCrearArchivo2() {		
+	void testCrearArchivoYaExiste() {		
 		file = new File("sdijsdfissas.prueba");
 		Archivo.crearArchivo("sdijsdfissas.prueba");
 		String input = "s\n";
@@ -585,42 +675,42 @@ class testMain {
 	// Valida cadena exacta correcta
 	
 	@Test
-	void testValidaciones() {		
+	void testValidaCadenaExacta() {		
 		assertEquals(true, Validaciones.validarAtributo("prueba", "=prueba=", "validar"));
 	}
 	
 	// No valida cadena exacta incorrecta
 	
 	@Test
-	void testValidaciones2() {		
+	void testNoValidaCadenaExacta() {		
 		assertEquals(false, Validaciones.validarAtributo("noprueba", "=prueba=", "validar"));
 	}
 	
 	// Valida condición de length
 	
 	@Test
-	void testValidaciones3() {		
+	void testValidaLength() {		
 		assertEquals(true, Validaciones.validarAtributo("prueba", "<6>", "validar"));
 	}
 	
 	// No valida condición de length
 	
 	@Test
-	void testValidaciones4() {		
+	void testNoValidaLength() {		
 		assertEquals(false, Validaciones.validarAtributo("prueba", "<5>", "validar"));
 	}
 	
 	// Valida primera letra en mayúscula
 	
 	@Test
-	void testValidaciones5() {		
+	void testValidaPrimeraMayuscula() {		
 		assertEquals(true, Validaciones.validarAtributo("Prueba", "A", "validar"));
 	}
 	
 	// No valida primera letra al no estar en mayúscula
 	
 	@Test
-	void testValidaciones6() {		
+	void testNoValidaPrimeraMayuscula() {		
 		assertEquals(false, Validaciones.validarAtributo("noprueba", "A", "validar"));
 	}
 	
@@ -628,91 +718,91 @@ class testMain {
 	// Valida caracteres dentro del rango admitido
 	
 	@Test
-	void testValidaciones7() {		
+	void testValidaRango() {		
 		assertEquals(true, Validaciones.validarAtributo("123", "[0-9]", "validar"));
 	}
 	
 	// No valida caracteres al no estar dentro del rango admitido
 	
 	@Test
-	void testValidaciones8() {		
+	void testNoValidaRango() {		
 		assertEquals(false, Validaciones.validarAtributo("noprueba", "[0-9]", "validar"));
 	}
 	
 	// Valida texto al contener la cadena pedida en el patrón
 	
 	@Test
-	void testValidaciones9() {		
+	void testValidaContiene() {		
 		assertEquals(true, Validaciones.validarAtributo("prueba", "*prueba*", "validar"));
 	}
 	
 	// No valida texto al no contener la cadena pedida en el patrón
 	
 	@Test
-	void testValidaciones10() {		
+	void testNoValidaContiene() {		
 		assertEquals(false, Validaciones.validarAtributo("prueba", "*noprueba*", "validar"));
 	}
 	
 	// Valida número al ser el mismo que en el patrón
 	
 	@Test
-	void testValidacione11() {		
+	void testValidaNumeroExacto() {		
 		assertEquals(true, Validaciones.validarAtributo("2", "{2}", "validar"));
 	}
 	
 	// No valida el número porque no ser el mismo que el del patrón
 	
 	@Test
-	void testValidaciones12() {		
+	void testNoValidaNumeroExacto() {		
 		assertEquals(false, Validaciones.validarAtributo("3", "{2}", "validar"));
 	}
 	
 	// No valida porque no es un número
 	
 	@Test
-	void testValidaciones13() {		
+	void testNoValidaNumeroNoEsNumero() {		
 		assertEquals(false, Validaciones.validarAtributo("a", "{2}", "validar"));
 	}
 	
 	// Valida porque el número no es menor al mínimo indicado en el patrón
 	
 	@Test
-	void testValidacione14() {		
+	void testValidaMinimo() {		
 		assertEquals(true, Validaciones.validarAtributo("1", "{-1}", "validar"));
 	}
 	
 	// No valida porque el número es menor al mínimo indicado en el patrón
 	
 	@Test
-	void testValidaciones15() {		
+	void testNoValidaMinimo() {		
 		assertEquals(false, Validaciones.validarAtributo("0", "{-1}", "validar"));
 	}
 	
-	// No valida porque no es un número
+	// No valida máximo porque no es un número
 	
 	@Test
-	void testValidaciones16() {		
+	void testNoValidaMinimoNoEsNumero() {		
 		assertEquals(false, Validaciones.validarAtributo("a", "{-1}", "validar"));
 	}
 	
 	// Valida porque el número no es mayor al máximo indicado en el patrón
 	
 	@Test
-	void testValidacione17() {		
+	void testValidaMaximo() {		
 		assertEquals(true, Validaciones.validarAtributo("2", "{+2}", "validar"));
 	}
 	
 	// No valida porque el número es mayor al máximo indicado en el patrón
 	
 	@Test
-	void testValidaciones18() {		
+	void testNoValidaMaximo() {		
 		assertEquals(false, Validaciones.validarAtributo("4", "{+2}", "validar"));
 	}
 	
-	// No valida porque no es un número
+	// No valida máximo porque no es un número
 	
 	@Test
-	void testValidaciones19() {		
+	void testNoValidaMaximoNoEsNumero() {		
 		assertEquals(false, Validaciones.validarAtributo("a", "{+2}", "validar"));
 	}
 		
