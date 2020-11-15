@@ -54,14 +54,26 @@ public class Validaciones {
 		
 
 		boolean validacionTotal = true;
+		final String VALIDAR = "validar";
+		final String LENGHTABRIR = "<";
+		final String LENGHTCERRAR = ">";
+		final char PRIMERAMAYUSCULA = 'A';
+		final String CARACTERESADMITIDOSABRIR = "[";
+		final String CARACTERESADMITIDOSCERRAR = "]";
+		final String CONTIENE = "*"; 
+		final String EXACTO = "=";
+		final String CANTIDADEXACTAABRIR = "{";
+		final String CANTIDADMINIMAABRIR = "{-";
+		final String CANTIDADMAXIMAABRIR = "{+";
+		final String CANTIDADCERRAR = "}";
 
 		// Revisar length
 
-		if (patron.contains("<")) {
+		if (patron.contains(LENGHTABRIR)) {
 
 			String limite = new String();
-			char caracteres[] = new char[patron.indexOf(">") - 1 - patron.indexOf("<")];
-			patron.getChars(patron.indexOf("<") + 1, patron.indexOf(">"), caracteres, 0);
+			char caracteres[] = new char[patron.indexOf(LENGHTCERRAR) - 1 - patron.indexOf(LENGHTABRIR)];
+			patron.getChars(patron.indexOf(LENGHTABRIR) + 1, patron.indexOf(LENGHTCERRAR), caracteres, 0);
 
 			for (int x = 0; x <= caracteres.length - 1; x++) {
 
@@ -73,7 +85,7 @@ public class Validaciones {
 
 				validacionTotal = false;
 
-				if (modo.equals("validar")) {
+				if (modo.equals(VALIDAR)) {
 
 					System.out.println("Atributo no válido, el atributo no puede tener más de " + limite + " caracteres");
 					System.out.println();
@@ -87,12 +99,12 @@ public class Validaciones {
 
 		// Revisar primera mayúscula
 
-		if (patron.charAt(0) == 'A') {
+		if (patron.charAt(0) == PRIMERAMAYUSCULA) {
 
 			if (Character.isLowerCase(atributo.charAt(0))) {
 
 				validacionTotal = false;
-				if (modo.equals("validar")) {
+				if (modo.equals(VALIDAR)) {
 					System.out.println("Atributo no válido, la primera letra tiene que estar en mayúscula");
 					System.out.println();
 				}
@@ -103,12 +115,12 @@ public class Validaciones {
 
 		// Revisar caracteres admitidos
 
-		if (patron.contains("[")) {
+		if (patron.contains(CARACTERESADMITIDOSABRIR)) {
 
 			boolean encontrado = false;
 			boolean noesta = false;
-			char primero = patron.charAt(patron.indexOf("[") + 1);
-			char segundo = patron.charAt(patron.indexOf("]") - 1);
+			char primero = patron.charAt(patron.indexOf(CARACTERESADMITIDOSABRIR) + 1);
+			char segundo = patron.charAt(patron.indexOf(CARACTERESADMITIDOSCERRAR) - 1);
 
 			for (int i = 0; i < atributo.length(); i++) {
 
@@ -134,7 +146,7 @@ public class Validaciones {
 			if (noesta == true) {
 
 				validacionTotal = false;
-				if (modo.equals("validar")) {
+				if (modo.equals(VALIDAR)) {
 					System.out.println("Atributo no válido, los caracteres no están dentro del rango aceptado");
 					System.out.println();
 
@@ -142,12 +154,14 @@ public class Validaciones {
 
 			}
 		}
+		
+		// Revisar que la cadena contiene la cadena pedida
 
-		if (patron.contains("*")) {
+		if (patron.contains(CONTIENE)) {
 
 			String texto = new String();
 
-			for (int i = patron.indexOf("*") + 1; i < patron.lastIndexOf("*"); i++) {
+			for (int i = patron.indexOf(CONTIENE) + 1; i < patron.lastIndexOf(CONTIENE); i++) {
 
 				texto = texto + patron.charAt(i);
 
@@ -156,7 +170,7 @@ public class Validaciones {
 			if (!atributo.contains(texto)) {
 				
 				validacionTotal = false;
-				if (modo.equals("validar")) {
+				if (modo.equals(VALIDAR)) {
 					
 					System.out.println("Atributo no válido, no contiene la cadena especificada");
 					System.out.println();
@@ -166,11 +180,13 @@ public class Validaciones {
 
 		}
 		
-		if (patron.contains("=")) {
+		// Revisar que la cadena es idéntica a la cadena pedida
+		
+		if (patron.contains(EXACTO)) {
 
 			String texto = new String();
 
-			for (int i = patron.indexOf("=") + 1; i < patron.lastIndexOf("="); i++) {
+			for (int i = patron.indexOf(EXACTO) + 1; i < patron.lastIndexOf(EXACTO); i++) {
 
 				texto = texto + patron.charAt(i);
 
@@ -179,7 +195,7 @@ public class Validaciones {
 			if (!atributo.equals(texto)) {
 				
 				validacionTotal = false;
-				if (modo.equals("validar")) {
+				if (modo.equals(VALIDAR)) {
 					
 					System.out.println("Atributo no válido, no coincide con la cadena especificada");
 					System.out.println();
@@ -189,7 +205,7 @@ public class Validaciones {
 
 		}
 		
-		if (patron.contains("{") && !patron.contains("{-") && !patron.contains("{+")) {
+		if (patron.contains(CANTIDADEXACTAABRIR) && !patron.contains(CANTIDADMINIMAABRIR) && !patron.contains(CANTIDADMAXIMAABRIR)) {
 			
 			try {
 				Integer.valueOf(atributo);
@@ -205,7 +221,7 @@ public class Validaciones {
 				
 				String texto = new String();
 
-				for (int i = patron.indexOf("{") + 1; i < patron.lastIndexOf("}"); i++) {
+				for (int i = patron.indexOf(CANTIDADEXACTAABRIR) + 1; i < patron.lastIndexOf(CANTIDADCERRAR); i++) {
 
 					texto = texto + patron.charAt(i);
 
@@ -214,7 +230,7 @@ public class Validaciones {
 				if (Integer.valueOf(atributo) != Integer.valueOf(texto))  {
 					
 					validacionTotal = false;
-					if (modo.equals("validar")) {
+					if (modo.equals(VALIDAR)) {
 						
 						System.out.println("Atributo no válido, no coincide con la cantidad especificada " + texto);
 						System.out.println();
@@ -226,7 +242,7 @@ public class Validaciones {
 
 		}
 		
-		if (patron.contains("{-")) {
+		if (patron.contains(CANTIDADMINIMAABRIR)) {
 			
 			try {
 				Integer.valueOf(atributo);
@@ -242,7 +258,7 @@ public class Validaciones {
 
 				String texto = new String();
 	
-				for (int i = patron.indexOf("{-") + 2; i < patron.indexOf("}", patron.indexOf("{-")); i++) {
+				for (int i = patron.indexOf(CANTIDADMINIMAABRIR) + 2; i < patron.indexOf(CANTIDADCERRAR, patron.indexOf(CANTIDADMINIMAABRIR)); i++) {
 	
 					texto = texto + patron.charAt(i);
 	
@@ -251,7 +267,7 @@ public class Validaciones {
 				if (Integer.valueOf(atributo) < Integer.valueOf(texto))  {
 					
 					validacionTotal = false;
-					if (modo.equals("validar")) {
+					if (modo.equals(VALIDAR)) {
 						
 						System.out.println("Atributo no válido, la cantidad es menor al mínimo " + texto);
 						System.out.println();
@@ -263,7 +279,7 @@ public class Validaciones {
 
 		}
 		
-		if (patron.contains("{+")) {
+		if (patron.contains(CANTIDADMAXIMAABRIR)) {
 			
 			try {
 				Integer.valueOf(atributo);
@@ -279,7 +295,7 @@ public class Validaciones {
 
 				String texto = new String();
 	
-				for (int i = patron.indexOf("{+") + 2; i < patron.indexOf("}", patron.indexOf("{+")); i++) {
+				for (int i = patron.indexOf(CANTIDADMAXIMAABRIR) + 2; i < patron.indexOf(CANTIDADCERRAR, patron.indexOf(CANTIDADMAXIMAABRIR)); i++) {
 	
 					texto = texto + patron.charAt(i);
 	
@@ -288,7 +304,7 @@ public class Validaciones {
 				if (Integer.valueOf(atributo) > Integer.valueOf(texto))  {
 					
 					validacionTotal = false;
-					if (modo.equals("validar")) {
+					if (modo.equals(VALIDAR)) {
 						
 						System.out.println("Atributo no válido, la cantidad es mayor al máximo " + texto);
 						System.out.println();
