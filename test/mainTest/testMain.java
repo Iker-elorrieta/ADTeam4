@@ -143,7 +143,7 @@ class testMain {
 		assertEquals(true, Programa.iniciarPrograma());
 		Programa.getBiblioteca().getListaLibros().clear();
 	}
-	
+	 
 	// Cargar biblioteca. Carga de archivo xml
 	
 	@Test
