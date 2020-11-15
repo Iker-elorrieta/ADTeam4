@@ -920,7 +920,7 @@ class testMain {
 	@Test
 	void testfiltro19() {	
 		
-		String input = "6\n  0\n 0\n ";
+		String input = "6\n 0\n 0\n ";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
@@ -930,7 +930,7 @@ class testMain {
 	@Test
 	void testfiltro20() {	
 		
-		String input = "7\n  0\n 0\n ";
+		String input = "7\n 0\n 0\n ";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
