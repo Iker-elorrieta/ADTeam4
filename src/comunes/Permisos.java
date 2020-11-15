@@ -10,7 +10,7 @@ public class Permisos {
 
 	
 	
-	public void cambiarPermisos(String url) {
+	public boolean cambiarPermisos(String url) {
 	
 		
 		
@@ -25,16 +25,17 @@ public class Permisos {
 		 case "Ubuntu":			permisosLinux(url);							break;
 		
 		 
-		 default: 			System.out.println("Sistema no soportado"); 	break;
+		
 		
 		
 		 
 		 }
-	
-
+		 
+	return true;
+		 
 	}
 	
-	public static String recogerSistema() {
+	public String recogerSistema() {
 		
 		String sistemaOperativo="";
 			
@@ -83,9 +84,6 @@ public class Permisos {
 				usuario = Programa.teclado.nextLine();
 			
 
-				System.out.println("Ingrese el nombre del archivo y la extension(xml,txt,csv....) ");
-				String nomFichero = Programa.teclado.nextLine();
-				
 				
 				System.out.println("que permiso desea agregar");
 				System.out.println("F - Acceso Total");
@@ -117,7 +115,7 @@ public class Permisos {
 
 	}
 	
-	boolean quitarPermiso(String url) {
+	public boolean quitarPermiso(String url) {
 		String usuario;
 		boolean correcto=false;
 		

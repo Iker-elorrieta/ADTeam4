@@ -13,6 +13,7 @@ import comunes.Archivo;
 import comunes.CsvUtilidades;
 import comunes.Filtro;
 import comunes.MostrarDatos;
+import comunes.Permisos;
 import comunes.RellenarLibro;
 import comunes.TxtUtilidades;
 import comunes.Validaciones;
@@ -40,6 +41,8 @@ class testMain {
 	final String ARCHIVOTXT = "listalibros.txt";
 	final String ARCHIVOXML = "listalibros.xml";
 	final String ARCHIVOCSV = "listalibros.csv";
+	final String url ="C:\\Users\\Colm\\Desktop\\Pruebas\\permisos.txt";
+	Permisos p = new Permisos();
 
 	/*
 	
@@ -923,6 +926,32 @@ class testMain {
 	System.setIn(in);
 	Programa.teclado = new Scanner(System.in);
 	assertEquals(true,fCompleto.AtributoAFiltrar());
+	}
+	
+	
+	//Permisos
+	
+	@Test
+	void testPermisos() {	
+		String input = "User\nF\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		
+		assertEquals(true,p.cambiarPermisos(url));
+		
+	}
+	
+
+	@Test
+	void testPermisosRevocados() {	
+		String input = "User\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		
+		assertEquals(true,p.quitarPermiso(url));
+		
 	}
 	
 
