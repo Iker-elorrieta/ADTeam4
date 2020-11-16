@@ -183,10 +183,23 @@ public class Archivo {
 	}
 
 	public static void crearDirectorio(File directorioactual) {
+		
+		String barra = Archivo.detectarSistema();
+		String nombredirectorio = new String();
+		File directorioacrear = new File(".");
 
-		System.out.println("Escriba el nombre del directorio a crear");
-		File directorioacrear = new File(directorioactual + Programa.teclado.nextLine());
+		System.out.print("Escriba el nombre del directorio a crear: ");
+		nombredirectorio = Programa.teclado.nextLine();
+		
+		if (!directorioactual.getAbsolutePath().endsWith(barra)) {
 
+			directorioacrear = new File(directorioactual.getAbsolutePath() + barra + nombredirectorio);
+			
+		} else {
+			
+			directorioacrear = new File(directorioactual.getAbsolutePath() + nombredirectorio);
+		}
+		
 		if (!directorioacrear.exists()) {
 
 			if (directorioacrear.mkdir()) {
