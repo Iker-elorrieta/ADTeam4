@@ -335,7 +335,7 @@ class testMain {
 	@Test
 	void testGuardarTxt() {
 		file = new File("archivoprueba.txt");
-		String input = "1\n4\nlistalibros.txt\n4\narchivoprueba.txt\ns\n0\n";
+		String input = "1\n4\nlistalibros.csv\n4\n4\narchivoprueba.txt\ns\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
@@ -350,7 +350,7 @@ class testMain {
 	@Test
 	void testGuardarXml() {
 		file = new File("archivoprueba.xml");
-		String input = "1\n4\nlistalibros.txt\n4\narchivoprueba.xml\ns\n0\n";
+		String input = "1\n4\nlistalibros.csv\n4\n4\narchivoprueba.xml\ns\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
@@ -365,7 +365,7 @@ class testMain {
 	@Test
 	void testGuardarCsv() {
 		file = new File("archivoprueba.csv");
-		String input = "1\n4\nlistalibros.txt\n4\narchivoprueba.csv\ns\n0\n";
+		String input = "1\n4\nlistalibros.csv\n4\n4\narchivoprueba.csv\ns\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
@@ -380,7 +380,7 @@ class testMain {
 	
 	@Test
 	void testGuardarExtensionNoValida() {
-		String input = "1\n4\nlistalibros.txt\n4\narchivoprueba.test\n0\n";
+		String input = "1\n4\nlistalibros.csv\n4\n4\narchivoprueba.test\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
@@ -394,7 +394,7 @@ class testMain {
 	
 	@Test
 	void testGuardarArchivoNoExisteCrear() {
-		String input = "1\n4\nlistalibros.txt\n4\narchivopruebanoexiste.txt\nn\n0\n";
+		String input = "1\n4\nlistalibros.csv\n4\n4\narchivopruebanoexiste.txt\nn\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
@@ -435,7 +435,7 @@ class testMain {
 	@Test
 	void testGuardarSegundoIntento() {
 		file = new File("listalibrospruebas.csv");
-		String input = "1\n4\nlistalibros.csv\n4\nlistalibrospruebas.csv\na\ns\n0\n";
+		String input = "1\n4\nlistalibros.csv\n4\n4\nlistalibrospruebas.csv\na\ns\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
@@ -450,7 +450,7 @@ class testMain {
 	
 	@Test
 	void testCancelarSobreescribir() {
-		String input = "1\n4\nlistalibros.csv\n4\nlistalibros.csv\na\nn\n0\n";
+		String input = "1\n4\nlistalibros.csv\n4\n4\nlistalibros.csv\na\nn\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
@@ -465,7 +465,7 @@ class testMain {
 	void testSobreescribir() {
 		file = new File("listaprueba.csv");
 		Archivo.crearArchivo("listaprueba.csv");
-		String input = "1\n4\nlistalibros.csv\n4\nlistaprueba.csv\ns\n0\n";
+		String input = "1\n4\nlistalibros.csv\n4\n4\nlistaprueba.csv\ns\n0\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);

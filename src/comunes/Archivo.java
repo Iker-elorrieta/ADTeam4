@@ -93,7 +93,7 @@ public class Archivo {
 		return file;
 	}
 
-	public static File elegirArchivo(File file) {
+	public static File elegirArchivo(File file, String modo) {
 
 		String barra = Archivo.detectarSistema();
 
@@ -112,16 +112,23 @@ public class Archivo {
 			archivoseleccionado = new File(file.getAbsolutePath() + archivo);
 		}
 
-		if (archivoseleccionado.isFile()) {
+		if (modo == "cargar") {
+			if (archivoseleccionado.isFile()) {
 
-			System.out.println("Archivo seleccionado");
-			file = new File(archivoseleccionado.getAbsolutePath());
+				System.out.println("Archivo seleccionado");
+				file = new File(archivoseleccionado.getAbsolutePath());
 
-		} else {
-			System.out.println("El archivo introducido no existe");
-			archivoseleccionado = new File("Z:\\Noexiste");
+			} else {
+				System.out.println("El archivo introducido no existe");
+				archivoseleccionado = new File("Z:\\Noexiste");
+			} 
 		}
-
+		
+		if (modo == "guardar") {
+			
+			file = new File(archivoseleccionado.getAbsolutePath());
+			
+		}
 		return file;
 
 	}

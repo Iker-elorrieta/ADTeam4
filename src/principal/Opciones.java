@@ -20,6 +20,7 @@ public class Opciones {
 		File file = new File(".");
 		file = new File(file.getAbsolutePath().substring(0, file.getAbsolutePath().lastIndexOf(barra)));
 		File archivoacargar = new File("Z:\\Noexiste");
+		String modo = "cargar";
 
 		System.out.println("Ha elegido cargar biblioteca");
 		do {
@@ -62,7 +63,7 @@ public class Opciones {
 
 			case 4:
 
-				archivoacargar = Archivo.elegirArchivo(file);
+				archivoacargar = Archivo.elegirArchivo(file, modo);
 				Programa.setArchivo(archivoacargar.getAbsolutePath());
 
 				if (Validaciones.validarExtension(Programa.getExtensiones(), Programa.getArchivo())) {
@@ -130,7 +131,7 @@ public class Opciones {
 
 			default:
 
-				System.out.println("Opción no válida. El archivo debe tener formato .txt, .xml o .csv");
+				System.out.println("Opción no válida, vuelva a intentarlo");
 				System.out.println();
 
 				break;
@@ -298,38 +299,60 @@ public class Opciones {
 	}
 
 	public static void guardarBiblioteca() {
+		
+		String barra = Archivo.detectarSistema();
+		File file = new File(".");
+		file = new File(file.getAbsolutePath().substring(0, file.getAbsolutePath().lastIndexOf(barra)));
+		File archivoaguardar = new File("Z:\\Noexiste");
+		String modo = "guardar";
 
-		System.out.println("Ha elegido guardar biblioteca");
-		System.out.println();
-
+		System.out.println("Ha elegido cargar biblioteca");
+		
+		
+		
 		if (Programa.getBiblioteca().getListaLibros().size() > 0) {
-
 			do {
-				System.out.println("Introduzca el nombre del archivo en el que quiere guardar la biblioteca");
+				System.out.println("El directorio actual es " + file.getAbsolutePath());
+				System.out.println();
+				System.out.println("Introduzca 1 para subir un nivel");
+				System.out.println("Introduzca 2 para mostrar los contenidos del directorio");
+				System.out.println("Introduzca 3 para explorar un nuevo directorio");
+				System.out.println("Introduzca 4 para escribir el nombre del archivo en el que guardar la biblioteca");
 				System.out.println("Introduzca 9 para volver");
 				System.out.println("Introduzca 0 para salir");
 				System.out.println();
 				System.out.print("Elija su opción: ");
-				Programa.setArchivo(Programa.teclado.nextLine());
+				try {
+					Programa.setOpcion(Programa.teclado.nextInt());
+					Programa.teclado.nextLine();
+				} catch (Exception e) {
+					Programa.setOpcion(-1);
+					Programa.teclado.nextLine();
+				}
+				switch (Programa.getOpcion()) {
 
-				switch (Programa.getArchivo()) {
-				case "9":
+				case 1:
 
-					Programa.setOpcion(9);
-					System.out.println();
-					System.out.println("Volviendo...");
+					file = Archivo.subirDirectorio(file);
+
+					break;
+
+				case 2:
+
+					Archivo.mostrarArchivos(file);
 					System.out.println();
 
 					break;
 
-				case "0":
+				case 3:
 
-					Programa.setOpcion(0);
+					file = Archivo.elegirDirectorio(file);
 
 					break;
 
-				default:
-
+				case 4:
+					archivoaguardar = Archivo.elegirArchivo(file, modo);
+					Programa.setArchivo(archivoaguardar.getAbsolutePath());
 					if (Validaciones.validarExtension(Programa.getExtensiones(), Programa.getArchivo())) {
 
 						String opcion = new String();
@@ -438,14 +461,37 @@ public class Opciones {
 						System.out.println();
 					}
 
+
+					break;
+				case 9:
+
+					Programa.setOpcion(9);
+					System.out.println();
+					System.out.println("Volviendo...");
+					System.out.println();
+
+					break;
+
+				case 0:
+
+					Programa.setOpcion(0);
+
+					break;
+
+				default:
+
+					System.out.println("Opción no válida, vuelva a intentarlo");
+					System.out.println();
+
 					break;
 				}
 
 			} while (Programa.getOpcion() != 9 && Programa.getOpcion() != 0);
-
+		
 		} else {
 
 			System.out.println("La biblioteca está vacia, añada algún libro antes de guardarla");
+			System.out.println();
 
 		}
 
@@ -470,6 +516,7 @@ public class Opciones {
 		File directorioactual = new File(".");
 		directorioactual = new File(directorioactual.getAbsolutePath().substring(0, directorioactual.getAbsolutePath().lastIndexOf(barra)));
 		File archivoseleccionado = new File("Z:\\Noexiste");
+		String modo = "cargar";
 		
 		System.out.println("Eligió opciones de archivo");
 		System.out.println();
@@ -517,7 +564,7 @@ public class Opciones {
 
 			case 4:
 
-				archivoseleccionado = Archivo.elegirArchivo(directorioactual);
+				archivoseleccionado = Archivo.elegirArchivo(directorioactual, modo);
 
 				break;
 
