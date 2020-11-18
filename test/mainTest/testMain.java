@@ -950,7 +950,7 @@ class testMain {
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		
-		assertEquals(true,p.quitarPermiso(url));
+		assertEquals(true,p.quitarPermiso());
 		
 	}
 	

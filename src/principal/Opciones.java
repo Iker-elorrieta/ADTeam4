@@ -6,6 +6,7 @@ import comunes.Archivo;
 import comunes.CsvUtilidades;
 import comunes.Filtro;
 import comunes.MostrarDatos;
+import comunes.Permisos;
 import comunes.RellenarLibro;
 import comunes.TxtUtilidades;
 import comunes.Validaciones;
@@ -14,12 +15,15 @@ import modelo.Libro;
 
 public class Opciones {
 
+	
+	
 	public static void cargarBiblioteca() {
 		
 		String barra = Archivo.detectarSistema();
 		File file = new File(".");
 		file = new File(file.getAbsolutePath().substring(0, file.getAbsolutePath().lastIndexOf(barra)));
 		File archivoacargar = new File("Z:\\Noexiste");
+		
 
 		System.out.println("Ha elegido cargar biblioteca");
 		do {
@@ -528,7 +532,8 @@ public class Opciones {
 				break;
 				
 			case 6:
-				
+				Permisos p = new Permisos();
+				p.cambiarPermisos(archivoseleccionado.getAbsolutePath());
 				break;
 				
 			case 7:
