@@ -6,6 +6,7 @@ import comunes.Archivo;
 import comunes.CsvUtilidades;
 import comunes.Filtro;
 import comunes.MostrarDatos;
+import comunes.Permisos;
 import comunes.RellenarLibro;
 import comunes.TxtUtilidades;
 import comunes.Validaciones;
@@ -575,7 +576,8 @@ public class Opciones {
 				break;
 				
 			case 6:
-				
+				Permisos p = new Permisos();
+				p.cambiarPermisos(archivoseleccionado.getAbsolutePath());
 				break;
 				
 			case 7:
