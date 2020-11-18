@@ -931,28 +931,29 @@ class testMain {
 	
 	//Permisos
 	
-	@Test
-	void testPermisos() {	
-		String input = "User\nF\n";
-		InputStream in = new ByteArrayInputStream(input.getBytes());
-		System.setIn(in);
-		Programa.teclado = new Scanner(System.in);
-		
-		assertEquals(true,p.cambiarPermisos(url));
-		
-	}
-	
+
 
 	@Test
-	void testPermisosRevocados() {	
-		String input = "User\n";
+	void testPermisosAprobados() {	
+		String input = "1\nX\nF\nUser\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Programa.teclado = new Scanner(System.in);
 		
-		assertEquals(true,p.quitarPermiso());
+		assertEquals(true,p.Eleccion());
 		
 	}
+	@Test
+	void testPermisosRevocados() {	
+		String input = "e\n2\nF\nUser\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Programa.teclado = new Scanner(System.in);
+		
+		assertEquals(true,p.Eleccion());
+		
+	}
+
 	
 
 }

@@ -117,24 +117,25 @@ public class Permisos {
 		int eleccion=0;
 		
 		while(!control) {
-		
+			try {
 		System.out.println("Que desea hacer respectivo a los permisos");
 		System.out.println("1.- Poner permisos");
 		System.out.println("2.- Quitar permisos");
 		System.out.println();
 		
-		try {
+		
 		eleccion = Programa.teclado.nextInt();
 		Programa.teclado.nextLine();
 		}catch(Exception e) {
 			System.out.println("Numero correcto no introducido");
+			Programa.teclado.nextLine();
 		}
 		
 		if(eleccion == 1) {
 			control= true;
 			permisosWindows();
 			
-		}else {
+		}else if (eleccion ==2) {
 			control= true;
 			quitarPermiso();
 		}
