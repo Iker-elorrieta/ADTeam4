@@ -9,7 +9,7 @@ import principal.Programa;
 public class Filtro {
 
 	private ArrayList<Libro> arrayLibrosFiltrados = new ArrayList<Libro>();
-	
+	 String arrayAtributos[] = {"titulo","editorial","paginas","altura","isbn","notas","materias"};
 	
 	public Filtro() {
 		
@@ -25,7 +25,7 @@ public class Filtro {
 	
 	public boolean AtributoAFiltrar() {
 		
-
+		
 		Boolean exit = false;
 		int opcion = 0;
 		
@@ -55,19 +55,19 @@ public class Filtro {
 
 					switch (opcion) {
 
-					case 1:		ObtenerFiltroStrings("titulo");		break; 
+					case 1:		ObtenerFiltroStrings(arrayAtributos[0]);		break; 
 								
-					case 2:		ObtenerFiltroStrings("editorial"); 	break;
+					case 2:		ObtenerFiltroStrings(arrayAtributos[1]); 	break;
 		
-					case 3:		ObtenerFiltroIntegers("paginas"); 	break;
+					case 3:		ObtenerFiltroIntegers(arrayAtributos[2]); 	break;
 							
-					case 4: 	ObtenerFiltroIntegers("altura"); 	break;
+					case 4: 	ObtenerFiltroIntegers(arrayAtributos[3]); 	break;
 					
-					case 5:     ObtenerIsbn("isbn"); 				break;
+					case 5:     ObtenerIsbn(arrayAtributos[4]); 				break;
 
-					case 6: 	ObtenerFiltroStrings("notas"); 		break;
+					case 6: 	ObtenerFiltroStrings(arrayAtributos[5]); 		break;
 						
-					case 7: 	ObtenerFiltroStrings("materias"); 	break;
+					case 7: 	ObtenerFiltroStrings(arrayAtributos[6]); 	break;
 						
 					case 0:
 
@@ -335,9 +335,7 @@ public class Filtro {
 		}
 
 	}
-	public ArrayList<Libro> getArrayLibrosFiltrados() {
-		return arrayLibrosFiltrados;
-	}
+	
 
 
 	private void mostrarResultados(String atributo,String filtro,String introducido,int opcionSwitch) {
@@ -350,7 +348,7 @@ public class Filtro {
 		
 		
 		
-		if(atributo.equals("titulo")) {
+		if(atributo.equals(arrayAtributos[0])) {
 		
 			
 				
@@ -359,7 +357,10 @@ public class Filtro {
 					switch(opcionSwitch) {
 					
 					case 1:
-					   
+						System.out.println("///////////////////////////////////////////////////////////");
+						   System.out.println(arrayLibrosFiltrados.get(i).getTitulo());
+						   System.out.println(introducido);
+						
 						if(arrayLibrosFiltrados.get(i).getTitulo().contains(introducido)) {
 							System.out.println("Titulo : "+ arrayLibrosFiltrados.get(i).getTitulo());
 						}
@@ -375,6 +376,7 @@ public class Filtro {
 					break;
 					
 					case 3:
+						
 						if(arrayLibrosFiltrados.get(i).getTitulo().charAt(0)==introducido.toUpperCase().charAt(0)) {
 							System.out.println("Titulo : "+ arrayLibrosFiltrados.get(i).getTitulo());
 						}
@@ -399,7 +401,7 @@ public class Filtro {
 		}
 		
 		
-		if(atributo.equals("editorial")) {
+		if(atributo.equals(arrayAtributos[1])) {
 		
 		
 				if(Validaciones.validarAtributo(introducido, filtro, "")) {
@@ -449,7 +451,7 @@ public class Filtro {
 		
 		
 		
-		if(atributo.equals("altura")) {
+		if(atributo.equals(arrayAtributos[2])) {
 		
 			
 				if(Validaciones.validarAtributo(introducido, filtro, "")) {
@@ -492,7 +494,7 @@ public class Filtro {
 		
 		
 		
-		if(atributo.equals("paginas")) {
+		if(atributo.equals(arrayAtributos[3])) {
 			
 			
 			
@@ -542,7 +544,7 @@ public class Filtro {
 		}
 		
 			
-		if(atributo.equals("isbn")) {
+		if(atributo.equals(arrayAtributos[4])) {
 			
 				
 			
@@ -585,7 +587,7 @@ public class Filtro {
 		}
 			
 		
-		if(atributo.equals("materias")) {
+		if(atributo.equals(arrayAtributos[6])) {
 		
 		
 				if(Validaciones.validarAtributo(introducido, filtro, "")) {
@@ -593,8 +595,8 @@ public class Filtro {
 					
 					switch(opcionSwitch) {
 					
-					case 1:
-					   
+					case 1: 
+					
 						if(arrayLibrosFiltrados.get(i).getMaterias().contains(introducido)) {
 							System.out.println("Titulo : "+ arrayLibrosFiltrados.get(i).getTitulo());
 							System.out.println("Materias : "+ arrayLibrosFiltrados.get(i).getMaterias());
@@ -631,7 +633,7 @@ public class Filtro {
 		}
 		
 		
-		if(atributo.equals("notas")) {
+		if(atributo.equals(arrayAtributos[5])) {
 			
 			
 				if(Validaciones.validarAtributo(introducido, filtro, "")) {

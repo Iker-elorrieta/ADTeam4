@@ -26,6 +26,7 @@ public class Programa {
 			System.out.println("Introduzca 3 para editar biblioteca");
 			System.out.println("Introduzca 4 para guardar biblioteca");
 			System.out.println("Introduzca 5 para filtrar libros de la biblioteca");
+			System.out.println("Introduzca 6 para acceder a opciones de archivo");
 			System.out.println("Introduzca 0 para salir");
 			System.out.println();
 			System.out.print("Elija su opción: ");
@@ -71,11 +72,15 @@ public class Programa {
 				
 				break;
 				
+			case 6:
+				System.out.println();
+				Opciones.opcionesArchivo();
+				
 			default:
 				break;
 			}
 			
-			if (opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 0 && opcion != 9) {
+			if (opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 5 && opcion !=6 && opcion != 0 && opcion != 9) {
 				
 				System.out.println();
 				System.out.println("Opción no válida, vuelva a intentarlo");
