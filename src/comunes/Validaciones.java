@@ -66,6 +66,7 @@ public class Validaciones {
 		final String CANTIDADMINIMAABRIR = "{-";
 		final String CANTIDADMAXIMAABRIR = "{+";
 		final String CANTIDADCERRAR = "}";
+		final String VALIDARISBN = "VALIDARISBN";
 
 		// Revisar length
 
@@ -314,6 +315,52 @@ public class Validaciones {
 			
 			}
 
+		}
+		
+		if (patron.equals("VALIDARISBN")){
+			
+			int cantidadnumeros = 0;
+			
+			String[] isbnspliteado = atributo.split("-");
+			
+			for (int i = 0; i < atributo.length(); i++) {
+				
+				if (i != 0) {
+					
+					if (atributo.charAt(i) == ('-') && atributo.charAt(i - 1) == ('-')) {
+						
+						validacionTotal = false;
+					}
+					
+				}
+				
+			}
+			
+			for (int i = 0; i < isbnspliteado.length; i++) {
+				
+				for (int v = 0; v <isbnspliteado[i].length(); v++) {
+					
+					if (Character.isDigit(isbnspliteado[i].charAt(v))) {
+						
+						cantidadnumeros++;
+					}
+			
+				}
+				
+			}
+			
+			if (cantidadnumeros != 13) {
+				
+				validacionTotal = false;
+			}
+			
+			if (validacionTotal == false) {
+				
+				System.out.println("ISBN no válido");
+				
+			}
+			
+			
 		}
 
 		return validacionTotal;

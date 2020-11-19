@@ -95,7 +95,7 @@ public class RellenarLibro {
 			System.out.print("Introduzca el ISBN del libro: ");
 			textoaValidar = Programa.teclado.nextLine();
 			
-			if (Validaciones.validarAtributo(textoaValidar, "[0-9]", VALIDAR)) {
+			if (Validaciones.validarAtributo(textoaValidar, "VALIDARISBN", VALIDAR)) {
 				
 				libro.setIsbn(textoaValidar);
 

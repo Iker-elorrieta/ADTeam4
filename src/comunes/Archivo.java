@@ -133,7 +133,7 @@ public class Archivo {
 
 	}
 
-	public static void mostrarArchivos(File file) {
+	public static boolean mostrarArchivos(File file) {
 
 		file = new File(file.getAbsolutePath());
 
@@ -148,11 +148,14 @@ public class Archivo {
 			} else if (listOfFiles[i].isDirectory()) {
 				System.out.println("Directorio\t" + listOfFiles[i].getName());
 			}
+			
 		}
+		
+		return true;
 
 	}
 
-	public static void moverArchivo(File archivoamover, File destino) {
+	public static boolean moverArchivo(File archivoamover, File destino) {
 
 		String barra = Archivo.detectarSistema();
 		
@@ -186,10 +189,14 @@ public class Archivo {
 			}
 
 		}
+		
+		return true;
 
 	}
 
-	public static void crearDirectorio(File directorioactual) {
+	public static boolean crearDirectorio(File directorioactual) {
+		
+		boolean creado = true;
 		
 		String barra = Archivo.detectarSistema();
 		String nombredirectorio = new String();
@@ -216,13 +223,17 @@ public class Archivo {
 			} else {
 
 				System.out.println("Ocurrió un error creando el directorio");
+				creado = false;
 			}
 
 		} else {
 
 			System.out.println("El directorio ya existe");
+			creado = false;
 
 		}
+		
+		return creado;
 
 	}
 

@@ -596,6 +596,8 @@ public class Opciones {
 			case 0:
 				
 				Programa.setOpcion(0);
+				
+				break;
 
 			default:
 				
